@@ -1,2 +1,3 @@
 # Redirect default Netlify subdomain to primary domain
 http://how-it-works.netlify.com/* https://www.how-it-works.dev/:splat 301!
+https://how-it-works.dev/* https://www.how-it-works.dev/:splat 301!
