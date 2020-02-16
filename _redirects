@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+http://competent-lumiere-eb1dd0.netlify.com/* https://www.how-it-works.dev/:splat 301!
