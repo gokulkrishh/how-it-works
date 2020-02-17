@@ -37,10 +37,12 @@ const Layout = ({ children }) => {
           <div className="layout__content">{children}</div>
         </main>
         <footer>
-          <p>
-            © {new Date().getFullYear()}, Built with {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </p>
+          <div className="footer__content">
+            <p>
+              © {new Date().getFullYear()}, Built with {` `}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </p>
+          </div>
         </footer>
       </div>
     </>

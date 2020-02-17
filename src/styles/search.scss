@@ -1,0 +1,15 @@
+.Search {
+  input {
+    height: 40px;
+    padding: 0 10px;
+    width: 270px;
+    border-radius: 6px;
+    border: 2px solid $color-grey;
+    font-size: 15px;
+    outline: none;
+
+    &:focus {
+      border-color: $color-light-yellow;
+    }
+  }
+}
