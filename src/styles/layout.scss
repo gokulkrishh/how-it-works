@@ -160,5 +160,38 @@ footer {
     align-items: center;
     color: $color-white;
     font-weight: 500;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header__content,
+  .footer__content,
+  .layout__title-content,
+  .layout__content {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .header__content,
+  .footer__content,
+  .layout__title-content,
+  .layout__content {
+    max-width: 480px;
+  }
+
+  .Subscription {
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .Subscription {
+    max-width: 95%;
+  }
+
+  .layout__content .Subscription input {
+    width: 95%;
   }
 }
