@@ -23,10 +23,9 @@ const IndexPage = () => (
     <p>
       When I started my career as a web developer, I struggled to understand how
       a method or a feature in Javascript works internally, for example
-      <b>Promise.all()</b> or <b>Object.create()</b>, etc. I have been asked to
-      write these methods in white paper or implement it online in many
-      interviews. Sometimes I have struggled and sometimes I was able make it
-      work.
+      <b>Promise.all()</b> or <b>Object.create()</b>, etc. I have been/have
+      asked to write implement these methods in interviews. Sometimes I too have
+      struggled and sometimes I was able make it work.
     </p>
     <p>
       So I created this site to learn and understand Javascript even better and

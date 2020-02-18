@@ -207,16 +207,22 @@ footer {
   }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 620px) and (max-width: 767px) {
   .header__content,
   .footer__content,
   .layout__title-content,
   .layout__content {
-    max-width: 480px;
+    max-width: 620px;
   }
 
-  .Subscription {
-    max-width: 420px;
+  .Subscription__container .Subscription__content {
+    width: 420px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 620px) {
+  .Subscription__container .Subscription__content {
+    width: 420px !important;
   }
 }
 
@@ -236,5 +242,9 @@ footer {
   .header__menu {
     padding-left: 20px;
     width: 160px;
+  }
+
+  .Subscription__container .Subscription__content {
+    width: 420px !important;
   }
 }
