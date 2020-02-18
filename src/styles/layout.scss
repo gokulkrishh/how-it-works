@@ -14,6 +14,10 @@ a {
   font-weight: 500;
 }
 
+h3 > a {
+  font-weight: 600;
+}
+
 .header {
   height: 70px;
   box-shadow: 0 0px 5px rgba(57, 63, 72, 0.3);

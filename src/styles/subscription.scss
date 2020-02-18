@@ -1,32 +1,47 @@
 .Subscription {
-  height: 250px;
+  min-height: 280px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid $color-grey;
-  width: 600px;
-  padding: 10px;
-  border-radius: 4px;
+  width: 500px;
+  padding: 10px 10px 30px;
+  border-radius: 6px;
   margin: 50px auto;
+  background-color: $color-light-blue;
+  color: $color-black;
 
-  h3 {
+  p {
+    margin-top: 0;
+    margin-bottom: -10px;
+    font-size: 16px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
     margin: 10px 0 5px;
   }
 
   input,
-  button {
+  input[type="submit"] {
     height: 45px;
     padding: 0 10px;
-    margin-top: 15px;
+    margin-top: 25px;
   }
 
-  button {
+  input[type="submit"] {
     color: $color-white;
     background-color: $color-primary-text;
     border: 1px solid $color-primary-text;
     border-radius: 6px;
     cursor: pointer;
-    padding: 0 45px;
+    width: 100px;
+    height: 38px;
+    font-size: 16px;
+    text-align: center;
 
     &:active {
       opacity: 0.9;
