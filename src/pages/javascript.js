@@ -14,8 +14,8 @@ const JavascriptPage = () => (
       <div className="Javascript__content">
         <h2>Javascript</h2>
         <p>
-          Contains the implementation of in-built or custom methods from
-          Javascript.
+          For learning and understanding Javascript better and to know what
+          could be its implementation internally.
         </p>
       </div>
 
