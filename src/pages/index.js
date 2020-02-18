@@ -26,11 +26,11 @@ const IndexPage = () => (
       <b>Promise.all()</b> or <b>Object.create()</b>, etc. I have been asked to
       write these methods in white paper or implement it online in many
       interviews. Sometimes I have struggled and sometimes I was able make it
-      work by writing in Javascript.
+      work.
     </p>
     <p>
-      So I created this site to learn and to understand Javascript even better
-      and to know what could be its implementations.
+      So I created this site to learn and understand Javascript even better and
+      to know what could be its implementation internally.
     </p>
 
     <p>
