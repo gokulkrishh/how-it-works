@@ -1,0 +1,22 @@
+.Javascript {
+  &__content h2 {
+    margin-bottom: 10px;
+  }
+
+  &__content p {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+
+    .Card:not(:first-child) {
+      margin-left: 30px;
+    }
+  }
+
+  &__subscription {
+    margin-top: 120px;
+  }
+}

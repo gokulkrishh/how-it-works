@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+const ReactPage = () => (
   <Layout>
     <SEO title="React" />
     <h1>React</h1>
@@ -11,4 +11,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default ReactPage

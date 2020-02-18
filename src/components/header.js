@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import Image from "./image"
 
 const Header = ({ siteTitle }) => (
   <header className="header">
@@ -10,6 +9,8 @@ const Header = ({ siteTitle }) => (
         <h1>
           <Link to="/">{siteTitle}</Link>
         </h1>
+      </div>
+      <div className="header__content-right">
         <ul className="header__menu">
           <li>
             <Link to="/javascript" activeClassName="header__menu--active">
@@ -23,7 +24,6 @@ const Header = ({ siteTitle }) => (
           </li>
         </ul>
       </div>
-      <div className="header__content-right"></div>
     </div>
   </header>
 )

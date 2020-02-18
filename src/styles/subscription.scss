@@ -1,14 +1,17 @@
-.Subscription {
-  min-height: 280px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 500px;
-  padding: 10px 10px 30px;
-  border-radius: 6px;
-  margin: 50px auto;
-  background-color: $color-light-blue;
-  color: $color-black;
+.Subscription__container {
+  .Subscription__content {
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    padding: 10px 10px 30px;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: $color-light-blue;
+    color: $color-black;
+  }
 
   p {
     margin-top: 0;
@@ -21,7 +24,7 @@
     flex-direction: column;
   }
 
-  h2 {
+  h3 {
     margin: 10px 0 5px;
   }
 
@@ -34,8 +37,8 @@
 
   input[type="submit"] {
     color: $color-white;
-    background-color: $color-primary-text;
-    border: 1px solid $color-primary-text;
+    background-color: $color-blue;
+    border: 1px solid $color-blue;
     border-radius: 6px;
     cursor: pointer;
     width: 100px;
