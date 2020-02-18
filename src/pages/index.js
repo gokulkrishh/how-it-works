@@ -22,7 +22,7 @@ const IndexPage = () => (
     </p>
     <p>
       When I started my career as a web developer, I struggled to understand how
-      a method or a feature in Javascript works internally, for example
+      a method or a feature in Javascript works internally, for example{" "}
       <b>Promise.all()</b> or <b>Object.create()</b>, etc. I have been or I have
       asked to implement these methods in interviews.
     </p>
