@@ -2,8 +2,6 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-import Search from "./search"
-
 const Header = ({ siteTitle }) => (
   <header className="header">
     <div className="header__content">
@@ -24,9 +22,7 @@ const Header = ({ siteTitle }) => (
           </li>
         </ul>
       </div>
-      <div className="header__content-right">
-        <Search />
-      </div>
+      <div className="header__content-right"></div>
     </div>
   </header>
 )

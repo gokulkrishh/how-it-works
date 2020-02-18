@@ -2,13 +2,12 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Search from "../components/search"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="React" />
     <h1>React</h1>
-    <p>Coming soon</p>
+    <p>Coming soon. Stay tuned!</p>
   </Layout>
 )
 

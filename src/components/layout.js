@@ -28,23 +28,17 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className="layout">
         <main>
-          <div className="layout__title">
-            <div className="layout__title-content">
-              <h2>Javascript</h2>
-              <span>10</span>
-            </div>
-          </div>
           <div className="layout__content">{children}</div>
         </main>
-        <footer>
-          <div className="footer__content">
-            <p>
-              © {new Date().getFullYear()}, Built with {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </p>
-          </div>
-        </footer>
       </div>
+      <footer>
+        <div className="footer__content">
+          <p>
+            © {new Date().getFullYear()}, Built with {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </p>
+        </div>
+      </footer>
     </>
   )
 }
