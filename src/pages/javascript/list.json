@@ -3,7 +3,7 @@
     {
       "name": "promise.all",
       "description": "Promise.all method returns a single Promise that fulfills when all of the promises fulfilled or contains no promises or when contains promises that have been fulfilled and non-promises that have been returned.",
-      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"
+      "link": "javascript/promise.all"
     },
     {
       "name": "promise.allSettled",
