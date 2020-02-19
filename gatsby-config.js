@@ -49,7 +49,14 @@ module.exports = {
         // GitHub Flavored Markdown mode (default: true)
         gfm: true,
         // Plugins configs
-        plugins: [],
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              numberLines: true,
+            },
+          },
+        ],
       },
     },
     `gatsby-plugin-sass`,
@@ -60,4 +67,4 @@ module.exports = {
       },
     },
   ],
-}
+};
