@@ -6,18 +6,17 @@ const Subscription = () => (
     <h4>Know more from your inbox weekly :)</h4>
 
     <div className="Subscription__content">
-      <h3>Subscribe</h3>
       <form
         action="//dev.us4.list-manage.com/subscribe/post?u=d9011fcde206b61bac7f4af0a&amp;id=e2854f474e"
         method="post"
         target="_blank"
       >
-        <input
+        {/* <input
           type="text"
           name="FNAME"
           id="mce-FNAME"
           placeholder="First name"
-        />
+        /> */}
         <input
           className="email-address"
           name="EMAIL"

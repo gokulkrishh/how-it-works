@@ -17,7 +17,7 @@ title: "Promise.all"
 
 1. If there is an error in any of passed items to <b>.all()</b> method, <b>promise.all</b> will be <b>rejected</b>.
 
-Lets see how it works.
+Let's see how it works.
 
 ```javascript
 /* Wrapper function to simulate api */
@@ -43,15 +43,32 @@ var promise2 = fetch(`https://reqres.in/api/user/1`).then(res => res.json());
 var sum = (a, b) => a + b;
 
 /* Adding promise 1 to 4 to .all() method */
-var myPromises = Promise.all([promise1, promise2, sum(1, 2), undefined, null, 1]);
+var myPromises = Promise.all([
+  promise1,
+  promise2,
+  sum(1, 2),
+  undefined,
+  null,
+  1,
+]);
 
 /* .then() from promise.all() */
 myPromises
-.then(res => console.log('resolved: ', res)) // resolved: ["After 2000 milliseconds", {data: {...}}, 3, undefined, null, 1]
-.catch(err => console.log('rejected: ', err));
+  .then(res => console.log("resolved: ", res)) // resolved: ["After 2000 milliseconds", {data: {...}}, 3, undefined, null, 1]
+  .catch(err => console.log("rejected: ", err));
 ```
 
 Now that we understood how <b>promise.all()</b> works. Lets write a custom <b>promise.all()</b> function to understand how it works.
+
+We will write the custom function in 3 steps.
+
+#### Step 1:
+
+1. We will create a function called <b>promiseAll</b>.
+1. Above function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
+1. result variable is store the result of promises.
+1. counter variable is keep the count of how many promises resolved.
+1. Finally, we will use `Promise` function to resolve and return once all of the given promises are settled.
 
 ```javascript
 /* Promise.all() custom function */
@@ -63,22 +80,82 @@ function promiseAll(promises) {
   var counter = 0;
 
   /* To resolve when all promises fulfilled */
-  return new Promise((resolve, reject) => {
-    promises.forEach((promise, index) => {
-      Promise.resolve(promise).then(item => {
-        /* Add the resolved promise to same order as its given */
-        result.splice(index, 1, item);
-        counter += 1; // Update counter
+  return new Promise((resolve, reject) => {});
+}
+```
 
-        /* If counter is equal to promises.length then all promises are fulfilled */
-        if (counter === promises.length) {
-          resolve(result); // Resolved and return the result
-        }
-      })
-      .catch(err => {
-        reject(err); // If there is error, reject it immediately
-      });
+The above piece of code is self-explanatory with the comments. We will skip explaining it.
+
+#### Step 2:
+
+We will iterate the given <b>promises</b> so that we can resolve attach <b>.then</b> to all the promises. Also we will pass the each item in <b>iteration</b> to `Promise.resolve()` so that we can even handle the non-promise items as well.
+
+<b>Example:</b> If passed <b>promises</b> argument contains number, undefined or anything which are non-promise in nature.
+
+Also, we will we adding <b>.then</b> and <b>.catch</b> methods to handle once the promise settles.
+
+```javascript
+function promiseAll(promises) {
+  /* To keep the result of resolved promises */
+  var result = Array(promises.length);
+
+  /* To keep track of how many promise got resolved */
+  var counter = 0;
+
+  /* To resolve when all promises fulfilled */
+  return new Promise((resolve, reject) => {
+    // Iterating the given promises array
+    promises.forEach((promise, index) => {
+      // We need to resolve each item in promises so that even if there is non-promise item we can handle it
+      Promise.resolve(promise)
+        .then(item => {
+          // Resolve and store in result
+        })
+        .catch(err => {
+          // If there is error, reject it immediately and return the error
+        });
     });
   });
 }
 ```
+
+#### Step 3:
+
+In step 3, we will increment the counter and store the resolve item in result array's respectively index.
+
+If the counter length is same as <b>promises</b> argument length, then resolve the outer promise else we reject and return the error.
+
+```javascript
+function promiseAll(promises) {
+  /* To keep the result of resolved promises */
+  var result = Array(promises.length);
+
+  /* To keep track of how many promise got resolved */
+  var counter = 0;
+
+  /* To resolve when all promises fulfilled */
+  return new Promise((resolve, reject) => {
+    // Iterating the given promises array
+    promises.forEach((promise, index) => {
+      // We need to resolve each item in promises so that even if there is non-promise item we can handle it
+      Promise.resolve(promise)
+        .then(item => {
+          counter += 1; // Update counter
+          result.splice(index, 1, item); // To update the item in result array in the same order as it comes
+
+          /* If counter is equal to promises.length then all promises are fulfilled */
+          if (counter === promises.length) {
+            resolve(result); // Resolved and return the result
+          }
+        })
+        .catch(err => {
+          reject(err); // If there is error, reject it immediately and return the error
+        });
+    });
+  });
+}
+```
+
+Above piece of code may not be same as how browser vendors implemented <b>promise.all</b>, but you get the idea right?
+
+I hope this post was useful and you learned something new. See you in my next post.

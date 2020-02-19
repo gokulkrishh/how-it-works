@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-import Subscription from "../components/subscription"
+import Layout from "../components/layout";
+import Image from "../components/image";
+import SEO from "../components/seo";
+import Subscription from "../components/subscription";
 
 const IndexPage = () => (
   <Layout>
@@ -30,21 +30,19 @@ const IndexPage = () => (
       So I created this site to learn and understand Javascript even better and
       to know what could be its implementation internally.
     </p>
-
     <p>
-      Hopefully, you will also learn as much as me via this site/newsletter. Do
-      reply to my emails via subscription or via comments in each post if there
-      is a mistake or a better way to do it. Let's keep the learning and
+      Hopefully, you will also learn as much as me via this site/newsletter.
+    </p>
+    <p>
+      Do reply to my emails via subscription or via comments in each post if
+      there is a mistake or a better way to do it. Let's keep the learning and
       conversation going.
     </p>
-
     <Subscription />
-
     <p>
       And I will make sure the email list is kept secret and there won't be any
       spamming!
     </p>
-
     <div className="layout__footer">
       <h4>Cheers,</h4>
       <h4>
@@ -54,6 +52,6 @@ const IndexPage = () => (
       </h4>
     </div>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

@@ -7,7 +7,7 @@
     },
     {
       "name": "promise.allSettled",
-      "description": "Next week",
+      "description": "Next post",
       "comingSoon": true,
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled"
     }
