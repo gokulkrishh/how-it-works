@@ -1,5 +1,6 @@
 body {
-  font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
   color: $color-white;
   background-color: $color-white;
   line-height: 32px;
@@ -246,11 +247,20 @@ footer {
     width: 160px;
   }
 
+  .header__menu {
+    font-size: 16px;
+  }
+
   .Subscription__container .Subscription__content {
     width: 100% !important;
   }
 
-  .Subscription__container input {
-    width: 320px !important;
+  .Subscription__container .email-address {
+    width: 240px !important;
+  }
+
+  .Subscription__container .submit-btn {
+    width: 80px !important;
+    font-size: 16px !important;
   }
 }
