@@ -121,9 +121,11 @@ function promiseAll(promises) {
 
 #### Step 3:
 
-In step 3, we will increment the counter and store the resolve item in result array's respectively index.
+In step 3,
 
-If the counter length is same as <b>promises</b> argument length, then resolve the outer promise else we reject and return the error.
+1. Increment the counter.
+1. We will increment the counter and store the resolved item in respectively index of result variable.
+1. If the counter length is same as <b>promises</b> argument's length, then resolve the outer promise else we reject it and return the error.
 
 ```javascript
 function promiseAll(promises) {
@@ -141,7 +143,7 @@ function promiseAll(promises) {
       Promise.resolve(promise)
         .then(item => {
           counter += 1; // Update counter
-          result.splice(index, 1, item); // To update the item in result array in the same order as it comes
+          result[index] = item; // To update the item in result array in the same order as it comes
 
           /* If counter is equal to promises.length then all promises are fulfilled */
           if (counter === promises.length) {
