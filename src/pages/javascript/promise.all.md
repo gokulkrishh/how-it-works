@@ -64,11 +64,11 @@ We will write the custom function in 3 steps.
 
 #### Step 1:
 
-1. We will create a function called <b>promiseAll</b>.
-1. Above function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
-1. result variable is store the result of promises.
-1. counter variable is keep the count of how many promises resolved.
-1. Finally, we will use `Promise` function to resolve and return once all of the given promises are settled.
+- we will create a function called <b>promiseAll</b>.
+- Above function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
+- result variable is store the result of promises.
+- counter variable is keep the count of how many promises resolved.
+- finally, we will use `Promise` function to resolve and return once all of the given promises are settled.
 
 ```javascript
 /* Promise.all() custom function */
@@ -123,9 +123,9 @@ function promiseAll(promises) {
 
 We will be doing the following in our next step.
 
-1. Increment the counter.
-1. We will increment the counter and store the resolved item in respectively index of result variable.
-1. If the counter length is same as <b>promises</b> argument's length, then resolve the outer promise else we reject it and return the error.
+- Increment the counter.
+- We will increment the counter and store the resolved item in respectively index of result variable.
+- If the counter length is same as <b>promises</b> argument's length, then resolve the outer promise else we reject it and return the error.
 
 ```javascript
 function promiseAll(promises) {
