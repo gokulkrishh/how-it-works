@@ -67,10 +67,10 @@ We will write the custom function in 3 steps.
 #### Step 1:
 
 - We will create a function called <b>promiseAll</b>.
-- Above function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
-- `result variable` is store the result of promises.
+- This function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
+- `result variable` is store the result of each promise.
 - `counter variable` is keep the count of how many promises resolved.
-- Finally, we will use `Promise` function to resolve and return once all of the given promises are settled.
+- Finally, we will use `Promise` object to resolve/reject and return it accordingly.
 
 ```javascript
 /* Promise.all() custom function */
@@ -128,7 +128,7 @@ function promiseAll(promises) {
 We will be doing the following in our next step.
 
 - We will increment the counter and store the resolved item in respectively index of result variable.
-- If the counter length is same as <b>promises</b> argument's length, then resolve the outer promise else we reject it and return the error.
+- If the `counter length` is same as <b>promises</b> argument's length, then resolve the outer promise else we reject it and return the error.
 
 ```javascript
 function promiseAll(promises) {
@@ -161,6 +161,8 @@ function promiseAll(promises) {
 }
 ```
 
-Above piece of code may not be same as how browser vendors implemented <b>promise.all</b>, but you get the idea right?
+#### [Demo](https://codesandbox.io/s/promiseall-implementation-n9dlu)
+
+Above piece of code may not be same as how browser vendors could have implemented <b>promise.all</b>, but you get the idea right?
 
 I hope this post was useful and you learned something new. See you in my next post.
