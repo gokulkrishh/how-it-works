@@ -121,7 +121,7 @@ function promiseAll(promises) {
 
 #### Step 3:
 
-In step 3,
+We will be doing the following in our next step.
 
 1. Increment the counter.
 1. We will increment the counter and store the resolved item in respectively index of result variable.
