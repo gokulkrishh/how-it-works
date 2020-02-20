@@ -37,7 +37,7 @@ export default function Template({ data }) {
         </div>
 
         <br />
-        <hr />
+        <div className="hr" />
         <Subscription />
       </div>
     </Layout>

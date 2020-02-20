@@ -1,10 +1,10 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
-  color: $color-white;
+  color: $color-dull-blue;
   background-color: $color-white;
   line-height: 32px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
 }
 
@@ -107,6 +107,10 @@ b {
   }
 }
 
+.hr {
+  border-top: 2px dashed $color-blue;
+}
+
 .layout .layout__content {
   margin-top: 10px;
 }
@@ -173,7 +177,6 @@ b {
 .layout__content,
 main {
   background-color: $color-white;
-  color: $color-black;
 }
 
 footer {
@@ -190,7 +193,6 @@ footer {
     height: inherit;
     display: flex;
     align-items: center;
-    color: $color-black;
     font-weight: 500;
     padding: 0 10px;
 

@@ -16,11 +16,17 @@
 }
 
 .language-text {
-  background: #ccc !important;
-  color: #000000 !important;
-  font-weight: 500 !important;
+  background: #fff !important;
+  color: inherit !important;
+  font-weight: 600 !important;
   font-family: inherit !important;
-  padding: 1px 5px !important;
+  padding: 1px !important;
   display: inline-block;
   border-radius: 3px !important;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: "Dank Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
 }

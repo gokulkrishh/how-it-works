@@ -7,13 +7,13 @@ title: "Promise.all"
 
 [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method returns a single Promise.
 
-<b>Resolves</b>:
+<b>Will resolves when:</b>
 
 1. Promises that will be fulfilled after sometime (Eg: <b>API which fulfills after 10 seconds</b>)
 1. Promises that have been fulfilled already (Eg: <b>API which fulfils before even passing to .all()</b>)
 1. Non-promises based functions, variables etc, (Eg: <b>Function which returns a value</b>)
 
-<b>Rejects</b>:
+<b>Will reject when</b>:
 
 1. If there is an error in any of passed items to <b>.all()</b> method, <b>promise.all</b> will be <b>rejected</b>.
 
