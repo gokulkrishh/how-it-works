@@ -1,7 +1,5 @@
 @import "~normalize.css";
-@import "~prismjs/themes/prism-tomorrow.css";
-@import "~prismjs/plugins/line-numbers/prism-line-numbers.css";
-@import "~prismjs/plugins/command-line/prism-command-line.css";
+@import "./prism-dracula.css";
 
 .gatsby-highlight {
   .line-numbers {
@@ -23,6 +21,7 @@
   padding: 1px !important;
   display: inline-block;
   border-radius: 3px !important;
+  text-shadow: none !important;
 }
 
 code[class*="language-"],

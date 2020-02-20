@@ -5,17 +5,19 @@ date: "2020-02-18"
 title: "Promise.all"
 ---
 
-[Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method returns a single Promise.
+<br /><img src="./promise.all.png" alt="Promise.all" /><br />
 
-<b>Will resolves when:</b>
+Let’s say we want many promises to execute in parallel and wait until all of them are resolved. Then [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) is the right candidate which takes an array of promises and returns a new promise.
+
+<b>Resolves when:</b>
 
 1. Promises that will be fulfilled after sometime (Eg: <b>API which fulfills after 10 seconds</b>)
 1. Promises that have been fulfilled already (Eg: <b>API which fulfils before even passing to .all()</b>)
 1. Non-promises based functions, variables etc, (Eg: <b>Function which returns a value</b>)
 
-<b>Will reject when</b>:
+<b>Rejects when</b>:
 
-1. If there is an error in any of passed items to <b>.all()</b> method, <b>promise.all</b> will be <b>rejected</b>.
+1. If one promise rejects, then `Promise.all` immediately rejects, completely forgetting about the other ones in the list. Their results are ignored.
 
 Let's see how it works.
 
@@ -64,11 +66,11 @@ We will write the custom function in 3 steps.
 
 #### Step 1:
 
-- we will create a function called <b>promiseAll</b>.
+- We will create a function called <b>promiseAll</b>.
 - Above function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
-- result variable is store the result of promises.
-- counter variable is keep the count of how many promises resolved.
-- finally, we will use `Promise` function to resolve and return once all of the given promises are settled.
+- `result variable` is store the result of promises.
+- `counter variable` is keep the count of how many promises resolved.
+- Finally, we will use `Promise` function to resolve and return once all of the given promises are settled.
 
 ```javascript
 /* Promise.all() custom function */
@@ -88,11 +90,13 @@ The above piece of code is self-explanatory with the comments. We will skip expl
 
 #### Step 2:
 
-We will iterate the given <b>promises</b> so that we can resolve attach <b>.then</b> to all the promises. Also we will pass the each item in <b>iteration</b> to `Promise.resolve()` so that we can even handle the non-promise items as well.
+- Now we will iterate the given <b>promises</b> so that we can resolve them by attaching <b>.then</b> each promise.
+
+- Also we will pass the each item in <b>iteration</b> to `Promise.resolve()` so that we can even handle the `non-promise` items.
 
 <b>Example:</b> If passed <b>promises</b> argument contains number, undefined or anything which are non-promise in nature.
 
-Also, we will we adding <b>.then</b> and <b>.catch</b> methods to handle once the promise settles.
+- Also, we will we adding <b>.then</b> and <b>.catch</b> methods to handle once the promise `settles` in each iteration.
 
 ```javascript
 function promiseAll(promises) {
@@ -123,7 +127,6 @@ function promiseAll(promises) {
 
 We will be doing the following in our next step.
 
-- Increment the counter.
 - We will increment the counter and store the resolved item in respectively index of result variable.
 - If the counter length is same as <b>promises</b> argument's length, then resolve the outer promise else we reject it and return the error.
 

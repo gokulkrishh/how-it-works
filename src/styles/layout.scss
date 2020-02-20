@@ -27,7 +27,7 @@ h3 {
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 h3 > a {
@@ -36,6 +36,16 @@ h3 > a {
 
 b {
   font-weight: 600;
+}
+
+p {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+ul,
+ol {
+  line-height: 35px;
 }
 
 .header {
@@ -108,11 +118,15 @@ b {
 }
 
 .hr {
-  border-top: 2px dashed $color-blue;
+  border-top: 2px dashed $color-grey;
 }
 
 .layout .layout__content {
   margin-top: 10px;
+}
+
+.issues__preview-info {
+  text-align: center;
 }
 
 .footer__content,
@@ -219,16 +233,6 @@ footer {
   .layout__content {
     max-width: 620px;
   }
-
-  .Subscription__container .Subscription__content {
-    width: 420px;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 620px) {
-  .Subscription__container .Subscription__content {
-    width: 420px !important;
-  }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -251,14 +255,6 @@ footer {
 
   .header__menu {
     font-size: 16px;
-  }
-
-  .Subscription__container .Subscription__content {
-    width: 100% !important;
-  }
-
-  .Subscription__container .email-address {
-    width: 240px !important;
   }
 
   .Subscription__container .submit-btn {

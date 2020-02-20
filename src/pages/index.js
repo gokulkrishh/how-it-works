@@ -1,21 +1,28 @@
 import React from "react";
 
 import Layout from "../components/layout";
-import Image from "../components/image";
 import SEO from "../components/seo";
 import Subscription from "../components/subscription";
+import CoffeeImg from "./coffee.jpeg";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <h2>Hi people!</h2>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
+
     <p>
       Welcome to how it works in Javascript site. Let me first start with why I
       created this site.
     </p>
+    <div
+      style={{
+        maxWidth: `300px`,
+        marginTop: `1.45em`,
+        marginBottom: `1.45rem`,
+      }}
+    >
+      <img src={CoffeeImg} style={{ maxWidth: "100%" }} alt="Coffee" />
+    </div>
     <p>
       Are you coffee/tea person? If so get one in your hand and we will continue
       ;).
