@@ -7,6 +7,8 @@ title: "Promise.all"
 
 [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method returns a single Promise.
 
+
+
 <b>Will resolves when:</b>
 
 1. Promises that will be fulfilled after sometime (Eg: <b>API which fulfills after 10 seconds</b>)
@@ -67,8 +69,8 @@ We will write the custom function in 3 steps.
 - Lets create a function called <b>promiseAll</b>.
 - This function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
 - When ever the a promise resolves we will store the result in <b>result variable</b>.
-- Then we will increment the counter variable with + 1.
-- Finally, we will use `Promise` function to either resolve or reject accordingly.
+- Then to keep track of how many promise resolved we will be using the <b>counter variable</b>.
+- Finally, we will use `Promise` object to resolve/reject and return it accordingly.
 
 ```javascript
 /* Promise.all() custom function */
@@ -124,9 +126,9 @@ function promiseAll(promises) {
 
 We will be doing the following in our next step.
 
-- Increment the counter.
-- We will increment the counter and store the resolved item in respectively index of result variable.
-- If the counter length is same as <b>promises</b> argument's length, then resolve the outer promise else we reject it and return the error.
+- When ever a promise is resolved, we will increment the counter and store it in <b>counter variable</b>.
+- Resolved item is stored in respectively index of <b>result variable</b>.
+- Then we check if the <b>counter length</b> is same as passed <b>promises</b> argument's length, then <b>resolve</b> the outer <b>Promise</b> object else we <b>reject it</b>.
 
 ```javascript
 function promiseAll(promises) {
@@ -159,6 +161,6 @@ function promiseAll(promises) {
 }
 ```
 
-Above piece of code may not be same as how browser vendors implemented <b>promise.all</b>, but you get the idea right?
+Above piece of code may not be same as how browser vendors could have implemented <b>promise.all</b>, but you get the idea right?
 
 I hope this post was useful and you learned something new. See you in my next post.
