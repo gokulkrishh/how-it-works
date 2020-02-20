@@ -64,11 +64,11 @@ We will write the custom function in 3 steps.
 
 #### Step 1:
 
-- we will create a function called <b>promiseAll</b>.
-- Above function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
-- result variable is store the result of promises.
-- counter variable is keep the count of how many promises resolved.
-- finally, we will use `Promise` function to resolve and return once all of the given promises are settled.
+- Lets create a function called <b>promiseAll</b>.
+- This function will have two variables called <b>result</b> (Array) and <b>counter</b> (Number).
+- When ever the a promise resolves we will store the result in <b>result variable</b>.
+- Then we will increment the counter variable with + 1.
+- Finally, we will use `Promise` function to either resolve or reject accordingly.
 
 ```javascript
 /* Promise.all() custom function */
@@ -88,11 +88,12 @@ The above piece of code is self-explanatory with the comments. We will skip expl
 
 #### Step 2:
 
-We will iterate the given <b>promises</b> so that we can resolve attach <b>.then</b> to all the promises. Also we will pass the each item in <b>iteration</b> to `Promise.resolve()` so that we can even handle the non-promise items as well.
+- We will iterate each promise using <b>promises</b> argument. 
+- We will pass each item in `forEach` to `Promise.resolve()` so that we can even handle the non-promise item as well.
 
 <b>Example:</b> If passed <b>promises</b> argument contains number, undefined or anything which are non-promise in nature.
 
-Also, we will we adding <b>.then</b> and <b>.catch</b> methods to handle once the promise settles.
+- Also, We will add <b>.then</b> and <b>.catch</b> methods to handle respectively.
 
 ```javascript
 function promiseAll(promises) {
