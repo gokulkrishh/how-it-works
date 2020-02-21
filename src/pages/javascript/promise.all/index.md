@@ -1,7 +1,7 @@
 ---
 path: "/javascript/promise.all"
 published: true
-date: "2020-02-18"
+date: "2020-02-21"
 title: "Promise.all"
 ---
 
@@ -17,36 +17,37 @@ Let’s say we want many promises to execute in parallel and wait until all of t
 
 <b>Rejects when</b>:
 
-1. If one promise rejects, then `Promise.all` immediately rejects, completely forgetting about the other ones in the list. Their results are ignored.
+1. If one promise rejects, then `Promise.all` immediately rejects, completely ignoring about the other ones on the list.
 
-Let's see how it works.
+First of all, we are going to an example of how `Promise.all` works and then we will implement it.
+
+#### Example:
+
+A simple sleep function to explain how `Promise.all` works.
 
 ```javascript
-/* Wrapper function to simulate api */
-function fakeAPI(delay) {
-  return new Promise((resolve, reject) => {
-    setTimeout(function() {
-      resolve(`After ${delay} milliseconds`);
-    }, delay);
-  });
-}
+/* A simple sleep function to sleep for certain time */
+var sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
 ```
 
-Above is fakeAPI method to create for our explanation.
+The above sleep function will be used in the below example.
 
 ```javascript
-/* Fake api to get response after 2 seconds */
-var promise1 = fakeAPI(2000);
+// Async function
+var asyncFunz = async () => {
+  await sleep(2000); // wait for 2 seconds before returning
+  return "Executed after 2 seconds";
+};
 
-/* Fake api to get response immediately */
+/* Actual api */
 var promise2 = fetch(`https://reqres.in/api/user/1`).then(res => res.json());
 
 /* Just a normal function which returns immediately */
 var sum = (a, b) => a + b;
 
-/* Adding promise 1 to 4 to .all() method */
+/* Lets do Promise.all on above methods */
 var myPromises = Promise.all([
-  promise1,
+  asyncFunz(),
   promise2,
   sum(1, 2),
   undefined,
@@ -54,15 +55,17 @@ var myPromises = Promise.all([
   1,
 ]);
 
-/* .then() from promise.all() */
+/* Attaching .then, .catch methods */
 myPromises
-  .then(res => console.log("resolved: ", res)) // resolved: ["After 2000 milliseconds", {data: {...}}, 3, undefined, null, 1]
+  .then(res => console.log("resolved: ", res)) // resolved: ["Executed after 2 seconds", {data: {...}}, 3, undefined, null, 1]
   .catch(err => console.log("rejected: ", err));
 ```
 
-Now that we understood how <b>promise.all()</b> works. Lets write a custom <b>promise.all()</b> function to understand how it works.
+In the above example, `asyncFunz`, `promise2` are actual `async functions` and the rest of items in the array are a normal function, undefined and null.
 
-We will write the custom function in 3 steps.
+We can understand that `Promise.all` method accepts both `async/promise` and `non-async/non-promise` functions, variables etc,. Right?
+
+Now to write our custom <b>promise.all()</b> function, we are going follow `3 steps`.
 
 #### Step 1:
 
@@ -85,8 +88,6 @@ function promiseAll(promises) {
   return new Promise((resolve, reject) => {});
 }
 ```
-
-The above piece of code is self-explanatory with the comments. We will skip explaining it.
 
 #### Step 2:
 
@@ -123,11 +124,9 @@ function promiseAll(promises) {
 }
 ```
 
-#### Step 3:
+#### Step 3: (Final)
 
-We will be doing the following in our next step.
-
-- We will increment the counter and store the resolved item in respectively index of result variable.
+- We will increment the counter and store the resolved item in the respective order.
 - If the `counter length` is same as <b>promises</b> argument's length, then resolve the outer promise else we reject it and return the error.
 
 ```javascript
@@ -163,6 +162,6 @@ function promiseAll(promises) {
 
 #### [Demo](https://codesandbox.io/s/promiseall-implementation-n9dlu)
 
-Above piece of code may not be same as how browser vendors could have implemented <b>promise.all</b>, but you get the idea right?
+Above piece of code may not be same as how browser vendors would have implemented <b>promise.all</b>, but you get the idea right how it works?
 
-I hope this post was useful and you learned something new. See you in my next post.
+I hope this post was useful and we all learned something new. See you in my next post.
