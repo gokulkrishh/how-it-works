@@ -1,6 +1,6 @@
 ---
 path: "/javascript/promise.all"
-published: true
+published: false
 date: "2020-02-21"
 title: "Promise.all"
 ---

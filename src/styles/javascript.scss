@@ -10,9 +10,16 @@
 
   &__list {
     display: flex;
+    flex-wrap: wrap;
+    margin-top: -30px;
+    margin-left: -20px;
 
-    .Card:not(:first-child) {
-      margin-left: 30px;
+    .Card {
+      margin-top: 30px;
+    }
+
+    .Card {
+      margin-left: 20px;
     }
   }
 
@@ -38,6 +45,7 @@
   .Javascript {
     &__list {
       flex-direction: column;
+      align-items: center;
 
       .Card:not(:first-child) {
         margin-left: 0;

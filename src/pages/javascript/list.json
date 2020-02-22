@@ -2,14 +2,46 @@
   "methods": [
     {
       "name": "promise.all",
-      "description": "Promise.all method returns a single Promise that fulfills when all of the promises fulfilled or contains no promises or when contains promises that have been fulfilled and non-promises that have been returned.",
-      "link": "javascript/promise.all"
+      "description": "25th Feb",
+      "comingSoon": true,
+      "link": "javascript/promise.all",
+      "img": "promise.all.png"
     },
     {
       "name": "promise.allSettled",
-      "description": "Next post",
+      "description": "3rd March",
       "comingSoon": true,
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled"
+    },
+    {
+      "name": "async timeout",
+      "description": "10th March",
+      "comingSoon": true,
+      "link": ""
+    },
+    {
+      "name": ".bind()",
+      "description": "17th March",
+      "comingSoon": true,
+      "link": ""
+    },
+    {
+      "name": "Object.create()",
+      "description": "24th March",
+      "comingSoon": true,
+      "link": ""
+    },
+    {
+      "name": "debounce",
+      "description": "31 March",
+      "comingSoon": true,
+      "link": ""
+    },
+    {
+      "name": "throttle",
+      "description": "7th April",
+      "comingSoon": true,
+      "link": ""
     }
   ]
 }

@@ -1,11 +1,10 @@
-import React from "react"
+import React from "react";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Card from "../components/card"
-
-import list from "./javascript/list"
-import Subscription from "../components/subscription"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Card from "../components/card";
+import list from "./javascript/list";
+import Subscription from "../components/subscription";
 
 const JavascriptPage = () => (
   <Layout>
@@ -29,7 +28,7 @@ const JavascriptPage = () => (
               link={method.link}
               disabled={method.comingSoon}
             />
-          )
+          );
         })}
       </div>
       <div className="Javascript__subscription">
@@ -37,6 +36,6 @@ const JavascriptPage = () => (
       </div>
     </div>
   </Layout>
-)
+);
 
-export default JavascriptPage
+export default JavascriptPage;

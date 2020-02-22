@@ -7,15 +7,20 @@ import Subscription from "../components/subscription";
 export default function Template({ data }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
+
+  const { published, date, title } = frontmatter;
+
+  if (!published) return null;
+
   return (
     <Layout>
       <div className="issues">
-        <Link to="/javascript" className="issues__preview-back">
+        <Link to="/" className="issues__preview-back">
           ← Go back
         </Link>
         <div className="issues__preview-info">
-          <h2 className="title">{frontmatter.title}</h2>
-          <time>{frontmatter.date}</time>
+          <h2 className="title">{title}</h2>
+          <time>{date}</time>
         </div>
         <div className="line" />
         <div
@@ -51,6 +56,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
+        published
         title
       }
     }
