@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `How it works`,
-    description: `How it works inside javascript feature.`,
+    description: `Learn how it works in javascript.`,
     author: `@gokulkrishh`,
   },
   plugins: [
