@@ -11,8 +11,7 @@ const IndexPage = () => (
     <h2>Hi people!</h2>
 
     <p>
-      Welcome to how it works in Javascript site. Let me first start with why I
-      created this site.
+      Welcome to how it works. Let me first start with why I created this site.
     </p>
     <div
       style={{

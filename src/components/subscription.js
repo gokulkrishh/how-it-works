@@ -1,5 +1,5 @@
-import PropTypes from "prop-types"
-import React from "react"
+import PropTypes from "prop-types";
+import React from "react";
 
 const Subscription = () => (
   <div className="Subscription__container">
@@ -7,42 +7,38 @@ const Subscription = () => (
 
     <div className="Subscription__content">
       <form
-        action="//dev.us4.list-manage.com/subscribe/post?u=d9011fcde206b61bac7f4af0a&amp;id=e2854f474e"
+        action="https://buttondown.email/api/emails/embed-subscribe/gokulkrishh"
         method="post"
-        target="_blank"
+        target="popupwindow"
+        class="embeddable-buttondown-form"
+        autoComplete={"on"}
       >
-        {/* <input
-          type="text"
-          name="FNAME"
-          id="mce-FNAME"
-          placeholder="First name"
-        /> */}
         <input
+          id="bd-email"
           className="email-address"
-          name="EMAIL"
-          type="email"
-          id="mce-EMAIL"
           placeholder="Email address"
           required
+          name="email"
         />
+        <input type="hidden" value="1" name="embed" />
 
         <input
           className="submit-btn"
           id="mc-embedded-subscribe"
           type="submit"
-          value="Submit"
+          value="Subscribe"
         />
       </form>
     </div>
   </div>
-)
+);
 
 Subscription.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Subscription.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default Subscription
+export default Subscription;
