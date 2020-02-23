@@ -3,8 +3,6 @@ module.exports = {
     title: `How it works`,
     description: `Learn how it works in javascript.`,
     author: `@gokulkrishh`,
-  },
-  siteMetadata: {
     siteUrl: `https://www.how-it-works.dev`,
   },
   plugins: [
