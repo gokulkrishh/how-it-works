@@ -6,6 +6,22 @@
     color: $color-black;
   }
 
+  .Subscription__confirmation {
+    margin: 5px 0;
+    margin-bottom: 5px;
+    color: $color-green;
+    visibility: hidden;
+  }
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  h4 + p {
+    margin-bottom: 15px;
+    margin-top: 5px;
+  }
+
   p {
     margin-top: 0;
     margin-bottom: -10px;

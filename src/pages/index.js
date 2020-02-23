@@ -45,10 +45,6 @@ const IndexPage = () => (
       conversation going.
     </p>
     <Subscription />
-    <p>
-      And I will make sure the email list is kept secret and there won't be any
-      spamming!
-    </p>
     <div className="layout__footer">
       <h4>Cheers,</h4>
       <h4>
