@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Subscription = () => {
-  const styles = window.location.href.search('confirmed=true') > -1 ? { visibility: "visible" } : {};
+  const [styles, setStyles] = React.useState({})
 
   return (
     <div className="Subscription__container">
@@ -30,6 +30,9 @@ const Subscription = () => {
             id="mc-embedded-subscribe"
             type="submit"
             value="Subscribe"
+            onClick={() => {
+              setStyles({ visibility: "visible" });
+            }}
           />
         </form>
       </div>
