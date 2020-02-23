@@ -4,6 +4,9 @@ module.exports = {
     description: `Learn how it works in javascript.`,
     author: `@gokulkrishh`,
   },
+  siteMetadata: {
+    siteUrl: `https://www.how-it-works.dev`,
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -72,5 +75,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-no-sourcemaps`,
+    `gatsby-plugin-sitemap`
   ],
 };
