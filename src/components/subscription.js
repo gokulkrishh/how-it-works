@@ -37,8 +37,7 @@ const Subscription = () => {
         </form>
       </div>
       <p className="Subscription__confirmation" style={styles}>
-        Thanks for subscribing, confirm your subscription from your email
-        account.
+        Thanks for subscribing! Your subscription is confirmed.
       </p>
     </div>
   );
