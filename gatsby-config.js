@@ -65,5 +65,12 @@ module.exports = {
         fonts: [`Roboto\:300,400,500,700`],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-158930416-1`,
+      },
+    },
+    `gatsby-plugin-no-sourcemaps`,
   ],
 };

@@ -7,7 +7,10 @@
   "dependencies": {
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
+    "gatsby-plugin-analytics": "^0.2.0",
+    "gatsby-plugin-google-analytics": "^2.1.35",
     "gatsby-plugin-manifest": "^2.2.39",
+    "gatsby-plugin-no-sourcemaps": "^2.1.2",
     "gatsby-plugin-offline": "^3.0.32",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sharp": "^2.4.5",
