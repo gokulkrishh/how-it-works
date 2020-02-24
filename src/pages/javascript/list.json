@@ -2,8 +2,7 @@
   "methods": [
     {
       "name": "promise.all",
-      "description": "25th Feb",
-      "comingSoon": true,
+      "description": "24th Feb",
       "link": "javascript/promise.all",
       "img": "promise.all.png"
     },
