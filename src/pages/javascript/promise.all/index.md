@@ -161,4 +161,6 @@ Above piece of code may not be same as how browser vendors would have implemente
 
 I hope this post was useful and we all have learned something new. See you in my next post.
 
-If you are not subscribe, subscribe below :D
+My post will be about how to write `custom spread operator` and how it works.
+
+If you are not subscribed, subscribe below :D
