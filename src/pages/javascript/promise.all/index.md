@@ -1,7 +1,7 @@
 ---
 path: "/javascript/promise.all"
 published: true
-date: "2020-02-24"
+date: "2020-02-25"
 title: "Promise.all"
 ---
 
@@ -107,12 +107,13 @@ function promiseAll(promisesArr) {
     // Iterating the given promises array
     promisesArr.forEach((promise, index) => {
       // To handle both promise & non-promise in each iteration
-      Promise.resolve(promise).then(item => {
-        // Store the result
-      })
-      .catch(err => {
-        // If there is an error, reject it immediately
-      });
+      Promise.resolve(promise)
+        .then(item => {
+          // Store the result
+        })
+        .catch(err => {
+          // If there is an error, reject it immediately
+        });
     });
   });
 }
@@ -155,7 +156,6 @@ function promiseAll(promisesArr) {
 ```
 
 ### [Demo](https://codesandbox.io/embed/promiseall-implementation-n9dlu?fontsize=14&hidenavigation=1&theme=dark)
-
 
 Above piece of code may not be same as how browser vendors would have implemented <b>Promise.all()</b> method, but you get the idea right how it works?
 

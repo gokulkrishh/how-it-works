@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import Subscription from "../components/subscription";
 
-export default function Template({ data }) {
+export default function Template({ data, path }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
 
@@ -15,7 +15,7 @@ export default function Template({ data }) {
   return (
     <Layout>
       <div className="issues">
-        <Link to="/" className="issues__preview-back">
+        <Link to={`/${path.split("/")[1]}`} className="issues__preview-back">
           ← Go back
         </Link>
         <div className="issues__preview-info">

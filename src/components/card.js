@@ -1,13 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
 const Card = ({ name, link, description, disabled = false }) => (
-  <div className={`Card ${disabled ? "Card--disabled" : ""}`}>
-    <h4>
-      <Link to={link}>{name}</Link>
-    </h4>
-    <p>{description}</p>
-  </div>
-)
+  <li className={`Card ${disabled ? "Card--disabled" : ""}`}>
+    <Link to={link}>{name}</Link>
+  </li>
+);
 
-export default Card
+export default Card;
