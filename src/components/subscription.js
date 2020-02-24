@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Subscription = () => {
-  const [styles, setStyles] = React.useState({})
+  const [styles, setStyles] = React.useState({});
+  const ref = React.createRef();
 
   return (
     <div className="Subscription__container">
@@ -23,6 +24,8 @@ const Subscription = () => {
             placeholder="Email address"
             required
             name="email"
+            type="email"
+            ref={ref}
           />
           <input type="hidden" value="1" name="embed" />
           <input
@@ -31,7 +34,9 @@ const Subscription = () => {
             type="submit"
             value="Subscribe"
             onClick={() => {
-              setStyles({ visibility: "visible" });
+              if (ref.current.checkValidity()) {
+                setStyles({ visibility: "visible" });
+              }
             }}
           />
         </form>
