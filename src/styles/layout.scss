@@ -117,8 +117,10 @@ ol {
   }
 }
 
-.hr {
+hr {
+  border: 0;
   border-top: 2px dashed $color-grey;
+  margin-top: 30px;
 }
 
 .layout .layout__content {
@@ -214,6 +216,10 @@ footer {
       font-size: 16px;
     }
   }
+}
+
+.mtop-30 {
+  margin-top: 30px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

@@ -157,10 +157,15 @@ function promiseAll(promisesArr) {
 
 ### [Demo](https://codesandbox.io/embed/promiseall-implementation-n9dlu?fontsize=14&hidenavigation=1&theme=dark)
 
-Above piece of code may not be same as how browser vendors would have implemented <b>Promise.all()</b> method, but you get the idea right how it works?
+Above piece of code may not be same as how browser vendors would have implemented <b>Promise.all()</b> method, but you get the idea right how it works?.
 
 I hope this post was useful and we all have learned something new. See you in my next post.
 
-My post will be about how to write `custom spread operator` and how it works.
+My next post will be about how to write `custom spread operator` and how it works. If you are not subscribed, subscribe below :D
 
-If you are not subscribed, subscribe below :D
+<hr />
+
+#### References:
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+- [Promise.all() TC39 specfication](https://tc39.es/ecma262/#sec-promise.all)

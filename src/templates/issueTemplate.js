@@ -28,21 +28,8 @@ export default function Template({ data, path }) {
           dangerouslySetInnerHTML={{ __html: html }}
         />
 
-        <div className="layout__footer">
-          <h4>Cheers,</h4>
-          <h4>
-            <a
-              href="https://gokul.site"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Gokul
-            </a>
-          </h4>
-        </div>
+        <hr />
 
-        <br />
-        <div className="hr" />
         <Subscription />
       </div>
     </Layout>
