@@ -11,6 +11,11 @@
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled"
     },
     {
+      "name": "Custom Spread Operator",
+      "comingSoon": true,
+      "link": ""
+    },
+    {
       "name": "Event Emitter",
       "comingSoon": true,
       "link": ""
