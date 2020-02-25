@@ -159,6 +159,8 @@ function promiseAll(promisesArr) {
 
 ### [Demo](https://codesandbox.io/embed/promiseall-implementation-n9dlu?fontsize=14&hidenavigation=1&theme=dark)
 
+### Wrapping up
+
 Above piece of code may not be same as how browser vendors would have implemented <b>Promise.all()</b> method, but you get the idea right how it works?.
 
 I hope this post was useful and we all have learned something new. See you in my next post.
