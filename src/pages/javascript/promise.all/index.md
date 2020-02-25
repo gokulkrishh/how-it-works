@@ -9,6 +9,8 @@ title: "Promise.all"
 
 Let’s say we want many promises to execute in parallel and wait until all of them are resolved. Then [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) is the right candidate which takes an array of promises and returns a new promise.
 
+Let's understand how `Promise.all` works.
+
 <b>Resolves when:</b>
 
 1. Promises which will be fulfilled after sometime (Eg: <b>API which fulfills after 10 seconds</b>)
@@ -19,12 +21,12 @@ Let’s say we want many promises to execute in parallel and wait until all of t
 
 1. If one of promise get rejected, then `Promise.all` immediately rejects, completely ignoring about the other ones on the list.
 
-We are going to see an example of how `Promise.all` works based on above points and then we will implement it.
+We are going to see an example of `Promise.all` and then we will implement it.
 
 #### Example:
 
 ```javascript
-/* A simple sleep function to sleep for certain time and then resolve it */
+/* A simple function to sleep for certain time and then resolve it */
 var sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
 
 // Async function
@@ -60,17 +62,17 @@ myPromises
 
 In the above example, `asyncFunz`, `promise2` are actual `async functions` and the rest of items in the array are a normal function, undefined, null and 1.
 
-We can understand that `Promise.all` method accepts both `async/promise` and `non-async/non-promise` functions, variables etc,.
+From above example we can understand that `Promise.all` method accepts both `async` and `non-async` items, functions, variables etc,.
 
-#### To to write our custom <b>promise.all()</b> function, we are going follow `3 steps`.
+#### To write our custom <b>promise.all()</b> function, we are going follow `3 steps`.
 
 #### Step 1:
 
-- We will create a function called <b>promiseAll</b> which accepts a parameter called `promisesArr`.
-- This function will have two variables called <b>result</b> (Type: Array) and <b>counter</b> (Type: Number).
-- `result` variable to store the result of each promise.
-- `counter` variable to keep the count of how many promises resolved so far.
-- Finally, Add `Promise` object to resolve/reject and return it (`More info on step 2`).
+- Create a function called <b>promiseAll</b> which accepts a parameter called `promisesArr`.
+- This function will have two variables: <b>result</b> (Type: Array) & <b>counter</b> (Type: Number).
+- `result` variable is to store the result of items in `promisesArr`.
+- `counter` variable to keep the count of how many items resolved so far in `promisesArr`.
+- Finally, add `Promise` object to `resolve/reject` and return it (`More info on step 2`).
 
 ```javascript
 /* Promise.all() custom function */
@@ -81,18 +83,16 @@ function promiseAll(promisesArr) {
   /* To keep track of how many promise got resolved */
   var counter = 0;
 
-  /* To resolve when all the promises are resolved else reject even if one promise is rejected */
+  /* To resolve/reject based on promisesArr items */
   return new Promise((resolve, reject) => {});
 }
 ```
 
 #### Step 2:
 
-- Now we will iterate the given <b>promisesArr</b> so that we can resolve them by attaching <b>.then</b> to each iteration.
-
-- We will use `Promise.resolve()` method to handle both `promise` & `non-promise` items. Either it will resolve immediately or wait for each item to `resolve/reject`.
-
-- We will be adding <b>.then</b> and <b>.catch</b> methods to handle once the promise `settles` in each iteration.
+- Iterate the given <b>promisesArr</b> inside `new Promise()` object so we can either catch or resolve the items at each iteration.
+- Each item from `promisesArr` is passed to `Promise.resolve()` method to handle both `promise` & `non-promise` items
+- Add <b>.then()</b> & <b>.catch()</b> chaining methods to `Promise.resolve()` method to handle when the items `settles` in each iteration.
 
 ```javascript
 function promiseAll(promisesArr) {
@@ -102,7 +102,7 @@ function promiseAll(promisesArr) {
   /* To keep track of how many promise got resolved */
   var counter = 0;
 
-  /* To resolve when all the promises are resolved else reject even if one promise is rejected */
+  /* To resolve/reject based on promisesArr items */
   return new Promise((resolve, reject) => {
     // Iterating the given promises array
     promisesArr.forEach((promise, index) => {
@@ -121,8 +121,10 @@ function promiseAll(promisesArr) {
 
 #### Step 3: (Final)
 
-- We will increment the `counter variable` and store the resolved item in `result variable` in the respective order.
-- If the `counter length` is same as <b>promisesArr</b> length, then resolve the outer promise else we reject it and return with error.
+- When the `Promise.resolve()` resolves, increment counter + 1.
+- Store the resolved item in `result` variable in the respective index. So that we can maintain the order of result.
+- If the `counter length` === <b>promisesArr</b> length, then resolve the promise.
+- If even one item in `promiseArr` is rejected, then discard result and reject the outer promise.
 
 ```javascript
 function promiseAll(promisesArr) {
@@ -132,7 +134,7 @@ function promiseAll(promisesArr) {
   /* To keep track of how many promise got resolved */
   var counter = 0;
 
-  /* To resolve when all the promises are resolved else reject even if one promise is rejected */
+  /* To resolve/reject based on promisesArr items */
   return new Promise((resolve, reject) => {
     // Iterating the given promises array
     promisesArr.forEach((promise, index) => {
