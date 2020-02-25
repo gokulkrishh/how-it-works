@@ -8,49 +8,7 @@
     margin-bottom: 30px;
   }
 
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: -30px;
-    margin-left: -20px;
-
-    .Card {
-      margin-top: 30px;
-    }
-
-    .Card {
-      margin-left: 20px;
-    }
-  }
-
   &__subscription {
-    margin-top: 250px;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-  .Javascript {
-    &__list {
-      flex-direction: column;
-
-      .Card:not(:first-child) {
-        margin-left: 0;
-        margin-top: 30px;
-      }
-    }
-  }
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .Javascript {
-    &__list {
-      flex-direction: column;
-      align-items: center;
-
-      .Card:not(:first-child) {
-        margin-left: 0;
-        margin-top: 30px;
-      }
-    }
+    margin-top: 200px;
   }
 }

@@ -18,7 +18,7 @@ const JavascriptPage = () => (
         </p>
       </div>
 
-      <div className="Javascript__list">
+      <ul className="Javascript__list">
         {list.methods.map(method => {
           return (
             <Card
@@ -30,7 +30,7 @@ const JavascriptPage = () => (
             />
           );
         })}
-      </div>
+      </ul>
       <div className="Javascript__subscription">
         <Subscription />
       </div>

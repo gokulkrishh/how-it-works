@@ -117,8 +117,10 @@ ol {
   }
 }
 
-.hr {
+hr {
+  border: 0;
   border-top: 2px dashed $color-grey;
+  margin-top: 30px;
 }
 
 .layout .layout__content {
@@ -198,7 +200,6 @@ footer {
   display: flex;
   align-items: center;
   background-color: $color-light-yellow;
-  margin-top: 30px;
 
   .footer__content {
     width: 1024px;
@@ -215,6 +216,10 @@ footer {
       font-size: 16px;
     }
   }
+}
+
+.mtop-30 {
+  margin-top: 30px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -255,10 +260,5 @@ footer {
 
   .header__menu {
     font-size: 16px;
-  }
-
-  .Subscription__container .submit-btn {
-    width: 80px !important;
-    font-size: 16px !important;
   }
 }
