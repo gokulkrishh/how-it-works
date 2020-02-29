@@ -7,7 +7,7 @@ title: "Custom Spread Operator"
 
 <br /><img src="./custom-spread-operator.png" alt="Custom Spread Operator" /><br />
 
-[Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) denoted by **…** (3 dots) in javascript basically takes an array or object or string and can **copy or expand or concat or merge** its items to an another variable.
+In javascript [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) denoted by **…** (3 dots), basically takes an array or object or string and can **copy or expand or concat or merge** its items to an another variable.
 
 And we will not be looking into [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Rest_syntax_parameters) which looks similar to spread operator but used for destructing array and objects.
 
@@ -49,11 +49,18 @@ Now we have an idea of what spread operator is and what it can and can't do. Let
 
 - We will use [Symbol.iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) to write our custom spread operator.
 
+**Custom Spread Operator**: For numbers
+
+```js
+// This is how our Custom Spread Operator will look like
+console.log([...5]); // [1, 2, 3, 4, 5]
+```
+
 Before we proceed further, let us see what is **Symbol.iterator** method.
 
 Actually its very simple:
 
-- **Symbol.iterator** let us to create a custom iterator (Eg: **for of**).
+- **Symbol.iterator** let us to create a custom iterator. (Which was not possible before ES6)
 - It uses **iterator protocol** which defines a standard way to produce a sequence of values which is either **finite** or **in-finite** and return those values **when all values** are done or generated.
 - Iterable data sources are **Array**, **Sets**, **Maps**, **Objects**, **arguments** and **DOM data structures** (Eg: **NodeList**) etc,.
 
@@ -72,42 +79,92 @@ var myCustomIterator = {
 
 Simple right? 😆
 
-In below example, we will create our **iterable function** to understand how `Symbol.iterator` it works.
+In below example, we will create a simple **iterable function** to understand more.
+
+**👉🏻 Note:** By default functions are **not iterable**.
 
 ```js
-// Simple function which will accept one parameter called `n`
-// And we will return our myCustomIterator with some more operation when we call below function
+// below is simple function which will accept one parameter called `n`
+// and it return an object with Iterable and Iterator function.
 var getMyNumbers = function(n) {
   var myCustomIterator = {
     [Symbol.iterator]: function() {
-      var i = 0;
+      var i = 0; // Statement 1
       return {
         // Below code is explained at the end of the example
         next: () => {
           return {
-            value: i++,
-            done: i === n,
+            value: i++, // Statement 3
+            done: i === n + 2, // Statement 2
           };
         },
       };
     },
   };
+
   return myCustomIterator;
 };
 
-getMyNumbers(); // returns {Symbol(Symbol.iterator): ƒ}
+getMyNumbers(); // returns a iterable function
 ```
 
-I will explain above code before proceeding to next step.
+Explanation for above code:
+
+1. Above function return an object with Iterable and Iterator function.
+1. Returned object has a method called `next()` and it in turn return an **object** with two properties called **value** & **done**.
+1. Method `next()` will be called on each iteration.
+1. Think of `value` property as **third statement** in for loop (Eg: **for (statement 1; statement 2; i++)**).
+1. Think of `done` property as **second statement** in for loop (Eg: **for (statement 1; i === n; i++)**)
+1. So we will increment initial value **i** from **0** until **n**.
+
+To make sure our `getMyNumbers()` is iterable we will use **for of** and **spread operator** loop in below example:
 
 ```js
-// Now we made a iterable function which can be iterated in for of
 for (var i of getMyNumbers(10)) {
   console.log(i); // prints from 1 to 10
 }
+
+// It works 😆
+
+// Now we can do this
+[...getMyNumbers(10)]; // prints from 1 to 10
+
+// TADA 😁
 ```
 
-In our next example, we will create our **custom spread operator** to **spread numbers** from **1 to n** without using **for of** loop.
+Cool right?
+
+Now we understood how to **make a custom function as iterable** and made our own **custom spread operator** function.
+
+Final step, we will make **getMyNumbers()** as a default feature so that we can do this `[...10]` instead of `[...getMyNumbers(10)]`.
+
+**Example**:
+
+```js
+// Adding Symbol.iterator to Number's prototype
+Number.prototype[Symbol.iterator] = function() {
+  var i = 1; // Statement 1
+  return {
+    next: () => {
+      return {
+        value: i++, // Statement 3
+        done: i === this + 2, // Statement 2
+      };
+    },
+  };
+};
+
+// Now i can do this too 🤪
+console.log([...10]); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+```
+
+### Final thoughts
+
+Thanks to **ES6** specs, we were able to write our own **custom iterator function** with **spread operator** which was not possible before. Now that we learned how powerful **Symbol.iterator** is so looking forward to know how you guy's are using it.
+
+Hit reply to my newsletter or tweet about it. Hoping we learned something new about javascript today.
+
+My next post is **how virtual DOM works**. If you are not subscribed, subscribe below :D
 
 <hr />
 

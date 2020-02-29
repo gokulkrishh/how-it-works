@@ -29,3 +29,7 @@ pre[class*="language-"] {
   font-family: "Dank Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
     monospace;
 }
+
+.gatsby-highlight pre[class*="language-"] {
+  margin: 1.5em 0;
+}
