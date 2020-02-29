@@ -7,7 +7,7 @@ title: "Custom Spread Operator"
 
 <br /><img src="./custom-spread-operator.png" alt="Custom Spread Operator" /><br />
 
-In javascript [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) denoted by **…** (3 dots), basically takes an array or object or string and can **copy or expand or concat or merge** its items to an another variable.
+In javascript [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) denoted by **…** (3 dots), basically takes an array or object or string and can **copy or expand or concat or merge** its items to another variable.
 
 And we will not be looking into [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Rest_syntax_parameters) which looks similar to spread operator but used for destructing array and objects.
 
@@ -27,7 +27,7 @@ console.log(...arr); // 1 2 3 4 5
 
 <p>First we will see its pros and cons and how it works then we will implement it.</p>
 
-Let us start with cons.
+Let us start with the cons.
 
 #### Cons:
 
@@ -38,12 +38,12 @@ Let us start with cons.
 
 #### Pros:
 
-- Can be used for shallow cloning an object if we want to copy only that object own properties.
+- It can be used for shallow cloning an object if we want to copy only that object's own properties.
 - Cleaner syntax and less code when merging or copying.
 - Can call a function or use a **Math** method without the need for **.apply** method to pass multiple parameters.
 - It can be used to convert an array like object into an actual array. (**Eg: NodeList from DOM**)
 
-Now we have an idea of what spread operator is and what it can and can't do. Lets implement it step by step.
+Now we have an idea of what spread operator is and what it can and can't do. Let's implement it step by step.
 
 #### Step 1:
 
@@ -67,7 +67,7 @@ Actually its very simple:
 **Symbol.iterator** contains two parts.
 
 1. An object whose key is **Symbol.iterator** called `Iterable`.
-1. A function for above key called `Iterator` to iterate the values passed to it.
+1. A function for the above key called `Iterator` to iterate the values passed to it.
 
 **Example**:
 
@@ -79,7 +79,7 @@ var myCustomIterator = {
 
 Simple right? 😆
 
-In below example, we will create a simple **iterable function** to understand more.
+In the below example, we will create a simple **iterable function** to understand more.
 
 **👉🏻 Note:** By default functions are **not iterable**.
 
@@ -136,7 +136,7 @@ Cool right?
 
 Now we understood how to **make a custom function as iterable** and made our own **custom spread operator** function.
 
-Final step, we will make **getMyNumbers()** as a default feature so that we can do this `[...10]` instead of `[...getMyNumbers(10)]`.
+In the final step, we will make **getMyNumbers()** as a default feature so that we can do this `[...10]` instead of `[...getMyNumbers(10)]`.
 
 **Example**:
 
@@ -160,7 +160,7 @@ console.log([...10]); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 
 ### Final thoughts
 
-Thanks to **ES6** specs, we were able to write our own **custom iterator function** with **spread operator** which was not possible before. Now that we learned how powerful **Symbol.iterator** is so looking forward to know how you guy's are using it.
+Thanks to **ES6** specs, we were able to write our own **custom iterator function** with **spread operator** which was not possible before. Now that we learned how powerful **Symbol.iterator** is so looking forward to know how you are using it.
 
 Hit reply to my newsletter or tweet about it. Hoping we learned something new about javascript today.
 
