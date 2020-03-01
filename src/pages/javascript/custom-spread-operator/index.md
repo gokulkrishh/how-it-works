@@ -164,7 +164,7 @@ Thanks to **ES6** specs, we were able to write our own **custom iterator functio
 
 Hit reply to my newsletter or tweet about it. Hoping we learned something new about javascript today.
 
-My next post is **how virtual DOM works**. If you are not subscribed, subscribe below :D
+My next post is about **how a virtual DOM works**. And if you are not subscribed, subscribe below :D
 
 <hr />
 
