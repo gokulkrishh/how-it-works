@@ -2,12 +2,12 @@
 path: "/javascript/custom-spread-operator"
 published: true
 date: "2020-03-03"
-title: "Custom Spread Operator"
+title: "Custom Spread Operator [...5]"
 ---
 
 <br /><img src="./custom-spread-operator.png" alt="Custom Spread Operator" /><br />
 
-In javascript [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) denoted by **…** (3 dots), basically takes an array or object or string and can **copy or expand or concat or merge** its items to another variable.
+In javascript, [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) is denoted by **…** (3 dots), basically it takes an array or object or string and can **copy or expand or concat or merge** its items to another variable.
 
 And we will not be looking into [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Rest_syntax_parameters) which looks similar to spread operator but used for destructing array and objects.
 
@@ -25,16 +25,16 @@ var arr = [1, 2, 3, 4, 5];
 console.log(...arr); // 1 2 3 4 5
 ```
 
-<p>First we will see its pros and cons and how it works then we will implement it.</p>
+First we will see its **pros** and **cons** and how it works then we will implement it.
 
 Let us start with the cons.
 
 #### Cons:
 
-- It can be used copying but only up to one level deep. So it is not suitable for copying multidimensional arrays.
+- It can be used for copying but **only up to one level deep**. So it is **not suitable** for **copying multidimensional arrays**.
 - It can spread only **enumerable** properties of an Object.
 - It can only be applied to [iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) objects.
-- It will work on both **Array** and **Object** data types but you cannot mix and match them.
+- It will work on both **Array** and **Object** data types but you **cannot mix and match** them.
 
 #### Pros:
 
@@ -43,26 +43,32 @@ Let us start with the cons.
 - Can call a function or use a **Math** method without the need for **.apply** method to pass multiple parameters.
 - It can be used to convert an array like object into an actual array. (**Eg: NodeList from DOM**)
 
-Now we have an idea of what spread operator is and what it can and can't do. Let's implement it step by step.
+Now we have an idea of what spread operator is and what it can and can't do. Let's implement our custom spread operator step by step.
 
 #### Step 1:
 
 - We will use [Symbol.iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) to write our custom spread operator.
+
+**Example**:
 
 **Custom Spread Operator**: For numbers
 
 ```js
 // This is how our Custom Spread Operator will look like
 console.log([...5]); // [1, 2, 3, 4, 5]
+
+// Above custom spread operator will not work now and
+// We will get the following error
+// Uncaught TypeError: number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
 ```
 
-Before we proceed further, let us see what is **Symbol.iterator** method.
+Before we implement our **custom spread operator**, we need to understand **Symbol.iterator** method first.
 
-Actually its very simple:
+#### What is Symbol.iterator?
 
-- **Symbol.iterator** let us to create a custom iterator. (Which was not possible before ES6)
-- It uses **iterator protocol** which defines a standard way to produce a sequence of values which is either **finite** or **in-finite** and return those values **when all values** are done or generated.
-- Iterable data sources are **Array**, **Sets**, **Maps**, **Objects**, **arguments** and **DOM data structures** (Eg: **NodeList**) etc,.
+1. **Symbol.iterator** let us to create a **custom iterator** function (not possible before ES6).
+1. It uses **iterator protocol** which defines a **standard way** to produce a **sequence of values** which is either **finite** or **in-finite** and return those values **when all values** are done or generated.
+1. **Iterable data sources** are **Array**, **Sets**, **Maps**, **Objects**, **arguments** and **DOM data structures** (Eg: **NodeList**) etc,.
 
 **Symbol.iterator** contains two parts.
 
@@ -84,14 +90,14 @@ In the below example, we will create a simple **iterable function** to understan
 **👉🏻 Note:** By default functions are **not iterable**.
 
 ```js
-// below is simple function which will accept one parameter called `n`
-// and it return an object with Iterable and Iterator function.
-var getMyNumbers = function(n) {
+// A simple function which will accept a parameter called `n`
+// and it return myCustomIterator.
+
+var generateNumbers = function(n) {
   var myCustomIterator = {
     [Symbol.iterator]: function() {
-      var i = 0; // Statement 1
+      var i = 1; // Statement 1
       return {
-        // Below code is explained at the end of the example
         next: () => {
           return {
             value: i++, // Statement 3
@@ -105,43 +111,41 @@ var getMyNumbers = function(n) {
   return myCustomIterator;
 };
 
-getMyNumbers(); // returns a iterable function
+generateNumbers(); // return an iterable function
 ```
 
 Explanation for above code:
 
-1. Above function return an object with Iterable and Iterator function.
-1. Returned object has a method called `next()` and it in turn return an **object** with two properties called **value** & **done**.
-1. Method `next()` will be called on each iteration.
-1. Think of `value` property as **third statement** in for loop (Eg: **for (statement 1; statement 2; i++)**).
-1. Think of `done` property as **second statement** in for loop (Eg: **for (statement 1; i === n; i++)**)
-1. So we will increment initial value **i** from **0** until **n**.
+- `generateNumbers()` function upon calling it return an object.
+- Returned object contains a method called `next()` and it in turn return an **object** with two properties called **value** & **done**.
+- Method `next()` will be called on **each iteration**.
+- Think of `value` property as **third statement** in for loop (Eg: **for (statement 1; statement 2; i++)**).
+- Think of `done` property as **second statement** in for loop (Eg: **for (statement 1; i === n + 2; i++)**)
+- So we will increment initial value **i** from **1** to **n**.
 
-To make sure our `getMyNumbers()` is iterable we will use **for of** and **spread operator** loop in below example:
+To make sure our `generateNumbers()` is iterable we will use **for of** and **spread operator** loop in below example:
 
 ```js
-for (var i of getMyNumbers(10)) {
-  console.log(i); // prints from 1 to 10
+for (var i of generateNumbers(5)) {
+  console.log(i); // prints from 1 to 5
 }
 
 // It works 😆
 
 // Now we can do this
-[...getMyNumbers(10)]; // prints from 1 to 10
+[...generateNumbers(5)]; // prints from 1 to 5
 
 // TADA 😁
 ```
 
-Cool right?
+Cool right? We made a function **iterable**.
 
-Now we understood how to **make a custom function as iterable** and made our own **custom spread operator** function.
+In our next and final step, we will make **generateNumbers()** as a default feature so that we can do this `[...5]` instead of `[...generateNumbers(5)]`.
 
-In the final step, we will make **getMyNumbers()** as a default feature so that we can do this `[...10]` instead of `[...getMyNumbers(10)]`.
-
-**Example**:
+#### Example:
 
 ```js
-// Adding Symbol.iterator to Number's prototype
+// Add Symbol.iterator to Number prototype
 Number.prototype[Symbol.iterator] = function() {
   var i = 1; // Statement 1
   return {
@@ -154,15 +158,15 @@ Number.prototype[Symbol.iterator] = function() {
   };
 };
 
-// Now i can do this too 🤪
-console.log([...10]); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+// Now I can do this 🤪
+console.log([...5]); // [1, 2, 3, 4, 5]
 ```
 
 ### Final thoughts
 
-Thanks to **ES6** specs, we were able to write our own **custom iterator function** with **spread operator** which was not possible before. Now that we learned how powerful **Symbol.iterator** is so looking forward to know how you are using it.
+Thanks to [TC39](https://tc39.es/) committee and [ES6](https://github.com/tc39/proposals) specs, we were able to write our own **custom iterator function** with **spread operator**. Now that we learned how powerful **Symbol.iterator** is so looking forward to know how you are using it by replying to my newsletter.
 
-Hit reply to my newsletter or tweet about it. Hoping we learned something new about javascript today.
+If you liked it **tweet about it**. Hoping you learned something new about javascript today.
 
 My next post is about **how a virtual DOM works**. And if you are not subscribed, subscribe below :D
 
