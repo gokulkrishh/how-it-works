@@ -164,11 +164,11 @@ console.log([...5]); // [1, 2, 3, 4, 5]
 
 ### Final thoughts
 
-Thanks to [TC39](https://tc39.es/) committee and [ES6](https://github.com/tc39/proposals) specs, we were able to write our own **custom iterator function** with **spread operator**. Now that we learned how powerful **Symbol.iterator** is so looking forward to know how you are using it by replying to my newsletter.
+Thanks to [TC39](https://tc39.es/) committee and [ES6](https://github.com/tc39/proposals) specs, we were able to write our own **custom iterator function** with **spread operator**. Would love to know how you are going to use **Symbol.iterator** now that you have learned about it.
 
-If you liked it **tweet about it**. Hoping you learned something new about javascript today.
+If you liked it **tweet** about it. Hoping you learned something new about javascript today.
 
-My next post is about **how a virtual DOM works**. And if you are not subscribed, subscribe below :D
+My next post is **how a virtual DOM works**. And if you are not subscribed, subscribe below :D
 
 <hr />
 
