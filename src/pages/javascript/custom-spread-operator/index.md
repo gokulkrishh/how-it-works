@@ -9,7 +9,7 @@ title: "Custom Spread Operator [...5]"
 
 In javascript, [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) is denoted by **…** (3 dots), basically it takes an array or object or string and can **copy or expand or concat or merge** its items to another variable.
 
-And we will not be looking into [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Rest_syntax_parameters) which looks similar to spread operator but used for destructing array and objects.
+And we will not be looking into [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Rest_syntax_parameters) which looks similar to spread operator but used for destructuring array and objects.
 
 #### Example:
 
