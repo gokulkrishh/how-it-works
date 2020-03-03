@@ -2,13 +2,11 @@
   "methods": [
     {
       "name": "Promise.all()",
-      "link": "javascript/promise.all",
-      "img": "promise.all.png"
+      "link": "javascript/promise.all"
     },
     {
-      "name": "Custom Spread Operator",
-      "comingSoon": true,
-      "link": ""
+      "name": "Custom Spread Operator [...5]",
+      "link": "javascript/custom-spread-operator"
     },
     {
       "name": "Promise.allSettled()",

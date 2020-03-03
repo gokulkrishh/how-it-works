@@ -172,4 +172,4 @@ My next post will be about how to write `custom spread operator` and how it work
 #### References:
 
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
-- [Promise.all() TC39 specfication](https://tc39.es/ecma262/#sec-promise.all)
+- [Promise.all() TC39 specification](https://tc39.es/ecma262/#sec-promise.all)

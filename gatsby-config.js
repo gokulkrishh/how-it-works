@@ -73,6 +73,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-no-sourcemaps`,
-    `gatsby-plugin-sitemap`
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.how-it-works.dev`,
+        stripQueryString: true,
+      },
+    },
   ],
 };

@@ -54,6 +54,10 @@ ol {
   color: $color-blue;
   background-color: $color-light-yellow;
 
+  .header__content-left h1 a {
+    color: $color-dark-grey;
+  }
+
   &__content {
     max-width: $grid-width;
     margin: 0 auto;
