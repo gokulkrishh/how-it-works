@@ -15,7 +15,7 @@ And we will not be looking into [rest parameters](https://developer.mozilla.org/
 
 ```js
 var str = "Hello World";
-console.log(...str); // Hello World
+console.log(...str); // H e l l o   W o r l d
 
 var obj = { name: "My Car", modelYear: "2018" };
 var obj2 = { model: "Ferrari" };
@@ -25,33 +25,29 @@ var arr = [1, 2, 3, 4, 5];
 console.log(...arr); // 1 2 3 4 5
 ```
 
-First we will see its **pros** and **cons** and how it works then we will implement it.
+First, we will see its **pros** and **cons** and how it works then we will implement it.
 
 Let us start with the cons.
 
 #### Cons:
 
-- It can be used for copying but **only up to one level deep**. So it is **not suitable** for **copying multidimensional arrays**.
-- It can spread only **enumerable** properties of an Object.
+- It can be used for copying but **only up to one level deep**. So it is **not suitable** for **multidimensional arrays and deep level objects**.
+- It can spread only **enumerable** properties of an **Object**.
 - It can only be applied to [iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) objects.
 - It will work on both **Array** and **Object** data types but you **cannot mix and match** them.
 
 #### Pros:
 
 - It can be used for shallow cloning an object if we want to copy only that object's own properties.
-- Cleaner syntax and less code when merging or copying.
-- Can call a function or use a **Math** method without the need for **.apply** method to pass multiple parameters.
-- It can be used to convert an array like object into an actual array. (**Eg: NodeList from DOM**)
+- **Cleaner syntax** and **less code** when merging or copying.
+- Can be used with a function or a **Math** method without the need for **.apply()** method to pass multiple parameters.
+- It can be used to **convert an array like object** into an **actual array**. (**Eg: NodeList from DOM**)
 
-Now we have an idea of what spread operator is and what it can and can't do. Let's implement our custom spread operator step by step.
+Now we have an idea of what spread operator is and what it can and can't do.
 
-#### Step 1:
+Let's implement our custom spread operator step by step.
 
-- We will use [Symbol.iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) to write our custom spread operator.
-
-**Example**:
-
-**Custom Spread Operator**: For numbers
+**Example: custom spread operator [...5]**
 
 ```js
 // This is how our Custom Spread Operator will look like
@@ -62,13 +58,15 @@ console.log([...5]); // [1, 2, 3, 4, 5]
 // Uncaught TypeError: number 5 is not iterable (cannot read property Symbol(Symbol.iterator))
 ```
 
-Before we implement our **custom spread operator**, we need to understand **Symbol.iterator** method first.
+#### Step 1:
+
+- We will use [Symbol.iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) to write our custom spread operator.
 
 #### What is Symbol.iterator?
 
 1. **Symbol.iterator** let us to create a **custom iterator** function (not possible before ES6).
 1. It uses **iterator protocol** which defines a **standard way** to produce a **sequence of values** which is either **finite** or **in-finite** and return those values **when all values** are done or generated.
-1. **Iterable data sources** are **Array**, **Sets**, **Maps**, **Objects**, **arguments** and **DOM data structures** (Eg: **NodeList**) etc,.
+1. Iterable **data sources** are **Array**, **Sets**, **Maps**, **Objects**, **arguments** and **DOM data structures** (Eg: **NodeList**) etc,.
 
 **Symbol.iterator** contains two parts.
 
@@ -140,7 +138,7 @@ for (var i of generateNumbers(5)) {
 
 Cool right? We made a function **iterable**.
 
-In our next and final step, we will make **generateNumbers()** as a default feature so that we can do this `[...5]` instead of `[...generateNumbers(5)]`.
+In our next and final step, we will make **generateNumbers()** as a native feature so that we can do this `[...5]` instead of `[...generateNumbers(5)]`.
 
 #### Example:
 
