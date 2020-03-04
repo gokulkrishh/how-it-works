@@ -14,6 +14,13 @@ module.exports = {
         path: `${__dirname}/src/pages/javascript/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/pages/react/`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -83,6 +90,12 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-use-dark-mode",
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `https-how-it-works-dev`,
+      },
     },
   ],
 };

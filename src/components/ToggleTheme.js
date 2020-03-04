@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useDarkMode from "use-dark-mode";
 
 function ToggleTheme() {
@@ -8,6 +8,7 @@ function ToggleTheme() {
     <div
       tabIndex="0"
       className="toggle-theme"
+      role="button"
       onClick={() => {
         darkMode.toggle();
       }}
