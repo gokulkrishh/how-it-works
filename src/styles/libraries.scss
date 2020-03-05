@@ -33,3 +33,17 @@ pre[class*="language-"] {
 .gatsby-highlight pre[class*="language-"] {
   margin: 1.5em 0;
 }
+
+@media (prefers-color-scheme: dark) {
+  .language-text {
+    background-color: $color-black !important;
+    color: $color-dull-white-dark !important;
+    padding: 0px 6px !important;
+    font-size: 16px !important;
+  }
+
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    background: #0c0c0c;
+  }
+}
