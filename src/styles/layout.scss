@@ -8,6 +8,18 @@ body {
   font-weight: 400;
 }
 
+body[data-theme="light"] {
+  .toggle-theme {
+    fill: $color-black;
+  }
+}
+
+body:not([data-theme="light"]) {
+  .toggle-theme {
+    fill: $color-white;
+  }
+}
+
 a {
   color: $color-blue;
   cursor: pointer;
@@ -50,7 +62,6 @@ ol {
 
 .header {
   height: 70px;
-  box-shadow: 0 0px 5px rgba(57, 63, 72, 0.3);
   color: $color-blue;
   background-color: $color-light-yellow;
 
@@ -268,33 +279,37 @@ footer {
 }
 
 @media (prefers-color-scheme: dark) {
-  body,
-  .layout__content,
-  main {
+  body:not([data-theme="dark"]) {
     color: $color-dull-white-dark;
     background-color: $color-primary-dark;
-  }
 
-  a {
-    color: $color-blue-dark;
-  }
-
-  .header,
-  footer {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  .header {
-    .header__content-left h1 a {
-      color: $color-dull-blue-dark;
+    .layout__content,
+    main {
+      color: $color-dull-white-dark;
+      background-color: $color-primary-dark;
     }
 
-    .header__menu a {
-      color: $color-dull-blue-dark;
+    a {
+      color: $color-blue-dark;
     }
 
-    li .header__menu--active {
-      border-color: $color-blue-dark;
+    .header,
+    footer {
+      background-color: $color-header-dark;
+    }
+
+    .header {
+      .header__content-left h1 a {
+        color: $color-dull-blue-dark;
+      }
+
+      .header__menu a {
+        color: $color-dull-blue-dark;
+      }
+
+      li .header__menu--active {
+        border-color: $color-blue-dark;
+      }
     }
   }
 }

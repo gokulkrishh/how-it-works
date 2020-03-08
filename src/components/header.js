@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
-import ToggleSwitch from "./Switch";
+import ToggleTheme from "./ToggleTheme";
 
 const Header = ({ siteTitle }) => (
   <header className="header">
@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => (
             </Link>
           </li>
         </ul>
-        <ToggleSwitch />
+        <ToggleTheme />
       </div>
     </div>
   </header>
