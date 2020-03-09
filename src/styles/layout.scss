@@ -279,7 +279,7 @@ footer {
 }
 
 @media (prefers-color-scheme: dark) {
-  body:not([data-theme="dark"]) {
+  body[data-theme="dark"] {
     color: $color-dull-white-dark;
     background-color: $color-primary-dark;
 

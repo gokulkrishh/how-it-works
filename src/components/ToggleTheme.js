@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 
 function ToggleTheme() {
-  const themeName = window.localStorage.getItem("theme") || "";
+  const preferredTheme = window.localStorage.getItem("theme");
+  const themeName = preferredTheme
+    ? preferredTheme
+    : window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "";
+
   const [theme, setTheme] = useState(themeName);
 
-  console.log("themeName ---------->", themeName);
-
-  function setMode(theme = "light") {
+  function setMode(theme = "") {
     window.localStorage.setItem("theme", theme);
     setTheme(theme);
     document.body.setAttribute("data-theme", theme);
@@ -25,11 +30,10 @@ function ToggleTheme() {
 
     const darkModeHandler = e => {
       const darkModeOn = e.matches;
-      console.log("darkModeOn --->", darkModeOn);
       if (darkModeOn) {
         setMode("dark");
       } else {
-        setMode();
+        setMode("light");
       }
     };
 
@@ -40,17 +44,22 @@ function ToggleTheme() {
     };
   }, []);
 
-  console.log("theme ---------->", theme);
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setMode("dark");
+    } else if (theme === "dark") {
+      setMode("light");
+    }
+  };
 
   return (
     <div
       tabIndex="0"
       className="toggle-theme"
-      onClick={() => {
-        if (theme === "light") {
-          setMode("dark");
-        } else if (theme === "dark") {
-          setMode();
+      onClick={toggleTheme}
+      onKeyPress={event => {
+        if (event.key === "Enter") {
+          toggleTheme();
         }
       }}
     >

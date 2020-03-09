@@ -35,12 +35,19 @@ pre[class*="language-"] {
 }
 
 @media (prefers-color-scheme: dark) {
-  body:not([data-theme="light"]) {
+  body[data-theme="dark"] {
     .language-text {
       background-color: $color-black !important;
       color: $color-dull-white-dark !important;
       padding: 0px 6px !important;
       font-size: 16px !important;
+    }
+
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+      color: $color-dull-violet;
     }
 
     :not(pre) > code[class*="language-"],
