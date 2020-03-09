@@ -81,5 +81,8 @@ module.exports = {
         stripQueryString: true,
       },
     },
+    {
+      resolve: "gatsby-plugin-use-dark-mode",
+    },
   ],
 };

@@ -13,7 +13,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.18s cubic-bezier(0.55, 0.025, 0.455, 0.98);
-  border-bottom: 1px solid $color-blue;
+  border-bottom: 1px solid;
   font-weight: 500;
 }
 
@@ -50,7 +50,6 @@ ol {
 
 .header {
   height: 70px;
-  box-shadow: 0 0px 5px rgba(57, 63, 72, 0.3);
   color: $color-blue;
   background-color: $color-light-yellow;
 
@@ -264,5 +263,43 @@ footer {
 
   .header__menu {
     font-size: 16px;
+  }
+}
+
+body.dark-mode {
+  color: $color-dull-white-dark;
+  background-color: $color-primary-dark;
+
+  .toggle-theme {
+    fill: $color-white;
+  }
+
+  .layout__content,
+  main {
+    color: $color-dull-white-dark;
+    background-color: $color-primary-dark;
+  }
+
+  a {
+    color: $color-blue-dark;
+  }
+
+  .header,
+  footer {
+    background-color: $color-header-dark;
+  }
+
+  .header {
+    .header__content-left h1 a {
+      color: $color-dull-blue-dark;
+    }
+
+    .header__menu a {
+      color: $color-dull-blue-dark;
+    }
+
+    li .header__menu--active {
+      border-color: $color-blue-dark;
+    }
   }
 }
