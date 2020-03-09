@@ -111,14 +111,12 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body[data-theme="dark"] {
-    .Subscription__container h4 {
-      color: $color-dull-blue-dark;
-    }
+body.dark-mode {
+  .Subscription__container h4 {
+    color: $color-dull-blue-dark;
+  }
 
-    .Subscription__container .Subscription__content {
-      background-color: $color-dull-white;
-    }
+  .Subscription__container .Subscription__content {
+    background-color: $color-dull-white;
   }
 }

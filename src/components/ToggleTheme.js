@@ -1,66 +1,18 @@
 import React, { useState, useEffect } from "react";
+import useDarkMode from "use-dark-mode";
 
 function ToggleTheme() {
-  const preferredTheme = window.localStorage.getItem("theme");
-  const themeName = preferredTheme
-    ? preferredTheme
-    : window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "";
-
-  const [theme, setTheme] = useState(themeName);
-
-  function setMode(theme = "") {
-    window.localStorage.setItem("theme", theme);
-    setTheme(theme);
-    document.body.setAttribute("data-theme", theme);
-  }
-
-  useEffect(() => {
-    if (themeName === "light") {
-      setMode("light");
-    } else if (themeName === "dark") {
-      setMode("dark");
-    }
-
-    const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-
-    const darkModeHandler = e => {
-      const darkModeOn = e.matches;
-      if (darkModeOn) {
-        setMode("dark");
-      } else {
-        setMode("light");
-      }
-    };
-
-    darkModeMediaQuery.addEventListener("change", darkModeHandler);
-
-    return () => {
-      darkModeMediaQuery.removeEventListener("change", darkModeHandler);
-    };
-  }, []);
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setMode("dark");
-    } else if (theme === "dark") {
-      setMode("light");
-    }
-  };
+  const darkMode = useDarkMode(false);
 
   return (
     <div
       tabIndex="0"
       className="toggle-theme"
-      onClick={toggleTheme}
-      onKeyPress={event => {
-        if (event.key === "Enter") {
-          toggleTheme();
-        }
+      onClick={() => {
+        darkMode.toggle();
+      }}
+      onKeyPress={() => {
+        darkMode.toggle();
       }}
     >
       <svg aria-hidden="true" className="svg-icon" width="24" height="24">
