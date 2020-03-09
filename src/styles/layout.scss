@@ -14,7 +14,7 @@ body[data-theme="light"] {
   }
 }
 
-body:not([data-theme="light"]) {
+body[data-theme="dark"] {
   .toggle-theme {
     fill: $color-white;
   }
