@@ -1,10 +1,9 @@
 {
   "methods": [
     {
-      "name": "virtual DOM",
+      "name": "Virtual DOM",
       "description": "Coming Soon!",
-      "link": "react/virtual-dom",
-      "comingSoon": true
+      "link": "react/virtual-dom"
     },
     {
       "name": "redux",

@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import { Disqus } from "gatsby-plugin-disqus";
 
 import Layout from "../components/layout";
 import Subscription from "../components/subscription";
@@ -11,6 +12,8 @@ export default function Template({ data, path }) {
   const { published, date, title } = frontmatter;
 
   if (!published) return null;
+
+  let disqusConfig = {};
 
   return (
     <Layout>
@@ -31,6 +34,7 @@ export default function Template({ data, path }) {
         <hr />
 
         <Subscription />
+        <Disqus config={disqusConfig} />
       </div>
     </Layout>
   );
