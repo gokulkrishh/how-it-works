@@ -9,19 +9,19 @@ title: "Virtual DOM"
 
 ### What is Virtual DOM?
 
-Virtual DOM otherwise known as **VDOM**, is a virtual representation of **actual [DOM](https://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/introduction.html) (Document Object Model)** in the browser which is kept in **memory and synced** with actual DOM.
+Virtual DOM otherwise known as **VDOM**, is a **virtual representation** of actual [DOM](https://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/introduction.html) (Document Object Model) in the browser. VDOM is kept in **memory** and **synced** with actual DOM.
 
-Before getting into coding, lets see some advantages and dis-advantages.ow
+Before getting into coding, let's see some advantages and disadvantages.
 
 **Advantages:**
 
 - VDOM is useful when we want to **update the DOM** with **minimal operations**.
-- Provides a **greater performance** compared to accessing **actual DOM** and updating it **frequently**.
+- Provides **great performance** over actual DOM when **accessing** and **updating** nodes **frequently**.
 
 **Dis-Advantages:**
 
 - Have to **keep track of changes** happening throughout the application.
-- More memory if not efficiently handled.
+- Takes **more memory** if not **efficiently** handled.
 
 **👉🏻Note**: [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) and [Virtual DOM](https://reactjs.org/docs/faq-internals.html) are not the same.
 
@@ -31,9 +31,9 @@ Before getting into coding, lets see some advantages and dis-advantages.ow
 - [PreactJS](https://reactjs.org/)
 - [VueJS](https://vuejs.org/)
 
-We will not be looking it to any of the above libraries and how they use their **VDOM inside**. This post is about **how a virtual DOM works** (More of a simplified version).
+We will not look into any of the above libraries and their **VDOM implementations**. This post is about how a virtual DOM works (**More of a simplified version**).
 
-So we will write our own little VDOM and understand from it.
+First lets see an example of HTML representation.
 
 #### Example: index.html
 
@@ -142,7 +142,7 @@ console.log(tree); // Result is below
 
 #### Step 2: Diff changes
 
-To compare changes in VDOM, we need a **diffing algorithm**. So we will take basic principles of react [reconciliation](https://reactjs.org/docs/reconciliation.html) diffing algorithm.
+To compare changes in VDOM, we need a **diffing algorithm**. For that, we will take basic principles of react [reconciliation](https://reactjs.org/docs/reconciliation.html) diffing algorithm.
 
 React implements a heuristic O(n) algorithm based on the following assumptions.
 
@@ -179,7 +179,7 @@ function diff(oldTree, newTree) {
     return oldTree;
   }
 
-  // If old & new tree is of type string then its a next node so return new tree
+  // If old & new tree is of type string, then it's a next node so return new tree
   if (typeof oldTree === "string" && typeof newTree === "string") {
     return newTree;
   }
@@ -335,7 +335,7 @@ console.log(updatedTree); // Result is below
 */
 ```
 
-The above code is a little big, but I have commented in each and every line for better understand, so I will skip explaining it.
+The above code is a little big, but I have commented on each and every line to understand better. So, I will skip explaining it.
 
 #### Step 3: Render the VDOM tree in DOM
 
@@ -365,11 +365,11 @@ render(tree, document.body); // render's the HTML in DOM
 
 #### Summing up
 
-I tried my best to explain **how a virtual DOM works**. The implementation I did might not be how libraries like **preact**, **react** would have implemented and definitely it will be **far better** and **more performant** in nature. But you get the idea right. How a virtual DOM works?
+I tried my best to explain **how a virtual DOM works**. The implementation might not be like **preact**, **react** would have implemented and theirs will be **far better** and **more performant** in nature. But you get the idea right. How a virtual DOM works?
 
 For the sake of this post, I have left our lot of implementation, hope this post was helpful in understanding **little more** about **virtual dom**.
 
-By the way [Jason Miller](https://github.com/developit) creator of **preact** has created a tiny **480Byte** [VDOM library](https://gist.github.com/developit/2038b141b31287faa663f410b6649a87). Check it out.
+By the way [Jason Miller](https://github.com/developit), creator of **preact** has created a tiny **480Byte** [VDOM library](https://gist.github.com/developit/2038b141b31287faa663f410b6649a87). Check it out.
 
 Thanks for reading it so far 😁. My next post will be about **Promise.allSettled()**. See you next Tuesday :)
 
