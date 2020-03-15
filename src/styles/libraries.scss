@@ -2,6 +2,9 @@
 @import "./prism-dracula.css";
 
 .gatsby-highlight {
+  position: relative;
+  font-variant-ligatures: none;
+
   .line-numbers {
     padding-left: 50px !important;
     padding-bottom: 0 !important;
@@ -11,35 +14,53 @@
   .line-numbers-rows {
     padding-left: 10px !important;
   }
+
+  &::before {
+    font-size: 0.75rem;
+    font-family: Menlo, Monaco, Consolas, monospace;
+    letter-spacing: 0.075em;
+    line-height: 1;
+    position: absolute;
+    right: 1rem;
+    text-align: right;
+    text-transform: uppercase;
+    top: 0px;
+    border-radius: 0px 0px 4px 4px;
+    padding: 0.25rem 0.5rem;
+    content: attr(data-language);
+    display: inline-block;
+    font-weight: bold;
+    background-color: $color-white;
+    color: $color-code-dark;
+  }
+}
+
+[data-language="js"]::before {
+  background-color: #ffeb3b;
+  color: #000;
 }
 
 .language-text {
-  background: #fff !important;
+  background: $color-dull-grey !important;
   color: inherit !important;
   font-weight: 600 !important;
   font-family: inherit !important;
-  padding: 1px !important;
+  padding: 0px 6px !important;
   display: inline-block;
   border-radius: 3px !important;
   text-shadow: none !important;
+  font-size: 16px !important;
 }
 
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: "Dank Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
-    monospace;
-}
-
-.gatsby-highlight pre[class*="language-"] {
-  margin: 1.5em 0;
+  font-family: "Dank Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
 body.dark-mode {
   .language-text {
     background-color: $color-black !important;
     color: $color-dull-white-dark !important;
-    padding: 0px 6px !important;
-    font-size: 16px !important;
   }
 
   .token.comment,
