@@ -36,10 +36,12 @@ var APICall2 = fetch("https://reqres.in/api/users?page=2");
 Promise.allSettled([APICall1, APICall2]).then(results => {
   results.forEach(result => {
     console.log(result); // Result is below
-    // {status: "fulfilled", value: Response}
-    // {status: "fulfilled", value: Response}
   });
 });
+
+// Log:
+// {status: "fulfilled", value: Response}
+// {status: "fulfilled", value: Response}
 ```
 
 Below is a simplified version of **TC39 specs** to understand its implementation details.
@@ -80,6 +82,8 @@ isIterable(""); // true
 ```
 
 Now that we have a way to tell if the **arguments** passed to our custom all settled function is **iterable** or **not**. Next step is to wrap our iteration (forEach) with `new Promise()` object. So that when all our inputs are settled, we can return the results.
+
+Implementation is quite similar to [Promise.all()](https://www.how-it-works.dev/javascript/promise.all) we did few weeks back with few exceptions.
 
 #### Code:
 
