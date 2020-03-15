@@ -18,14 +18,14 @@ title: "Promise.allSettled"
 
 #### Difference between `Promise.all` & `Promise.allSettled`
 
-- `Promise.all` will reject as soon as one of the item in the input is rejected.
+- `Promise.all` will reject as soon as one of the items in the input is rejected.
 - `Promise.allSettled` will never reject and will wait until all inputs are settled.
 
 **Use cases**:
 
 - Make several API's and wait until all of them are settled 🤔.
 
-I am not so sure of many use-cases. But we want to know how it works right. In below example, we will see how it works first and then we will implement it.
+I am not so sure of many use-cases. But we want to know how it works right. In the below example, we will see how it works first and then we will implement it.
 
 #### Example:
 
@@ -49,7 +49,7 @@ Below is a simplified version of **TC39 specs** to understand its implementation
 1. Accepts `iterable` object as a parameter.
 1. If `not iterable`, `throw` an `exception` with an error message.
 1. `Results array` to keep the results.
-1. Iterate the parameter if its `iterable`.
+1. Iterate the parameter if it is iterable`.
 1. Wait for all promises to either get `resolved`/`rejected`.
 1. Return the `results`.
 
@@ -79,7 +79,7 @@ isIterable(""); // true
 // String, Array, TypedArray, Map & Set are all built-in iterables
 ```
 
-Now that we have a way to tell if the **arguments** passed to our custom allSettled function is **iterable** or **not**. Next step is to wrap our iteration (forEach) with `new Promise()` object. So that when all our inputs are settled, we can return the results.
+Now that we have a way to tell if the **arguments** passed to our custom all settled function is **iterable** or **not**. Next step is to wrap our iteration (forEach) with `new Promise()` object. So that when all our inputs are settled, we can return the results.
 
 #### Code:
 
@@ -97,7 +97,7 @@ function isAllPromiseSettled(promises) {
     throw new Error(`${typeof promises} is not iterable`);
   }
 
-  // Wrapping our iteration with  Promise object
+  // Wrapping our iteration with Promise object
   // So that we can resolve and return the results on done.
   return new Promise(resolve => {
     // Iterate the inputs
@@ -134,20 +134,20 @@ function isAllPromiseSettled(promises) {
 ### Demo:
 
 <iframe
-     src="https://codesandbox.io/embed/funny-poitras-n174r?autoresize=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Promise.allSettled"
-     allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-     sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-   ></iframe>
+ src="https://codesandbox.io/embed/funny-poitras-n174r?autoresize=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark"
+ style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+ title="Promise.allSettled"
+ allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+ sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+ ></iframe>
 
 ### Conclusion
 
-Yep we did it. We learned what is `Promise.allSettled()` and implemented it. If you want to use it today, the browser support for **allSettled** is pretty much available in all modern browsers.
+Yep, we did it. We learned what is `Promise.allSettled()` and implemented it. If you want to use it today, the browser support for **all settled** is pretty much available in all modern browsers.
 
 The implementation above might not be how it is implemented in the browsers but you get the idea right how it works!
 
-Thanks for reading till the end 😬. My next post is about `Event Emitters` (Pub/Sub). If your not subscribed, subscribe below. See you next Tuesday ;)
+Thanks for reading till the end 😬. My next post is about `Event Emitters` (Pub/Sub). If you are not subscribed, subscribe below. See you next Tuesday ;)
 
 <hr />
 
