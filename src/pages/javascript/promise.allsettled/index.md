@@ -1,7 +1,7 @@
 ---
 path: "/javascript/promise.allSettled"
 published: true
-date: "2020-03-15"
+date: "2020-03-17"
 title: "Promise.allSettled"
 ---
 
