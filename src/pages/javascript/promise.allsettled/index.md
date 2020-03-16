@@ -26,7 +26,7 @@ description: "Promise.allSettled returns a promise when all inputs are settled t
 
 - Make several API's and wait until all of them are settled 🤔.
 
-I am not so sure of many use-cases. But we want to know how it works right. In the below example, we will see how it works first and then we will implement it.
+I am not so sure of many use-cases. But we will see how it works first and then we will implement it.
 
 #### Example:
 
@@ -148,9 +148,9 @@ function isAllPromiseSettled(promises) {
 
 ### Conclusion
 
-Yep, we did it. We learned what is `Promise.allSettled()` and implemented it. If you want to use it today, the browser support for **all settled** is pretty much available in all modern browsers.
+Yep, we did it. We learned what is `Promise.allSettled()` and implemented it. If you want to use it today, the browser support is pretty much available in all modern browsers.
 
-The implementation above might not be how it is implemented in the browsers but you get the idea right how it works!
+The code we implemented above might not be its actual implementation in the browsers, but you get the idea right how it works!
 
 Thanks for reading till the end 😬. My next post is about `Event Emitters` (Pub/Sub). If you are not subscribed, subscribe below. See you next Tuesday ;)
 
