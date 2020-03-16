@@ -1,16 +1,14 @@
 import React from "react";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
 import Card from "../components/card";
 import list from "./react/list";
 import Subscription from "../components/subscription";
 
-const ReactPage = () => (
+const ReactPage = ({ data }) => (
   <Layout>
     <div className="Javascript">
       <div className="Javascript__content">
-        <SEO title="React" />
         <h2>React</h2>
         <p>
           For learning and understanding React, Redux better and to know what
