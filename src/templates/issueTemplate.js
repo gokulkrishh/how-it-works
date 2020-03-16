@@ -12,8 +12,6 @@ export default function Template({ data, path }) {
 
   const { published, date, title, description } = frontmatter;
 
-  console.log("description --->", description);
-
   if (!published) return null;
 
   let disqusConfig = {};
@@ -23,7 +21,7 @@ export default function Template({ data, path }) {
 
   return (
     <Layout>
-      <SEO title={title} description={description} slug={slug} />
+      <SEO title={title} description={description} slug={slug.toLowerCase()} />
       <div className="issues">
         <Link to={`/${path.split("/")[1]}`} className="issues__preview-back">
           ← Go back

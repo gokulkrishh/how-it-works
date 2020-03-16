@@ -9,7 +9,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 
-import SEO from "./seo";
 import Header from "./header";
 import "../styles/index.scss";
 
