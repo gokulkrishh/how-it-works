@@ -48,14 +48,14 @@ Below is a simplified version of **TC39 specs** to understand its implementation
 
 [Promise.allSettled()](https://tc39.es/proposal-promise-allSettled/#sec-performpromiseallsettled) specification says
 
-1. Accepts `iterable` object as a parameter.
+1. Accepts `iterable` object as a argument.
 1. If `not iterable`, `throw` an `exception` with an error message.
-1. `Results array` to keep the results.
-1. Iterate the parameter if it is iterable`.
+1. Iterate the argument if it is `iterable`.
+1. Keep the `results` in an array.
 1. Wait for all promises to either get `resolved`/`rejected`.
 1. Return the `results`.
 
-We will write a function to find out if the passed value is `iterable` or not.
+First, we will write a function to find out if the passed value is `iterable` or not.
 
 After going through [the iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) protocol from MDN, I understood we can use [Symbol.iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) to find out.
 
@@ -81,9 +81,9 @@ isIterable(""); // true
 // String, Array, TypedArray, Map & Set are all built-in iterables
 ```
 
-Now that we have a way to tell if the **arguments** passed to our custom all settled function is **iterable** or **not**. Next step is to wrap our iteration (forEach) with `new Promise()` object. So that when all our inputs are settled, we can return the results.
+Next step is to wrap our iteration (forEach) with `new Promise()` object. So that when all our inputs are settled, we can return the results with **status** and **value/reasons**.
 
-Implementation is quite similar to [Promise.all()](https://www.how-it-works.dev/javascript/promise.all) we did few weeks back with few exceptions.
+Implementation is quite similar to [Promise.all()](https://www.how-it-works.dev/javascript/promise.all) we did few weeks back with few changes.
 
 #### Code:
 
