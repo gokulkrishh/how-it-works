@@ -32,8 +32,6 @@ const Layout = ({ children }) => {
   const slugArr = data.markdownRemark.frontmatter.path.split("/");
   const slug = slugArr[slugArr.length - 1] || "";
 
-  console.log("title ---------->", data.site.siteMetadata.title);
-
   return (
     <>
       <SEO title={data.site.siteMetadata.title} slug={slug.toLowerCase()} />

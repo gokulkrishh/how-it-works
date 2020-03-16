@@ -28,8 +28,6 @@ function SEO({ description, lang, meta, slug, title }) {
 
   const metaDescription = description || site.siteMetadata.description;
 
-  console.log("slug ---------------->", slug);
-
   return (
     <Helmet
       htmlAttributes={{
