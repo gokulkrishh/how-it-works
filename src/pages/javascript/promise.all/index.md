@@ -3,6 +3,7 @@ path: "/javascript/promise.all"
 published: true
 date: "2020-02-25"
 title: "Promise.all"
+description: "Say we want many promises to execute in parallel and wait until all of them are resolved. Then Promise.all() is our candidate."
 ---
 
 <br /><img src="./promise.all.png" alt="Promise.all" /><br />
@@ -42,10 +43,19 @@ var promise2 = fetch(`https://reqres.in/api/user/1`).then(res => res.json());
 var sum = (a, b) => a + b;
 
 /* Adding above methods and some more to Promise.all method */
-var myPromises = Promise.all([asyncFunz(), promise2, sum(1, 2), undefined, null, 1]);
+var myPromises = Promise.all([
+  asyncFunz(),
+  promise2,
+  sum(1, 2),
+  undefined,
+  null,
+  1,
+]);
 
 /* Attaching .then, .catch methods to handle Promise.all */
-myPromises.then(res => console.log("resolved: ", res)).catch(err => console.log("rejected: ", err));
+myPromises
+  .then(res => console.log("resolved: ", res))
+  .catch(err => console.log("rejected: ", err));
 
 // Above Promise.all resolves and log the result (Below line for result)
 // resolved: ["Executed after 2 seconds", {data: {...}}, 3, undefined, null, 1]

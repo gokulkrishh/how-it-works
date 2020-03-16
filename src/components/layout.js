@@ -21,21 +21,12 @@ const Layout = ({ children }) => {
           title
         }
       }
-      markdownRemark {
-        frontmatter {
-          path
-        }
-      }
     }
   `);
 
-  const slugArr = data.markdownRemark.frontmatter.path.split("/");
-  const slug = slugArr[slugArr.length - 1] || "";
-
   return (
     <>
-      <SEO title={data.site.siteMetadata.title} slug={slug.toLowerCase()} />
-      <Header siteTitle={data.site.siteMetadata.title} slug={""} />
+      <Header siteTitle={data.site.siteMetadata.title} />
       <div className="layout">
         <main>
           <div className="layout__content">{children}</div>

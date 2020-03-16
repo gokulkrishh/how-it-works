@@ -1,14 +1,19 @@
 import React from "react";
 
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 import Subscription from "../components/subscription";
 import CoffeeImg from "./coffee.jpeg";
 
 const IndexPage = () => {
   return (
     <Layout>
+      <SEO
+        title="How it works"
+        description="Learn how it works in javascript."
+        slug={""}
+      />
       <h2>Hi people!</h2>
-
       <p>
         Welcome to how it works. Let me first start with why I created this
         site.
