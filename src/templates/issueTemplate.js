@@ -3,20 +3,27 @@ import { graphql, Link } from "gatsby";
 import { Disqus } from "gatsby-plugin-disqus";
 
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 import Subscription from "../components/subscription";
 
 export default function Template({ data, path }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
 
-  const { published, date, title } = frontmatter;
+  const { published, date, title, description } = frontmatter;
+
+  console.log("description --->", description);
 
   if (!published) return null;
 
   let disqusConfig = {};
 
+  const slugArr = path.split("/");
+  const slug = slugArr[slugArr.length - 1] || "";
+
   return (
     <Layout>
+      <SEO title={title} description={description} slug={slug} />
       <div className="issues">
         <Link to={`/${path.split("/")[1]}`} className="issues__preview-back">
           ← Go back
@@ -49,6 +56,7 @@ export const pageQuery = graphql`
         path
         published
         title
+        description
       }
     }
   }

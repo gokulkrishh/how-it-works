@@ -3,6 +3,7 @@ path: "/react/virtual-dom"
 published: true
 date: "2020-03-10"
 title: "Virtual DOM"
+description: "Virtual DOM otherwise known as VDOM, is a virtual representation of actual DOM (Document Object Model) in the browser."
 ---
 
 <br /><img src="./virtual-dom.png" alt="Virtual DOM" /><br />
