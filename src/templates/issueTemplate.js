@@ -6,7 +6,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subscription from "../components/subscription";
 
-export default function Template({ data, path }) {
+export default function Template({ location, data, path }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
 
@@ -16,12 +16,12 @@ export default function Template({ data, path }) {
 
   let disqusConfig = {};
 
-  const slugArr = path.split("/");
-  const slug = slugArr[slugArr.length - 1] || "";
+  const slugArr = location.pathname.split("/");
+  const slug = slugArr[slugArr.length - 1].toLowerCase();
 
   return (
     <Layout>
-      <SEO title={title} description={description} slug={slug.toLowerCase()} />
+      <SEO title={title} description={description} slug={slug} />
       <div className="issues">
         <Link to={`/${path.split("/")[1]}`} className="issues__preview-back">
           ← Go back

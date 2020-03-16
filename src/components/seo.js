@@ -19,7 +19,6 @@ function SEO(props) {
           siteMetadata {
             siteUrl
             title
-            description
             author
           }
         }
