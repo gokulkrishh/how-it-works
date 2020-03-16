@@ -1,14 +1,12 @@
 import React from "react";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
 import Card from "../components/card";
 import list from "./javascript/list";
 import Subscription from "../components/subscription";
 
-const JavascriptPage = () => (
+const JavascriptPage = ({ data }) => (
   <Layout>
-    <SEO title="Javascript" />
     <div className="Javascript">
       <div className="Javascript__content">
         <h2>Javascript</h2>

@@ -11,7 +11,7 @@
     {
       "name": "Promise.allSettled()",
       "comingSoon": true,
-      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled"
+      "link": "javascript/promise.allSettled"
     },
     {
       "name": "Event Emitter",

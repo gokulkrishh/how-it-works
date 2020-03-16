@@ -3,7 +3,7 @@ module.exports = {
     title: `How it works`,
     description: `Learn how it works in javascript.`,
     author: `@gokulkrishh`,
-    siteUrl: `https://www.how-it-works.dev`,
+    siteUrl: `https://how-it-works.dev`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -51,6 +51,7 @@ module.exports = {
         gfm: true,
         // Plugins configs
         plugins: [
+          `gatsby-remark-social-cards`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

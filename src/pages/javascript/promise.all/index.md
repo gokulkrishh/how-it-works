@@ -25,7 +25,7 @@ We are going to see an example of `Promise.all` and then we will implement it.
 
 #### Example:
 
-```javascript
+```js
 /* A simple function to sleep for certain time and then resolve it */
 var sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
 
@@ -42,19 +42,10 @@ var promise2 = fetch(`https://reqres.in/api/user/1`).then(res => res.json());
 var sum = (a, b) => a + b;
 
 /* Adding above methods and some more to Promise.all method */
-var myPromises = Promise.all([
-  asyncFunz(),
-  promise2,
-  sum(1, 2),
-  undefined,
-  null,
-  1,
-]);
+var myPromises = Promise.all([asyncFunz(), promise2, sum(1, 2), undefined, null, 1]);
 
 /* Attaching .then, .catch methods to handle Promise.all */
-myPromises
-  .then(res => console.log("resolved: ", res))
-  .catch(err => console.log("rejected: ", err));
+myPromises.then(res => console.log("resolved: ", res)).catch(err => console.log("rejected: ", err));
 
 // Above Promise.all resolves and log the result (Below line for result)
 // resolved: ["Executed after 2 seconds", {data: {...}}, 3, undefined, null, 1]
@@ -74,7 +65,7 @@ From above example we can understand that `Promise.all` method accepts both `asy
 - `counter` variable to keep the count of how many items resolved so far in `promisesArr`.
 - Finally, add `Promise` object to `resolve/reject` and return it (`More info on step 2`).
 
-```javascript
+```js
 /* Promise.all() custom function */
 function promiseAll(promisesArr) {
   /* To keep the result of resolved promises */
@@ -94,7 +85,7 @@ function promiseAll(promisesArr) {
 - Each item from `promisesArr` is passed to `Promise.resolve()` method to handle both `promise` & `non-promise` items
 - Add <b>.then()</b> & <b>.catch()</b> chaining methods to `Promise.resolve()` method to handle when the items `settles` in each iteration.
 
-```javascript
+```js
 function promiseAll(promisesArr) {
   /* To keep the result of resolved promises */
   var result = Array(promisesArr.length);
@@ -126,7 +117,7 @@ function promiseAll(promisesArr) {
 - If the `counter length` === <b>promisesArr</b> length, then resolve the promise.
 - If even one item in `promiseArr` is rejected, then discard result and reject the outer promise.
 
-```javascript
+```js
 function promiseAll(promisesArr) {
   /* To keep the result of resolved promises */
   var result = Array(promisesArr.length);
