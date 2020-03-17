@@ -13,8 +13,8 @@ description: "Promise.allSettled() returns a promise when all inputs are `settle
 ### 👉🏻 Points to remember:
 
 - Returns a promise that contains an **array of results**.
-- Each **result object** will have **two properties** (**status** & **reason or value**).
-- **status** with value either **fulfilled** or **rejected**.
+- Each **result object** will have **two properties** (**status** & **reason/value**).
+- **status** will be either **fulfilled** or **rejected**.
 - **value** if **fulfilled** or a **reason** if **rejected**.
 
 #### Difference between `Promise.all` & `Promise.allSettled`
@@ -24,9 +24,9 @@ description: "Promise.allSettled() returns a promise when all inputs are `settle
 
 **Use cases**:
 
-- Make several API's and wait until all of them are settled 🤔.
+- Make several APIs and wait until all of them are settled 🤔.
 
-I am not so sure of many use-cases. But we want to know how it works right. In the below example, we will see how it works first and then we will implement it.
+I am not so sure of many use-cases. But, we want to know how it works right. In the below example, first, we will see how it works and then will implement it.
 
 #### Example:
 
@@ -49,7 +49,7 @@ Below is a simplified version of **TC39 specs** to understand its implementation
 
 [Promise.allSettled()](https://tc39.es/proposal-promise-allSettled/#sec-performpromiseallsettled) specification says
 
-1. Accepts `iterable` object as a argument.
+1. Accepts `iterable` object as an argument.
 1. If `not iterable`, `throw` an `exception` with an error message.
 1. Iterate the argument if it is `iterable`.
 1. Keep the `results` in an array.
@@ -59,6 +59,10 @@ Below is a simplified version of **TC39 specs** to understand its implementation
 First, we will write a function to find out if the passed value is `iterable` or not.
 
 After going through [the iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) protocol from MDN, I understood we can use [Symbol.iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) to find out.
+
+// I think better sentence should be:
+
+We can use [Symbol.iterator] to find it out. Read more about [the iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) here.
 
 #### Code:
 
@@ -84,7 +88,7 @@ isIterable(""); // true
 
 Next step is to wrap our iteration (forEach) with `new Promise()` object. So that when all our inputs are settled, we can return the results with **status** and **value/reasons**.
 
-Implementation is quite similar to [Promise.all()](https://www.how-it-works.dev/javascript/promise.all) we did few weeks back with few changes.
+Implementation is quite similar to [Promise.all()](https://www.how-it-works.dev/javascript/promise.all) with a few changes.
 
 #### Code:
 
@@ -151,6 +155,8 @@ function isAllPromiseSettled(promises) {
 Yep, we did it. We learned what is `Promise.allSettled()` and implemented it. If you want to use it today, the browser support for **all settled** is pretty much available in all modern browsers.
 
 The implementation above might not be how it is implemented in the browsers but you get the idea right how it works!
+// how about the below one ?
+The browser implementation might be different than ours. Nevertheless, you get the idea, right? 
 
 Thanks for reading till the end 😬. My next post is about `Event Emitters` (Pub/Sub). If you are not subscribed, subscribe below. See you next Tuesday ;)
 
