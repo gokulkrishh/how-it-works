@@ -10,7 +10,6 @@
     },
     {
       "name": "Promise.allSettled()",
-      "comingSoon": true,
       "link": "javascript/promise.allSettled"
     },
     {

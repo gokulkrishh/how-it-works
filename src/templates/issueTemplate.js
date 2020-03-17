@@ -6,20 +6,18 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subscription from "../components/subscription";
 
-export default function Template({ data, path }) {
+export default function Template({ location, data, path }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
 
   const { published, date, title, description } = frontmatter;
 
-  console.log("description --->", description);
-
   if (!published) return null;
 
   let disqusConfig = {};
 
-  const slugArr = path.split("/");
-  const slug = slugArr[slugArr.length - 1] || "";
+  const slugArr = location.pathname.split("/");
+  const slug = slugArr[slugArr.length - 1].toLowerCase();
 
   return (
     <Layout>
