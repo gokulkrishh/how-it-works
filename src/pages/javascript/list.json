@@ -14,8 +14,7 @@
     },
     {
       "name": "Event Emitter",
-      "comingSoon": true,
-      "link": ""
+      "link": "javascript/eventEmitters"
     },
     {
       "name": ".bind()",
