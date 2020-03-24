@@ -31,10 +31,10 @@ emitter.on("event-name", data => {});
 emitter.off("event-name");
 
 // List to all emit events
-emitter.on("*", data);
+emitter.on("*", (eventName, data) => {});
 ```
 
-#### Our event emitter consists of following:
+#### Event emitter function consists of:
 
 - An object called `events` to hold all the events.
 - `on()` - To listen to an event.
@@ -45,12 +45,12 @@ Let's see how each method works in our event emitter.
 
 ### on():
 
-**On method** accepts two parameters **name** and a **callback**.
+**On** method accepts two parameters **name** and a **callback**.
+
+**Pseudo code**:
 
 - If an event name is not present in our events object, then create an event with an empty array.
 - An empty array is to hold as many callback functions as it can.
-
-Now let's see the code for on method.
 
 #### Code:
 
@@ -75,9 +75,9 @@ function EventEmitter() {
 
 ### emit():
 
-Emit is used to emit events based on the event name and some options.
+**Emit** method is to emit events based on the **event name** with/without **data**.
 
-The method consists of two conditions.
+**Pseudo code**:
 
 1. Check if an emitted event is present if so emit it.
 2. Check if `*` (all) is present, so involve it (`*` present means user wants to listen to all events)
@@ -111,6 +111,8 @@ function EventEmitter() {
 
 As the name suggests we will `Off`/`remove` events & its callback from our events object if present.
 
+**Pseudo code**:
+
 - If the event name is present, then do a filter != 'callback' on the event name to remove the same.
 
 ```js
@@ -120,7 +122,9 @@ function EventEmitter() {
   // To listening to an event
   const off = (eventName, callback) => {
     if (events[eventName]) {
-      events[eventName] = events[eventName].filter(event => event !== callback);
+      events[eventName] = events[eventName].filter(
+        handler => handler !== callback
+      );
     }
   };
 
@@ -165,7 +169,9 @@ function EventEmitter() {
   // To listening to an event
   const off = (eventName, callback) => {
     if (events[eventName]) {
-      events[eventName] = events[eventName].filter(event => event !== callback);
+      events[eventName] = events[eventName].filter(
+        handler => handler !== callback
+      );
     }
   };
 
@@ -173,7 +179,7 @@ function EventEmitter() {
 }
 ```
 
-### Demo:
+### [Demo](https://codesandbox.io/s/event-emitters-7vc1w?from-embed):
 
 <iframe
  src="https://codesandbox.io/embed/confident-moser-7vc1w?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark"
@@ -187,8 +193,8 @@ function EventEmitter() {
 
 In this post, we understood how an event emitter works and what could be its implementation. Event emitter is helpful in creating event-based javascript applications.
 
-Thanks for reading it to the end 🥶.
-
 On a personal note: COVID-19 is spreading rapidly to many countries, please stay home and stay safe and avoid going in groups. These are challenging times, but if we work together we can get through this together too.
 
-My next post is about `redux`. How it works and what could be its implementation. See ya next week.
+My next post is about `redux`. See ya next week.
+
+Thanks for reading it to the end 🥶.
