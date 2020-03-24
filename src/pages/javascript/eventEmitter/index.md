@@ -30,8 +30,8 @@ emitter.on("event-name", data => {});
 // Remove an event
 emitter.off("event-name");
 
-// Emit all available events
-emitter.emit("*", data);
+// List to all emit events
+emitter.on("*", data);
 ```
 
 #### Our event emitter consists of following:
