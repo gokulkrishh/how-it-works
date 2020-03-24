@@ -1,10 +1,12 @@
 ---
-path: "/javascript/eventEmitters"
+path: "/javascript/eventEmitter"
 published: true
 date: "2020-03-24"
-title: "Event Emitters"
+title: "Event Emitter"
 description: "Event emitters are useful when you want to listen to an event and do something when it happens."
 ---
+
+<br /><img src="./eventEmitter.png" alt="Event Emitter" /><br />
 
 Event emitters are useful when you want to listen to an event and do something when it happens. An event emitter is also called as `publisher/subscriber` pattern.
 

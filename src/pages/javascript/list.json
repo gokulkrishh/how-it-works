@@ -14,7 +14,7 @@
     },
     {
       "name": "Event Emitter",
-      "link": "javascript/eventEmitters"
+      "link": "javascript/eventEmitter"
     },
     {
       "name": ".bind()",
