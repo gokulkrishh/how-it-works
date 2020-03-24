@@ -136,7 +136,7 @@ function EventEmitter() {
 
 ### Full code:
 
-```javascript
+```js
 function EventEmitter() {
   const events = {}; // To hold our events
 
