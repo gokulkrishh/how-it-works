@@ -113,7 +113,7 @@ As the name suggests we will `Off`/`remove` events & its callback from our event
 
 **Pseudo code**:
 
-- If the event name is present, then do a filter != 'callback' on the event name to remove the same.
+- If the event name is present, then remove the callback for that event name.
 
 ```js
 function EventEmitter() {
