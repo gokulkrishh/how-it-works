@@ -2,11 +2,15 @@
   "methods": [
     {
       "name": "Virtual DOM",
+      "description": "Coming Soon!",
       "link": "react/virtual-dom"
     },
     {
       "name": "redux",
-      "link": "react/redux"
+      "description": "Coming Soon!",
+      "comingSoon": true,
+      "link": "react/redux",
+      "img": "redux.png"
     },
     {
       "name": "Provider HOC",
