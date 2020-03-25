@@ -7,10 +7,7 @@
     },
     {
       "name": "redux",
-      "description": "Coming Soon!",
-      "comingSoon": true,
-      "link": "react/redux",
-      "img": "redux.png"
+      "link": "react/redux"
     },
     {
       "name": "Provider HOC",
