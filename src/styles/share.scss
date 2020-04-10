@@ -1,0 +1,21 @@
+.Share {
+  margin-top: 20px;
+  margin-bottom: -10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  a {
+    margin-left: 15px;
+    background-color: #3ca4ff;
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 0px 10px;
+    border-radius: 2px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 0;
+  }
+}

@@ -5,6 +5,7 @@ import { Disqus } from "gatsby-plugin-disqus";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subscription from "../components/subscription";
+import Share from "../components/share";
 
 export default function Template({ location, data, path }) {
   const { markdownRemark } = data;
@@ -35,6 +36,8 @@ export default function Template({ location, data, path }) {
           className="issues__preview-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+
+        {/* <Share title={title} url={location.pathname} /> */}
 
         <hr />
 
