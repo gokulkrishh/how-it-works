@@ -38,6 +38,7 @@
 [data-language="js"]::before {
   background-color: #ffeb3b;
   color: #000;
+  z-index: 1;
 }
 
 .language-text {
@@ -54,7 +55,8 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: "Dank Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: "Dank Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
 }
 
 body.dark-mode {

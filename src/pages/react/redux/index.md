@@ -15,68 +15,94 @@ Redux is a predictable state container for javascript applications. In layman's 
 - **Developer Friendly** - With redux devTools it is easy to debug and test our application.
 - **Flexible** - Works with any UI layered application.
 
-### 👨🏻‍💻 Skeleton code:
-
-We will try to understand the core concept of redux before implementing it.
+**Below are the core concept of redux**:
 
 - `Store` - A centralized data store (**Read only, Plan object**).
 - `Action` - An information about the change (**What happened** and **What is the change**).
 - `Reducer` - A pure function to decide what to do with the data (**How to change a state**).
 
-#### Methods in redux are
+### Skeleton code: `redux.js`
 
-```js
-// To create our data store
-function createStore() {}
+```js{numberLines: true}{3,6,9,15}
+function createStore() {
+  // To get the state
+  function getState() {}
 
-// To get the state
-function getState() {}
+  // To dispatch or send an action
+  function dispatch() {}
 
-// To dispatch or send an action
-function dispatch() {}
+  // To subscribe to the state change
+  function subscribe() {}
 
-// To subscribe to the state change
-function subscribe() {}
+  // Return the above methods
+  return { getState, dispatch, subscribe };
+}
+
+function combineReducers() {}
 ```
 
 #### 1. createStore()
 
 To create our data store of the application. Main concept of redux is we can have only one store. [createStore()](https://redux.js.org/api/createstore) method accepts [three arguments](https://redux.js.org/api/createstore#arguments).
 
-1. Reducers (Root reducer)
+1. Reducer (Root reducer)
 1. Preloaded state (initial state - `optional`)
 1. Enhancer (`optional`) - Just to reduce the scope of this post we will not look into this.
 
-Now let us try understand how createStore might look like in terms of code.
+createStore function will return 3 methods (`getState`, `dispatch`, `subscribe`). Now we will see all three one by one.
 
-```js
-function createStore(rootReducer, preloadedState = {}, enhancers) {
-  // preloadedState or {}
-  let state = preloadedState;
-
-  // Returning the 3 methods and more into this later.
-  return { getState, dispatch, subscribe };
-}
-```
-
-createStore function will return 3 methods (getState, dispatch, subscribe). This method is self-explanatory so will skip explaining.
-
-#### 2. getState()
+#### 1. getState()
 
 This method returns the latest state from redux store.
 
-```js
-function createStore(rootReducer, preloadedState = {}, enhancers) {
-  // preloadedState or {}
-  let state = preloadedState;
+**Code:**
 
-  // Return the state
+```js{3, 6-8}{numberLines: true}
+function createStore(reducer, preloadedState, enhancers) {
+  // If preloaded state else empty object
+  let state = preloadedState || {};
+
+  // Return the store state
   function getState() {
-    return state; // Here state has latest update store data
+    return state;
   }
 
-  // Returning the 3 methods and more into this later.
-  return { getState, dispatch, subscribe };
+  return {
+    getState,
+  };
+}
+```
+
+#### 2. subscribe()
+
+subscribe method is used to subscribe whenever dispatch is called and the state is updated.
+
+**Code:**
+
+```js{numberLines: true}{6,14-21}
+function createStore(reducer, preloadedState = {}, enhancers) {
+  // If preloaded state else empty object
+  let state = preloadedState || {};
+
+  // To store the list of subscribers for the state change
+  let listeners = [];
+
+  // Return the store state
+  function getState() {
+    return state;
+  }
+
+  // To subscribe to state change
+  function subscribe(listener) {
+    listeners.push(listener);
+
+    // Return a function to unsubscribe
+    return function() {
+      listeners.filter(l => l != listener);
+    };
+  }
+
+  return { getState, subscribe };
 }
 ```
 
@@ -84,24 +110,90 @@ function createStore(rootReducer, preloadedState = {}, enhancers) {
 
 Dispatches an action which contains the information about the change. This is the only way to update the state in redux store.
 
-```js{10-10}
-function createStore(rootReducer, preloadedState = {}, enhancers) {
-  // preloadedState or {}
-  let state = preloadedState;
+**Dispatch method does 2 things:**
 
-  // Return the state
+1. Update the state using based on the given `action` using passed `reducer` to `createStore()`.
+1. Call all the subscribers that state has changed.
+
+**Code:**
+
+```js{numberLines: true}{23-27,30}
+function createStore(reducer, preloadedState = {}, enhancers) {
+  // If preloaded state else empty object
+  let state = preloadedState || {};
+
+  // To store the list of subscribers for the state change
+  let listeners = [];
+
+  // Return the store state
   function getState() {
-    return state; // Here state has latest update store data
+    return state;
   }
 
-  function dispatch(action) {}
+  // To subscribe to state change
+  function subscribe(listener) {
+    listeners.push(listener);
 
-  return { getState, dispatch, subscribe };
+    // Return a function to unsubscribe
+    return function() {
+      listeners.filter(l => l !== listener);
+    };
+  }
+
+  function dispatch(action) {
+    state = reducer(state, action);
+
+    listeners.forEach(listener => listener());
+  }
+
+  // To initializing the store with initial state of the reducers
+  dispatch({ type: "@@redux/INIT" });
+
+  return { getState, subscribe, dispatch };
 }
 ```
 
+#### 4. combinerReducers()
+
+Combine reducers function is to combine all reducers and call all reducers to update the state when an action is dispatched.
+
+**Code:**
+
+```js{numberLines: true}{2-7}
+function combineReducers(reducers) {
+  return (state = {}, action) => {
+    return Object.keys(reducers).reduce((nextState, key) => {
+      nextState[key] = reducers[key](state[key], action); // Calling the reducers
+      return nextState;
+    }, {});
+  };
+}
+```
+
+An example to see how our custom redux works.
+
+### Example:
+
+<iframe
+     src="https://codesandbox.io/embed/reduxjs-m53j5?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="redux.js"
+     allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+     sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+   ></iframe>
+
 ### Final thoughts
+
+I have learned so much about redux by writing this post and i hope you have learned something new as well. The implementations I wrote might not be how redux is implemented and I am pretty sure redux team would wrote it with better performance and my code is simply for learning purposes only.
+
+I know the skipped last two weeks because of lock down in my country and it was too much for me to concentrate and write this post.
+
+Stay safe and stay home. See ya in next post.
+
+Thanks!
 
 #### References
 
+- [Flux](https://github.com/facebook/flux)
 - [Redux](https://redux.js.org/introduction/getting-started)
+- [React Redux](https://react-redux.js.org/)
