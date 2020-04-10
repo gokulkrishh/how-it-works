@@ -11,7 +11,7 @@ Redux is a predictable state container for javascript applications. In layman's 
 ### 👉🏻 Few points about redux:
 
 - **Single source of truth** - Single data source.
-- **Predicable** - Behaves consistently no matter the environments (client, server and native).
+- **Predictable** - Behaves consistently no matter the environments (client, server and native).
 - **Developer Friendly** - With redux devTools it is easy to debug and test our application.
 - **Flexible** - Works with any UI layered application.
 
@@ -43,7 +43,7 @@ function combineReducers() {}
 
 #### 1. createStore()
 
-To create our data store of the application. Main concept of redux is we can have only one store. [createStore()](https://redux.js.org/api/createstore) method accepts [three arguments](https://redux.js.org/api/createstore#arguments).
+To create our data store of the application. The main concept of redux is we can have only one store. [createStore()](https://redux.js.org/api/createstore) method accepts [three arguments](https://redux.js.org/api/createstore#arguments).
 
 1. Reducer (Root reducer)
 1. Preloaded state (initial state - `optional`)
@@ -53,7 +53,7 @@ createStore function will return 3 methods (`getState`, `dispatch`, `subscribe`)
 
 #### 1. getState()
 
-This method returns the latest state from redux store.
+This method returns the latest state from the redux store.
 
 **Code:**
 
@@ -108,12 +108,12 @@ function createStore(reducer, preloadedState = {}, enhancers) {
 
 #### 3. dispatch()
 
-Dispatches an action which contains the information about the change. This is the only way to update the state in redux store.
+Dispatches an action that contains information about the change. This is the only way to update the state in the redux store.
 
 **Dispatch method does 2 things:**
 
 1. Update the state using based on the given `action` using passed `reducer` to `createStore()`.
-1. Call all the subscribers that state has changed.
+1. Call all the subscribers that the state has changed.
 
 **Code:**
 
@@ -184,13 +184,11 @@ An example to see how our custom redux works.
 
 ### Final thoughts
 
-I have learned so much about redux by writing this post and i hope you have learned something new as well. The implementations I wrote might not be how redux is implemented and I am pretty sure redux team would wrote it with better performance and my code is simply for learning purposes only.
+I have learned so much about redux by writing this post and I hope you have learned something new as well. The implementations I wrote might not be how redux is implemented and I am pretty sure redux team would wrote it with better performance and my code is simply for learning purposes only.
 
-I know the skipped last two weeks because of lock down in my country and it was too much for me to concentrate and write this post.
+I know the skipped posting last two weeks because of lockdown & COVID situation in my country and it was too much for me to concentrate and finish this post.
 
-Stay safe and stay home. See ya in next post.
-
-Thanks!
+Stay safe and stay home. See ya in the next post. Thanks!
 
 #### References
 
