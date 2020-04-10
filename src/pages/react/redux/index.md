@@ -184,9 +184,7 @@ An example to see how our custom redux works.
 
 ### Final thoughts
 
-I have learned so much about redux by writing this post and I hope you have learned something new as well. The implementations I wrote might not be how redux is implemented and I am pretty sure redux team would wrote it with better performance and my code is simply for learning purposes only.
-
-I know the skipped posting last two weeks because of lockdown & COVID situation in my country and it was too much for me to concentrate and finish this post.
+I have learned so much about redux by writing this post and I hope you have learned something new as well. The implementations I wrote might not be how redux is implemented and I am pretty sure redux team would wrote it with better performance. My code is simply for learning purposes only.
 
 Stay safe and stay home. See ya in the next post. Thanks!
 
