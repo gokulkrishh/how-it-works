@@ -23,7 +23,7 @@ Redux is a predictable state container for javascript applications. In layman's 
 
 ### Skeleton code: `redux.js`
 
-```js{numberLines: true}{3,6,9,15}
+```js{numberLines: true}{3,6,9,16}
 export default function createStore() {
   // To get the state
   function getState() {}
