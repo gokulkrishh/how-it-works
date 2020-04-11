@@ -76,7 +76,7 @@ function createStore(reducer, preloadedState, enhancers) {
 
 #### 2. subscribe()
 
-This method is useful when we want to **listen to** whenever the store **state is updated**. **subscribe()** also returns `unsubscribe()` method so that we can opt out when we no longer need to listen to store updates.
+This method is useful when we want to **listen to** whenever the store **state is updated**. **subscribe()** also returns `unsubscribe()` method so that we can opt-out when we no longer need it.
 
 **Code:**
 
@@ -178,7 +178,7 @@ function combineReducers(reducers) {
 }
 ```
 
-Now that we understood each methods of redux library. Lets see an example of how our custom redux works.
+Now that we understood each method of redux library. Let us see an example of how our custom redux works.
 
 ### Example:
 
@@ -192,7 +192,7 @@ Now that we understood each methods of redux library. Lets see an example of how
 
 ### Final thoughts
 
-I have learned so much about redux by writing this post and I hope you have learned something new as well. The code I wrote is just to show how redux would have been implemented. And this code is only for learning purposes. Not meant to be used in production or in development.
+I have learned so much about redux by writing this post and I hope you have learned something new as well. The code I wrote is just to show how redux would have been implemented. And this code is only for learning purposes. Not meant to be used in production or development.
 
 Thanks for reading to the end. If you have any doubts post your comments below. See ya in the next post.
 
