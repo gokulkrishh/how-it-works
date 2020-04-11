@@ -53,7 +53,7 @@ createStore function will return 3 methods (`getState`, `dispatch`, `subscribe`)
 
 #### 1. getState()
 
-This method returns the latest state from the redux store.
+Returns the latest updated state from the redux store.
 
 **Code:**
 
@@ -75,7 +75,7 @@ function createStore(reducer, preloadedState, enhancers) {
 
 #### 2. subscribe()
 
-subscribe method is used to subscribe whenever dispatch is called and the state is updated.
+This method is useful when we want to **listen to** whenever the store **state is updated**. **subscribe()** also returns `unsubscribe()` method so that we can opt out when we no longer need to listen to store updates.
 
 **Code:**
 
@@ -96,9 +96,9 @@ function createStore(reducer, preloadedState = {}, enhancers) {
   function subscribe(listener) {
     listeners.push(listener);
 
-    // Return a function to unsubscribe
+    // Returns an anonymous function to unsubscribe
     return function() {
-      listeners.filter(l => l != listener);
+      listeners = listeners.filter(l => l != listener);
     };
   }
 
@@ -108,12 +108,13 @@ function createStore(reducer, preloadedState = {}, enhancers) {
 
 #### 3. dispatch()
 
-Dispatches an action that contains information about the change. This is the only way to update the state in the redux store.
+Dispatches an action that **contains information** about the change. The information is **plan object** which contains **type** and **payload** if required.
+This is the only way to update the state in the redux store.
 
 **Dispatch method does 2 things:**
 
-1. Update the state using based on the given `action` using passed `reducer` to `createStore()`.
-1. Call all the subscribers that the state has changed.
+1. Update the state using the type in the `reducer` passed to `createStore()` when we created the store.
+1. Calls all the subscribers if present after the state has updated.
 
 **Code:**
 
@@ -134,9 +135,9 @@ function createStore(reducer, preloadedState = {}, enhancers) {
   function subscribe(listener) {
     listeners.push(listener);
 
-    // Return a function to unsubscribe
+    // Returns an anonymous function to unsubscribe
     return function() {
-      listeners.filter(l => l !== listener);
+      listeners = listeners.filter(l => l !== listener);
     };
   }
 
@@ -155,7 +156,7 @@ function createStore(reducer, preloadedState = {}, enhancers) {
 
 #### 4. combinerReducers()
 
-Combine reducers function is to combine all reducers and call all reducers to update the state when an action is dispatched.
+Combine reducers function is to **combine all reducers** and call it to update the state when an action is dispatched. Basically this function returns an object with key/value pair. Key is name of reducer or state and value is reducer itself.
 
 **Code:**
 
