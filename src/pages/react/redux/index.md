@@ -24,7 +24,7 @@ Redux is a predictable state container for javascript applications. In layman's 
 ### Skeleton code: `redux.js`
 
 ```js{numberLines: true}{3,6,9,15}
-function createStore() {
+export default function createStore() {
   // To get the state
   function getState() {}
 
@@ -38,7 +38,8 @@ function createStore() {
   return { getState, dispatch, subscribe };
 }
 
-function combineReducers() {}
+// To combine all the reducers
+export function combineReducers() {}
 ```
 
 #### 1. createStore()
@@ -156,7 +157,13 @@ function createStore(reducer, preloadedState = {}, enhancers) {
 
 #### 4. combinerReducers()
 
-Combine reducers function is to **combine all reducers** and call it to update the state when an action is dispatched. Basically this function returns an object with key/value pair. Key is name of reducer or state and value is reducer itself.
+Combine reducers function is to **combine all reducers** and call it to update the state when an action is dispatched.
+
+**combinerReducers function does the following**:
+
+- Returns **a function** which accepts two arguments (**state & action**).
+- Iterates over the reducers argument and passes the **appropriate state object** to **each reducer** with its **action**.
+- Then updates **each store state** with **whatever the reducer returning**.
 
 **Code:**
 
@@ -171,7 +178,7 @@ function combineReducers(reducers) {
 }
 ```
 
-An example to see how our custom redux works.
+Now that we understood each methods of redux library. Lets see an example of how our custom redux works.
 
 ### Example:
 
@@ -185,9 +192,11 @@ An example to see how our custom redux works.
 
 ### Final thoughts
 
-I have learned so much about redux by writing this post and I hope you have learned something new as well. The implementations I wrote might not be how redux is implemented and I am pretty sure redux team would wrote it with better performance. My code is simply for learning purposes only.
+I have learned so much about redux by writing this post and I hope you have learned something new as well. The code I wrote is just to show how redux would have been implemented. And this code is only for learning purposes. Not meant to be used in production or in development.
 
-Stay safe and stay home. See ya in the next post. Thanks!
+Thanks for reading to the end. If you have any doubts post your comments below. See ya in the next post.
+
+Stay safe and stay home.
 
 #### References
 
