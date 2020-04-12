@@ -2,15 +2,17 @@
 path: "/react/redux"
 published: true
 date: "2020-03-31"
-title: "Redux"
+title: "How it works - Redux"
 description: "Redux is a predictable state container for javascript applications"
 ---
+
+<br /><img src="./redux.png" alt="Redux" /><br />
 
 Redux is a predictable state container for javascript applications. In layman's term, We store our data in a centralized place and pass it where ever needed by the application.
 
 ### 👉🏻 Few points about redux:
 
-- **Single source of truth** - Single data source.
+- **Single source of truth** - A plain single object to store your application data.
 - **Predictable** - Behaves consistently no matter the environments (client, server and native).
 - **Developer Friendly** - With redux devTools it is easy to debug and test our application.
 - **Flexible** - Works with any UI layered application.
@@ -18,13 +20,13 @@ Redux is a predictable state container for javascript applications. In layman's 
 **Below are the core concept of redux**:
 
 - `Store` - A centralized data store (**Read only, Plan object**).
-- `Action` - An information about the change (**What happened** and **What is the change**).
-- `Reducer` - A pure function to decide what to do with the data (**How to change a state**).
+- `Action` - An information about the change (type) and an optionally payload data.
+- `Reducer` - A pure function to decide what to do with the action type and payload.
 
 ### Skeleton code: `redux.js`
 
 ```js{numberLines: true}{3,6,9,16}
-export default function createStore() {
+function createStore() {
   // To get the state
   function getState() {}
 
@@ -39,7 +41,7 @@ export default function createStore() {
 }
 
 // To combine all the reducers
-export function combineReducers() {}
+function combineReducers() {}
 ```
 
 #### 1. createStore()
