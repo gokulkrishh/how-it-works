@@ -198,8 +198,6 @@ I have learned so much about redux by writing this post and I hope you have lear
 
 Thanks for reading to the end. If you have any doubts post your comments below. See ya in the next post.
 
-Stay safe and stay home.
-
 #### References
 
 - [Flux](https://github.com/facebook/flux)
