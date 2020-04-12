@@ -45,10 +45,29 @@
   }
 }
 
-@media (min-width: 481px) and (max-width: 764px) {
+@media (min-width: 765px) and (max-width: 1024px) {
   .Javascript__list {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+  }
+
+  .Card {
+    width: 100%;
+    min-height: 180px;
+    height: initial;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 764px) {
+  .Javascript__list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  .Card {
+    width: 100%;
+    min-height: 150px;
+    height: initial;
   }
 }
 
@@ -56,5 +75,11 @@
   .Javascript__list {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
+  }
+
+  .Card {
+    width: 100%;
+    min-height: 170px;
+    height: initial;
   }
 }
