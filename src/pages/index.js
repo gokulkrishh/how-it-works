@@ -49,13 +49,6 @@ const IndexPage = () => {
         there is a mistake or a better way to do it. Let's keep the learning and
         conversation going.
       </p>
-      <p>
-        Read about previous posts{" "}
-        <a href="/posts" target="_blanks">
-          here
-        </a>
-        .
-      </p>
       <Subscription />
       <div className="layout__footer">
         <h4>Cheers,</h4>
