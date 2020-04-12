@@ -1,5 +1,5 @@
 ---
-path: "/javascript/custom-spread-operator"
+path: "/posts/custom-spread-operator"
 published: true
 date: "2020-03-03"
 title: "Custom Spread Operator [...5]"

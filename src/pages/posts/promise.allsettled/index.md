@@ -1,5 +1,5 @@
 ---
-path: "/javascript/promise.allSettled"
+path: "/posts/promise.allSettled"
 published: true
 date: "2020-03-17"
 title: "Promise.allSettled"
@@ -84,7 +84,7 @@ isIterable(""); // true
 
 Next step is to wrap our iteration (forEach) with `new Promise()` object. So that when all our inputs are settled, we can return the results with **status** and **value/reasons**.
 
-Implementation is quite similar to [Promise.all()](https://www.how-it-works.dev/javascript/promise.all) with a few changes.
+Implementation is quite similar to [Promise.all()](https://www.how-it-works.dev/posts/promise.all) with a few changes.
 
 #### Code:
 

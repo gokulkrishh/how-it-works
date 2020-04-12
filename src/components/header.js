@@ -14,13 +14,8 @@ const Header = ({ siteTitle }) => (
       <div className="header__content-right">
         <ul className="header__menu">
           <li>
-            <Link to="/javascript" activeClassName="header__menu--active">
-              Javascript
-            </Link>
-          </li>
-          <li>
-            <Link to="/react" activeClassName="header__menu--active">
-              React
+            <Link to="/posts" activeClassName="header__menu--active">
+              Posts
             </Link>
           </li>
         </ul>

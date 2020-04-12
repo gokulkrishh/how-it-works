@@ -1,5 +1,5 @@
 ---
-path: "/javascript/eventEmitter"
+path: "/posts/eventEmitter"
 published: true
 date: "2020-03-24"
 title: "Event Emitter"

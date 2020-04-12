@@ -129,7 +129,7 @@ pre[class*="language-"] {
   overflow: auto;
 }
 
-.gatsby-highlight pre[class*="language-"] {
+.gatsby-highlight.has-highlighted-lines pre[class*="language-"] {
   background-color: transparent;
   margin: 0;
   padding: 0;

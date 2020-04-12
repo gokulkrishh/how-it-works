@@ -1,5 +1,5 @@
 ---
-path: "/react/redux"
+path: "/posts/redux"
 published: true
 date: "2020-03-31"
 title: "How it works - Redux"
