@@ -1,5 +1,6 @@
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
   color: $color-dull-blue;
   background-color: $color-white;
   line-height: 32px;
@@ -74,7 +75,6 @@ ol {
 
   &__menu {
     list-style-type: none;
-    width: 200px;
     height: inherit;
     justify-content: space-between;
     display: flex;

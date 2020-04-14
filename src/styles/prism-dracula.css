@@ -120,3 +120,33 @@ pre[class*="language-"] {
 .token.entity {
   cursor: help;
 }
+
+.gatsby-highlight.has-highlighted-lines {
+  background-color: #1b1b1b;
+  border-radius: 0.3em;
+  margin: 1em 0;
+  padding: 0.8em 0.1em;
+  overflow: auto;
+}
+
+.gatsby-highlight.has-highlighted-lines pre[class*="language-"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.gatsby-highlight.has-highlighted-lines .gatsby-highlight-code-line {
+  background-color: rgb(7, 7, 7);
+  display: block;
+  margin-right: -2px;
+  margin-left: -3em;
+  padding-left: 2.7em;
+  border-left: 0.25em solid #f99;
+}
+
+.gatsby-highlight.has-highlighted-lines .gatsby-highlight-code-line:empty {
+  padding-bottom: 20px;
+}

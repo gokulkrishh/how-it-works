@@ -1,5 +1,5 @@
 ---
-path: "/react/virtual-dom"
+path: "/posts/virtual-dom"
 published: true
 date: "2020-03-10"
 title: "Virtual DOM"
