@@ -2,7 +2,7 @@
 path: "/posts/redux"
 published: true
 date: "2020-03-31"
-title: "How it works - Redux"
+title: "Redux"
 description: "Redux is a predictable state container for javascript applications which with any UI layered application."
 ---
 
