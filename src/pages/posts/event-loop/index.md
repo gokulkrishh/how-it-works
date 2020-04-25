@@ -70,4 +70,4 @@ Wait a minute, if the call stack can execute only one thing at a time will it no
 
 It was refreshing for me when writing this post about event loop in javascript and i am hoping this post was refreshing for you as well as you have learnt more about javascript and its runtime.
 
-I want to credit and take a moment to thank [Philip Roberts]() for creating an [awesome tool](http://latentflip.com/loupe) to visualize how event loops works. Do watch his video about [what the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) it is great.
+I want to credit and take a moment to thank [Philip Roberts](https://twitter.com/philip_roberts) for creating an [awesome tool](http://latentflip.com/loupe) to visualize how event loops works. Do watch his video about [what the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) it is great.
