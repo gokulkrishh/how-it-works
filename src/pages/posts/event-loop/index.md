@@ -65,3 +65,9 @@ baz();
 [Demo](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZW91dENhbGxiYWNrKCkgewogICAgY29uc29sZS5sb2coImZvbyIpOwogIH0sIDEwMDApOwp9CgpmdW5jdGlvbiBiYXooKSB7CiAgZm9vKCk7CiAgY29uc29sZS5sb2coImJheiIpOwp9Cgpjb25zb2xlLmxvZygib3V0c2lkZSIpOwoKYmF6KCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 
 Wait a minute, if the call stack can execute only one thing at a time will it not block the main thread?. Not really, we will see more about it later in the post.
+
+#### Final note
+
+It was refreshing for me when writing this post about event loop in javascript and i am hoping this post was refreshing for you as well as you have learnt more about javascript and its runtime.
+
+I want to credit and take a moment to thank [Philip Roberts]() for creating an [awesome tool](http://latentflip.com/loupe) to visualize how event loops works. Do watch his video about [what the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) it is great.
