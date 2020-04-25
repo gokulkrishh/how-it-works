@@ -53,27 +53,27 @@
   font-size: 16px !important;
 }
 
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: $color-dull-violet;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
   font-family: "Dank Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
     monospace;
 }
 
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: $color-code-dark;
+}
+
 body.dark-mode {
   .language-text {
     background-color: $color-black !important;
     color: $color-dull-white-dark !important;
-  }
-
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata {
-    color: $color-dull-violet;
-  }
-
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    background: $color-code-dark;
   }
 }
