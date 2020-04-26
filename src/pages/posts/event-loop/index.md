@@ -66,10 +66,10 @@ baz();
 
 <div class="demo-iframe">
 <i style="color: #000;display: block;">Close the model dialogue and click save + run button</i>
-<iframe src="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZW91dENhbGxiYWNrKCkgewogICAgY29uc29sZS5sb2coImZvbyIpOwogIH0sIDEwMDApOwp9CgpmdW5jdGlvbiBiYXooKSB7CiAgZm9vKCk7CiAgY29uc29sZS5sb2coImJheiIpOwp9Cgpjb25zb2xlLmxvZygib3V0c2lkZSIpOwoKYmF6KCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
+<iframe src="https://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZW91dENhbGxiYWNrKCkgewogICAgY29uc29sZS5sb2coImZvbyIpOwogIH0sIDEwMDApOwp9CgpmdW5jdGlvbiBiYXooKSB7CiAgZm9vKCk7CiAgY29uc29sZS5sb2coImJheiIpOwp9Cgpjb25zb2xlLmxvZygib3V0c2lkZSIpOwoKYmF6KCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
 
 </iframe>
-<i class="image__illustration">(Call stack demo)</i>
+<a target="_blank" href="https://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZW91dENhbGxiYWNrKCkgewogICAgY29uc29sZS5sb2coImZvbyIpOwogIH0sIDEwMDApOwp9CgpmdW5jdGlvbiBiYXooKSB7CiAgZm9vKCk7CiAgY29uc29sZS5sb2coImJheiIpOwp9Cgpjb25zb2xlLmxvZygib3V0c2lkZSIpOwoKYmF6KCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D"><i class="image__illustration">(Call stack demo)</i></a>
 </div>
 
 Wait a minute, if the call stack can **execute only one thing at a time** will it **not block the main thread**?. Not really, we will see more about it later in the post.
@@ -125,10 +125,10 @@ I am sure you already know about execution order if not no problem, I will expla
 
 <div class="demo-iframe">
 <i style="color: #000;display: block;">Close the model dialogue and click save + run button</i>
-<iframe src="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7CiAgICBjb25zb2xlLmxvZygiZm9vIik7CiAgfSwgMjAwMCk7Cn0KCmZvbygpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
+<iframe src="https://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7CiAgICBjb25zb2xlLmxvZygiZm9vIik7CiAgfSwgMjAwMCk7Cn0KCmZvbygpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
 
 </iframe>
-<i class="image__illustration">(setTimeout demo)</i>
+<a target="_blank" href="https://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7CiAgICBjb25zb2xlLmxvZygiZm9vIik7CiAgfSwgMjAwMCk7Cn0KCmZvbygpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D"><i class="image__illustration">(setTimeout demo)</i></a>
 </div>
 
 ### Final note
