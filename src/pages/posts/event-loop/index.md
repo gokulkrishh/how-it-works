@@ -6,16 +6,16 @@ title: "Event Loop"
 description: "Event loop in javascript is a concurrent model which is responsible for executing the code."
 ---
 
-Javascript runtime is **single threaded** meaning it can **execute one piece of code at a time**. In order to not to block I/O operations, javascript has concurrent model called **Event loop**.
+Javascript runtime is **single-threaded** meaning it can **execute one piece of code at a time**. To not to block I/O operations, javascript has a concurrent model called **Event loop**.
 
-All `I/O` operations such as **HTTP requests**, **disk read/write** etc are **non-blocking** in javascript. The single thread will ask the **javascript runtime** to execute the operation providing a callback function and move on to next operation.
+All `I/O` operations such as **HTTP requests**, **disk read/write** etc are **non-blocking** in javascript. The single thread will ask the **javascript runtime** to execute the operation providing a callback function and move on to the next operation.
 
 #### Javascript runtime consists of:
 
 - **Call stack** - To execute the code one at a time.
 - **Event loop** - Check if call stack is empty if empty take the callback from callback queue and add it to stack.
 - **Callback queue** - Callbacks are pushed into the callback queue.
-- **Web API's** - Talk to browser via javascript.
+- **Web API's** - Talk to the browser via javascript.
 
 **Illustration of javascript runtime**:
 
@@ -76,17 +76,17 @@ Wait a minute, if the call stack can **execute only one thing at a time** will i
 
 ### Event loop:
 
-Event loop's job is quite simple, constantly check if the call stack is empty or not. If empty then pull the callback from the callback queue and put it on top the stack for execution.
+The event loop's job is quite simple, constantly check if the call stack is empty or not. If empty then pull the callback from the callback queue and put it on top the stack for execution.
 
 ### Callback queue:
 
-Callback queue is simple queue based data structure (**FIFO**). This is where all asynchronous code are getting pushed to. From here event loop will take over and push the queue to call stack.
+Callback queue is a simple queue-based data structure (**FIFO**). This is where all asynchronous code is getting pushed to. From here event loop will take over and push the queue to call stack.
 
 Callback queue is the reason that I/O events are non-blocking.
 
 ### Web API's:
 
-Web API's also known as **Browser Object Model** (BOM) are the api's that allows javascript **to talk** to **web browsers**.
+Web API's also known as **Browser Object Model** (BOM) is the API's that allows javascript **to talk** to **web browsers**.
 
 **Some web API's**:
 
@@ -94,10 +94,10 @@ Web API's also known as **Browser Object Model** (BOM) are the api's that allows
 - Window location
 - Navigator (information about user's browser)
 - Cookies
-- Timing Events such as setTimeout, setInterval etc,
+- Timing Events such as setTimeout, setInterval, etc,
 
-Lets see an example of how web api works in event loop. If you are javascript developer i am sure you would have used setTimeout or setInterval.
-So lets take that as an example.
+Let us see an example of how web API works in the event loop. If you are a javascript developer I am sure you would have used setTimeout or setInterval.
+So let's take that as an example.
 
 ```js{numberLines: true}{8,2-4,7}
 function foo() {
@@ -133,10 +133,8 @@ I am sure you already know about execution order if not no problem, I will expla
 
 ### Final note
 
-It was refreshing when I wrote this post. I hope in this post you have learned little bit more about javascript and its runtime.
+It was refreshing when I wrote this post. I hope in this post you have learned a little bit more about javascript and its runtime. The examples I showed are more of an abstract idea of the event loop and browser vendors would have implemented the event loop with a lot of optimizations but now you get the idea right how it works.
 
-The examples I showed are more of an abstract idea of event loop and browser vendors would have implemented the event loop with lot of optimizations but now you get idea right how it works.
+I want to thank [Philip Roberts](https://twitter.com/philip_roberts) for creating [loupe](http://latentflip.com/loupe) an awesome tool to visualize how event loops work. Do watch his video about [what the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) it's great.
 
-I want to thank to [Philip Roberts](https://twitter.com/philip_roberts) for creating [loupe](http://latentflip.com/loupe) an awesome tool to visualize how event loops works. Do watch his video about [what the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) its great.
-
-Thanks for reading it so far. See yaa in next post.
+Thanks for reading it so far. See ya in the next post.
