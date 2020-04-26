@@ -13,16 +13,16 @@ All `I/O` operations such as **HTTP requests**, **disk read/write** etc are **no
 #### Javascript runtime consists of:
 
 - **Call stack** - To execute the code one at a time.
-- **Web API's** - Talk to browser via javascript.
-- **Callback queue** - Callbacks are pushed into the callback queue.
 - **Event loop** - Check if call stack is empty if empty take the callback from callback queue and add it to stack.
+- **Callback queue** - Callbacks are pushed into the callback queue.
+- **Web API's** - Talk to browser via javascript.
 
 **Illustration of javascript runtime**:
 
 <img src="./event-loop.png" alt="Javascript runtime illustration" />
 <i class="image__illustration">(Illustration of js runtime)</i>
 
-### Call Stack
+### Call Stack:
 
 Call stack in javascript can do **one only thing at time**. Call stack is simple **stack** based **data structure** which executes the code by **pushing code** on top of the stack and **popping it off** from the top once execution is done.
 
@@ -62,15 +62,33 @@ baz();
 1. Add `console.log("baz")` to **top** of the stack and **execute** and **pop it off**.
 1. Then **pop** `baz()` function from the stack.
 
-### [Demo](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZW91dENhbGxiYWNrKCkgewogICAgY29uc29sZS5sb2coImZvbyIpOwogIH0sIDEwMDApOwp9CgpmdW5jdGlvbiBiYXooKSB7CiAgZm9vKCk7CiAgY29uc29sZS5sb2coImJheiIpOwp9Cgpjb25zb2xlLmxvZygib3V0c2lkZSIpOwoKYmF6KCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+#### Demo
+
+<div class="demo-iframe">
+<i style="color: #000;display: block;">Close the model dialogue and click save + run button</i>
+<iframe src="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZW91dENhbGxiYWNrKCkgewogICAgY29uc29sZS5sb2coImZvbyIpOwogIH0sIDEwMDApOwp9CgpmdW5jdGlvbiBiYXooKSB7CiAgZm9vKCk7CiAgY29uc29sZS5sb2coImJheiIpOwp9Cgpjb25zb2xlLmxvZygib3V0c2lkZSIpOwoKYmF6KCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
+
+</iframe>
+<i class="image__illustration">(Call stack demo)</i>
+</div>
 
 Wait a minute, if the call stack can **execute only one thing at a time** will it **not block the main thread**?. Not really, we will see more about it later in the post.
 
-### Web API's
+### Event loop:
+
+Event loop's job is quite simple, constantly check if the call stack is empty or not. If empty then pull the callback from the callback queue and put it on top the stack for execution.
+
+### Callback queue:
+
+Callback queue is simple queue based data structure (**FIFO**). This is where all asynchronous code are getting pushed to. From here event loop will take over and push the queue to call stack.
+
+Callback queue is the reason that I/O events are non-blocking.
+
+### Web API's:
 
 Web API's also known as **Browser Object Model** (BOM) are the api's that allows javascript **to talk** to **web browsers**.
 
-**Some of API's are**
+**Some web API's**:
 
 - Window object
 - Window location
@@ -81,7 +99,7 @@ Web API's also known as **Browser Object Model** (BOM) are the api's that allows
 Lets see an example of how web api works in event loop. If you are javascript developer i am sure you would have used setTimeout or setInterval.
 So lets take that as an example.
 
-```js{numberLines: true}{8,2-4}
+```js{numberLines: true}{8,2-4,7}
 function foo() {
   setTimeout(function() {
     console.log("foo");
@@ -103,13 +121,17 @@ I am sure you already know about execution order if not no problem, I will expla
 1. Add `console.log()` to stack and execute it and **pop it off**.
 1. Finally pop function `foo()` from the stack.
 
-<video controls>
-  <source src="./web-apis.mp4" type="video/mp4">
-</video>
+#### Demo
 
-### [Demo](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7CiAgICBjb25zb2xlLmxvZygiZm9vIik7CiAgfSwgMjAwMCk7Cn0KCmZvbygpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+<div class="demo-iframe">
+<i style="color: #000;display: block;">Close the model dialogue and click save + run button</i>
+<iframe src="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gZm9vKCkgewogIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7CiAgICBjb25zb2xlLmxvZygiZm9vIik7CiAgfSwgMjAwMCk7Cn0KCmZvbygpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
 
-#### Final note
+</iframe>
+<i class="image__illustration">(setTimeout demo)</i>
+</div>
+
+### Final note
 
 It was refreshing when I wrote this post. I hope in this post you have learned little bit more about javascript and its runtime.
 
