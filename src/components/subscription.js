@@ -7,7 +7,7 @@ const Subscription = () => {
 
   return (
     <div className="Subscription__container">
-      <h4>Know more from your inbox weekly (Tuesday) :)</h4>
+      <h4>Know more from your inbox (Tuesday)</h4>
       <p>I promise there won't be any spamming!</p>
 
       <div className="Subscription__content">

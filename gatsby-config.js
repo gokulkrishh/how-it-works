@@ -103,5 +103,6 @@ module.exports = {
         shortname: `https-how-it-works-dev`,
       },
     },
+    `gatsby-plugin-offline`,
   ],
 };
