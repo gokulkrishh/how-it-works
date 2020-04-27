@@ -131,10 +131,11 @@ foo();
 
 I hope in this post you have learned a little bit more about javascript and its runtime. The examples I showed are more of an abstract idea of the event loop and browser vendors would have implemented the event loop with a lot of optimizations but you get the idea right how it works.
 
-I want to thank [Philip Roberts](https://twitter.com/philip_roberts) for creating [loupe](http://latentflip.com/loupe) an awesome tool to visualize how event loops work. Do watch his video about [what the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) it's great.
+I want to thank [Philip Roberts](https://twitter.com/philip_roberts) for creating [loupe](http://latentflip.com/loupe) an awesome tool to visualize how event loops work.
 
 Thanks for reading it so far. See ya in the next post.
 
 #### References:
 
 - [MDN EventLoop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+- [What the heck is event loop?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
