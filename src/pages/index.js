@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subscription from "../components/subscription";
-import CoffeeImg from "./coffee.jpeg";
+import CoffeeImg from "./coffee.jpg";
 
 const IndexPage = () => {
   return (
