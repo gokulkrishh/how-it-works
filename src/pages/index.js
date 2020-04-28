@@ -26,7 +26,7 @@ const IndexPage = () => {
       </div>
       <p>
         Are you coffee/tea person? If so grab one in your hand and we will
-        continue 😉.
+        continue ;).
       </p>
       <p>
         This site's main focus is to help you and me to understand what is
