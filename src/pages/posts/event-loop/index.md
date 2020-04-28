@@ -12,9 +12,9 @@ Javascript is **interpreted** programming language meaning the source code is no
 
 - Each browser has a javascript **runtime environment**.
 - The javascript **runtime environment** gives access for API's like **DOM API**, **Timers**, **Storage** etc,.
-- **Javascript engine** and **Event loop** is present inside the javascript **runtime environment**.
-- Each **browser vendors** has its **own javascript engine** (**Chrome**, **NodeJS** uses `v8 engine`).
+- **Javascript engine** & **Event loop** is a part of javascript **runtime environment**.
 - Javascript engine is [single-threaded](<https://en.wikipedia.org/wiki/Thread_(computing)#Single_threading>) and it can **execute one piece of code at a time**.
+- Each **browser vendors** has its **own javascript engine** (**Chrome**, **NodeJS** uses `v8 engine`).
 
 #### Illustration:
 
