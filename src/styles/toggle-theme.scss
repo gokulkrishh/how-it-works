@@ -7,6 +7,11 @@
   align-items: center;
   justify-content: center;
   user-select: none;
+  appearance: none;
+  width: inherit;
+  background-color: transparent;
+  border: none;
+  height: inherit;
 }
 
 .toggle-theme {

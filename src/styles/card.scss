@@ -3,15 +3,17 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 40px;
-  grid-row-gap: 10px;
+  grid-row-gap: 25px;
   padding-left: 0;
   list-style: none;
 }
 
 .Card {
-  padding: 0 10px;
-  height: 180px;
-  width: 300px;
+  padding: 5px 15px;
+  height: auto;
+  width: 330px;
+  background-color: $color-grey-dull;
+  border-radius: 6px;
 
   time {
     font-size: 14px;
@@ -30,8 +32,11 @@
     border: 0;
     color: $color-red !important;
     font-weight: 600;
+    border-bottom: 1px solid;
+    opacity: 0.9;
 
     &:hover {
+      opacity: 1;
       border-bottom: 1px solid;
     }
   }
@@ -39,8 +44,14 @@
 
 .dark-mode {
   .Card {
+    background-color: $color-grey-dark;
+
     time {
       color: $color-dull-violet;
+    }
+
+    p {
+      color: $color-white;
     }
   }
 }

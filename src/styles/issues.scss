@@ -8,4 +8,40 @@
   .title {
     margin-bottom: 10px;
   }
+
+  .gatsby-resp-image-wrapper {
+    margin: 20px 0 30px;
+  }
+
+  .demo-iframe {
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+    margin: 10px 0 90px;
+
+    iframe {
+      width: inherit;
+      height: inherit;
+      background-color: #fff;
+    }
+  }
+
+  .image__illustration {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .video + h4 {
+    margin-top: -20px;
+  }
+
+  .video {
+    margin: 40px auto;
+    text-align: center;
+    display: block;
+    width: 500px;
+    height: auto;
+  }
 }

@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subscription from "../components/subscription";
-import CoffeeImg from "./coffee.jpeg";
+import CoffeeImg from "./coffee.jpg";
 
 const IndexPage = () => {
   return (
@@ -14,10 +14,7 @@ const IndexPage = () => {
         slug={""}
       />
       <h2>Hi people!</h2>
-      <p>
-        Welcome to how it works. Let me first start with why I created this
-        site.
-      </p>
+      <p>This is G, welcome to how it works site.</p>
       <div
         style={{
           maxWidth: `300px`,
@@ -28,26 +25,22 @@ const IndexPage = () => {
         <img src={CoffeeImg} style={{ maxWidth: "100%" }} alt="Coffee" />
       </div>
       <p>
-        Are you coffee/tea person? If so get one in your hand and we will
+        Are you coffee/tea person? If so grab one in your hand and we will
         continue ;).
       </p>
       <p>
-        When I started my career as a web developer, I struggled to understand
-        how a method or a feature in Javascript works internally, for example{" "}
-        <b>Promise.all()</b> or <b>Object.create()</b>, etc. I have been or I
-        have asked to implement these methods in interviews.
+        This site's main focus is to help you and me to understand what is
+        happening under the hood of javascript features or methods. While
+        reading my posts via this site or newsletter, hopefully you will also
+        learn as much as me.
       </p>
       <p>
-        So I created this site to learn and understand Javascript even better
-        and to know what could be its implementation internally.
-      </p>
-      <p>
-        Hopefully, you will also learn as much as me via this site/newsletter.
-      </p>
-      <p>
-        Do reply to my emails via subscription or via comments in each post if
+        Do reply to my emails via newsletter or via comments in each post if
         there is a mistake or a better way to do it. Let's keep the learning and
         conversation going.
+      </p>
+      <p>
+        Go to <a href="/posts">here</a> to read previous posts.
       </p>
       <Subscription />
       <div className="layout__footer">

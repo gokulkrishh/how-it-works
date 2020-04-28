@@ -248,7 +248,7 @@ footer {
   }
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 300px) and (max-width: 480px) {
   .Subscription {
     max-width: 95%;
   }
@@ -258,16 +258,17 @@ footer {
   }
 
   .header h1 a {
-    font-size: 25px;
+    font-size: 23px;
+    width: auto;
+    display: flex;
   }
 
   .header__menu {
     padding-left: 20px;
-    width: 160px;
-  }
-
-  .header__menu {
+    width: auto;
     font-size: 16px;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 

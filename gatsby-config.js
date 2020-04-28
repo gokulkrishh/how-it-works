@@ -44,7 +44,19 @@ module.exports = {
         gfm: true,
         // Plugins configs
         plugins: [
-          `gatsby-remark-social-cards`,
+          {
+            resolve: `gatsby-remark-social-cards`,
+            options: {
+              meta: {
+                parts: [
+                  "- ",
+                  { field: "author" },
+                  " » ",
+                  { field: "date", format: "mmmm dS" },
+                ],
+              },
+            },
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -91,5 +103,6 @@ module.exports = {
         shortname: `https-how-it-works-dev`,
       },
     },
+    `gatsby-plugin-offline`,
   ],
 };
