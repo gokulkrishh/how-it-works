@@ -40,7 +40,7 @@ const IndexPage = () => {
         conversation going.
       </p>
       <p>
-        Go to <a href="/posts">posts</a> to read previous archives.
+        Go to <a href="/posts">here</a> to read previous posts.
       </p>
       <Subscription />
       <div className="layout__footer">
