@@ -95,7 +95,7 @@ The event loop's job is quite simple, constantly check if the call stack is empt
 
 ### Callback queue:
 
-Callback queue is a simple queue-based data structure (**FIFO**). This is where all asynchronous code is getting pushed to. From here event loop will take over and push the queue to call stack.
+Callback queue is a simple queue-based data structure (**FIFO**). This is where all asynchronous code is pushed to. From here event loop will take over and push the queue to call stack.
 
 Callback queue is the reason that I/O events are non-blocking.
 
