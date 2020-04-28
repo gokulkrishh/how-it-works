@@ -6,31 +6,30 @@ title: "Event Loop"
 description: "Event loop in javascript is a concurrent model which is responsible for executing the code."
 ---
 
-Javascript is **interpreted programming** language meaning the source code is not compiled until the time of execution. But how does a machine understands the non-compiled code? Well that is taken care by **javascript engine** which is responsible for **compiling** the javascript code to **machine code**. Javascript engine is [single-threaded](<https://en.wikipedia.org/wiki/Thread_(computing)#Single_threading>) meaning it can **execute one piece of code at a time**.
+Javascript is **interpreted** programming language meaning the source code is not compiled until the time of execution. But how does a machine understands the non-compiled code? Well, that is taken care of by **javascript engine** which is responsible for **compiling** the javascript code to **machine code**. Javascript engine is [single-threaded](<https://en.wikipedia.org/wiki/Thread_(computing)#Single_threading>) meaning it can **execute one piece of code at a time**.
 
-**👉🏻 Points to remember:**
+#### 👉🏻 Points to remember:
 
-- Each browser has a **runtime environment**.
-- The javascript **runtime environment** gives access for API's like **DOM API**, **Timers**, **Storage** to build web applications.
-- **Javascript engine** is present inside that javascript **runtime environment**.
-- Each **browser vendors** has their **own javascript engine** (**Chrome**, **NodeJS** uses `v8 engine`).
-- **Event loop** is also part of that javascript **runtime environment**.
+- Each browser has a javascript **runtime environment**.
+- The javascript **runtime environment** gives access for API's like **DOM API**, **Timers**, **Storage** etc,.
+- **Javascript engine** and **Event loop** is present inside the javascript **runtime environment**.
+- Each **browser vendors** has its **own javascript engine** (**Chrome**, **NodeJS** uses `v8 engine`).
 
-**Illustration:**
+#### Illustration:
 
 <p style="margin: 0 auto;">
-  <img src="./js-runtime.png" alt="Javascript runtime environment" />
-  <i class="image__illustration"><a href="https://medium.com/@olinations/the-javascript-runtime-environment-d58fa2e60dd0" target="_blank">Source: Medium</a></i>
+ <img src="./js-runtime.png" alt="Javascript runtime environment" />
+ <i class="image__illustration"><a href="https://medium.com/@olinations/the-javascript-runtime-environment-d58fa2e60dd0" target="_blank">Source: Medium</a></i>
 </p>
 
-### What is event loop?
+### What is the event loop?
 
 Event loop is a **concurrent model** responsible for executing the **javascript code**. All **I/O operations** such as **HTTP requests**, **disk read/write** are **non-blocking** in javascript.
 
 #### Javascript runtime consists of:
 
 - **Call stack** - Execute the code one at a time.
-- **Event loop** - Check if call stack is empty if so pull the callback from queue and add it to stack.
+- **Event loop** - Check if the call stack is empty if so pull the callback from the queue and add it to stack.
 - **Callback queue** - Callbacks are pushed into the callback queue.
 - **Web API's** - Talk to the browser via javascript.
 
@@ -138,7 +137,7 @@ foo();
 
 1. Add `foo()` to **top** of the stack and **execute** it.
 1. Add `setTimeout()` with callback to **top** of the stack and **execute** it and pop it off.
-1. `Timer` will be keep track and executed inside the browser.
+1. `Timer` will be keeping track and executed inside the browser.
 1. Add setTimeout `callback` to **callback queue**.
 1. **Event loop** will pull the timer `callback` from **queue** and add to the `top of stack`.
 1. Add `console.log()` to stack and **execute it** and **pop it off**.
