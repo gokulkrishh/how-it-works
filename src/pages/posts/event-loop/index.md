@@ -6,7 +6,7 @@ title: "Event Loop"
 description: "Event loop in javascript is a concurrent model which is responsible for executing the code."
 ---
 
-Javascript is **interpreted** programming language meaning the source code is not compiled until the time of execution. But how does a machine understands the non-compiled code? Well, that is taken care of by **javascript engine** which is responsible for **compiling** the javascript code to **machine code**. Javascript engine is [single-threaded](<https://en.wikipedia.org/wiki/Thread_(computing)#Single_threading>) meaning it can **execute one piece of code at a time**.
+Javascript is **interpreted** programming language meaning the source code is not compiled until the time of execution. But how does a machine understands the non-compiled code? Well, that is taken care of by **javascript engine** which is responsible for **compiling** the javascript code to **machine code**.
 
 #### 👉🏻 Points to remember:
 
@@ -14,6 +14,7 @@ Javascript is **interpreted** programming language meaning the source code is no
 - The javascript **runtime environment** gives access for API's like **DOM API**, **Timers**, **Storage** etc,.
 - **Javascript engine** and **Event loop** is present inside the javascript **runtime environment**.
 - Each **browser vendors** has its **own javascript engine** (**Chrome**, **NodeJS** uses `v8 engine`).
+- Javascript engine is [single-threaded](<https://en.wikipedia.org/wiki/Thread_(computing)#Single_threading>) and it can **execute one piece of code at a time**.
 
 #### Illustration:
 
