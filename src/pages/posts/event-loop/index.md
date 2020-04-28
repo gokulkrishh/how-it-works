@@ -6,6 +6,8 @@ title: "Event Loop"
 description: "Event loop in javascript is a concurrent model which is responsible for executing the code."
 ---
 
+Before we learn about event loop. I want to talk about javascript first.
+
 Javascript is **interpreted** programming language meaning the source code is not compiled until the time of execution. But how does a machine understands the non-compiled code? Well, that is taken care of by **javascript engine** which is responsible for **compiling** the javascript code to **machine code**.
 
 #### 👉🏻 Points to remember:
@@ -23,9 +25,19 @@ Javascript is **interpreted** programming language meaning the source code is no
  <i class="image__illustration"><a href="https://medium.com/@olinations/the-javascript-runtime-environment-d58fa2e60dd0" target="_blank">Source: Medium</a></i>
 </p>
 
+### What is blocking and non-blocking operations?
+
+In javascript, there are **blocking** and **non-blocking** operations.
+
+- **Blocking** is when the execution javascript code has to wait until the execution of some non-javascript operation is complete (**synchronous**).
+- **Non-blocking** when execution happens **asynchronously** and doesn't not block the execution of javascript code.
+- All **I/O operations** such as **HTTP requests**, **disk read/write** are [non-blocking](https://developers.google.com/speed/docs/insights/BlockingJS) in javascript.
+
+Now lets see about event loop, the topic of this post.
+
 ### What is the event loop?
 
-Event loop is a **concurrent model** responsible for executing the **javascript code**. All **I/O operations** such as **HTTP requests**, **disk read/write** are **non-blocking** in javascript.
+Event loop is a **concurrent model** responsible for executing the **javascript code**.
 
 #### Javascript runtime consists of:
 
@@ -146,11 +158,9 @@ foo();
 
 ### Final note
 
-I hope in this post you have learned a little bit more about javascript and its runtime. The examples I showed are more of an abstract idea of the event loop and browser vendors would have implemented the event loop with a lot of optimizations but you get the idea right how it works.
+I hope in this post you have learned a little bit more about javascript and its runtime. The examples I showed are more of an abstract idea of the event loop and browser vendors would have implemented the event loop with a lot of optimizations but you get the idea right how it works. For the sake of this post I have skipped writing about **micro tasks** in event loop. For more [read here](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/).
 
 I want to thank [Philip Roberts](https://twitter.com/philip_roberts) for creating [loupe](http://latentflip.com/loupe) an awesome tool to visualize how event loops work.
-
-For the sake of this post I have skipped writing about **micro tasks** in event loop. For more [read here](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/).
 
 Thanks for reading it so far. See ya in the next post.
 
