@@ -6,17 +6,22 @@ title: "Event Loop"
 description: "Event loop in javascript is a concurrent model which is responsible for executing the code."
 ---
 
-Before we learn about event loop. I want to talk about javascript first.
+Before we learn about the event loop. I want to talk about javascript first to understand event loop better.
 
 Javascript is **interpreted** programming language meaning the source code is not compiled until the time of execution. But how does a machine understands the non-compiled code? Well, that is taken care of by **javascript engine** which is responsible for **compiling** the javascript code to **machine code**.
+
+##### In javascript, there are **blocking** & **non-blocking** operations:
+
+- **Blocking** is when the execution of code has to wait until the execution of an operation is completed (**synchronous**).
+- **Non-blocking** when execution happens **asynchronously** and doesn't not have to wait for some other operation to complete.
+- **I/O operations** such as **HTTP requests**, **disk read/write** are **non-blocking** in javascript.
 
 #### 👉🏻 Points to remember:
 
 - Each browser has a javascript **runtime environment**.
-- The javascript **runtime environment** gives access for API's like **DOM API**, **Timers**, **Storage** etc,.
 - **Javascript engine** & **Event loop** is a part of javascript **runtime environment**.
-- Javascript engine is [single-threaded](<https://en.wikipedia.org/wiki/Thread_(computing)#Single_threading>) and it can **execute one piece of code at a time**.
-- Each **browser vendors** has its **own javascript engine** (**Chrome**, **NodeJS** uses `v8 engine`).
+- **Javascript engine** is [single-threaded](<https://en.wikipedia.org/wiki/Thread_(computing)#Single_threading>) and it can **execute one piece of code at a time**.
+- **Event loop** is a **concurrent model** responsible for executing the **javascript code**.
 
 #### Illustration:
 
@@ -24,20 +29,6 @@ Javascript is **interpreted** programming language meaning the source code is no
  <img src="./js-runtime.png" alt="Javascript runtime environment" />
  <i class="image__illustration"><a href="https://medium.com/@olinations/the-javascript-runtime-environment-d58fa2e60dd0" target="_blank">Source: Medium</a></i>
 </p>
-
-### What is blocking and non-blocking operations?
-
-In javascript, there are **blocking** and **non-blocking** operations.
-
-- **Blocking** is when the execution javascript code has to wait until the execution of some non-javascript operation is complete (**synchronous**).
-- **Non-blocking** when execution happens **asynchronously** and doesn't not block the execution of javascript code.
-- All **I/O operations** such as **HTTP requests**, **disk read/write** are [non-blocking](https://developers.google.com/speed/docs/insights/BlockingJS) in javascript.
-
-Now lets see about event loop, the topic of this post.
-
-### What is the event loop?
-
-Event loop is a **concurrent model** responsible for executing the **javascript code**.
 
 #### Javascript runtime consists of:
 
