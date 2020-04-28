@@ -150,7 +150,7 @@ I hope in this post you have learned a little bit more about javascript and its 
 
 I want to thank [Philip Roberts](https://twitter.com/philip_roberts) for creating [loupe](http://latentflip.com/loupe) an awesome tool to visualize how event loops work.
 
-For the sake of this post i have skipped writing about **micro tasks** in event loop. For more [read here](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/).
+For the sake of this post I have skipped writing about **micro tasks** in event loop. For more [read here](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/).
 
 Thanks for reading it so far. See ya in the next post.
 
