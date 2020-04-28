@@ -94,11 +94,11 @@ baz();
 
 ### Event loop:
 
-The event loop's job is quite simple, constantly check if the call stack is empty or not. If empty then pull the callback from the callback queue and put it on top the stack for execution.
+The event loop's job is quite simple, **constantly check if the call stack is empty or not**. If empty then **pull the callback** from the callback queue and **put it** on **top the stack** for execution.
 
 ### Callback queue:
 
-Callback queue is a simple queue-based data structure (**FIFO**). This is where all asynchronous code is pushed to. From here event loop will take over and push the queue to call stack.
+Callback queue is a simple **queue-based** data structure (**FIFO**). This is where all **asynchronous code** is pushed to. From here event loop will take over and push the **queued callbacks** to **call stack**.
 
 Callback queue is the reason that I/O events are non-blocking.
 
