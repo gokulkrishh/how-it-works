@@ -49,19 +49,14 @@ sayHello(false).catch(console.log); // logs "Error occurred"
 **Example**:
 
 ```js{numberLines: true}{111}
-const showLoader = () => {};
-const hideLoader = () => {};
-
 async function fetchPokemon() {
-  showLoader();
-
   try {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon/1");
     console.log(await response.json());
   } catch (err) {
     console.log(err);
   } finally {
-    hideLoader();
+    // hide loading?
   }
 }
 
@@ -74,30 +69,21 @@ Lets see the same example just using promise based [fetch](https://developer.moz
 **Example**:
 
 ```js{numberLines: true}{111}
-const showLoader = () => {};
-const hideLoader = () => {};
-
 function fetchPokemon() {
-  showLoader();
-
   fetch("https://pokeapi.co/api/v2/pokemon/1")
     .then(response => {
       return response.json();
     })
     .then(response => {
       console.log(data);
-      hideLoader();
     })
     .catch(error => {
       console.log(error);
-      hideLoader();
     });
 }
 
 // Fetch pokemon
 fetchPokemon();
 ```
-
-👉🏻 **Fun fact:**
 
 > Async await is a syntactic sugar built on top of promises.
