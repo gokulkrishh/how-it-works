@@ -12,10 +12,7 @@ If you have worked with **promises** and **callbacks** then you might have heard
 
 Lets talk about async and await keywords.
 
-1. **Async**
-1. **Await**
-
-#### async:
+#### 1. async keyword:
 
 - When a `async` function is called, it returns a **promise**.
 - **Throwing exception** in async function is equal to **rejecting** a promise.
@@ -42,39 +39,65 @@ sayHello(true).then(console.log); // logs "hello"
 sayHello(false).catch(console.log); // logs "Error occurred"
 ```
 
-#### await:
+#### 2. await keyword:
 
 - `await` keyword can only be used inside `async` functions.
 - Allow us to **synchronously wait** on a **async functions** (promise).
 - Allow us to work with promises with less boilerplate code.
+- We can also use it with **try/catch/finally** statement to handle error.
 
 **Example**:
 
 ```js{numberLines: true}{111}
+const showLoader = () => {};
+const hideLoader = () => {};
+
 async function fetchPokemon() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon/1");
-  return response.json();
+  showLoader();
+
+  try {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/1");
+    console.log(await response.json());
+  } catch (err) {
+    console.log(err);
+  } finally {
+    hideLoader();
+  }
 }
 
 // Fetch pokemon
-fetchPokemon().then(response => console.log(response));
+fetchPokemon();
 ```
-
-**Fun fact: **
-
-Async await is syntactic sugar built on top of promise.
 
 Lets see the same example just using promise based [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API.
 
 **Example**:
 
 ```js{numberLines: true}{111}
+const showLoader = () => {};
+const hideLoader = () => {};
+
 function fetchPokemon() {
-  return fetch("https://pokeapi.co/api/v2/pokemon/1").then(response => {
-    return response.json();
-  });
+  showLoader();
+
+  fetch("https://pokeapi.co/api/v2/pokemon/1")
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      console.log(data);
+      hideLoader();
+    })
+    .catch(error => {
+      console.log(error);
+      hideLoader();
+    });
 }
 
 // Fetch pokemon
-fetchPokemon().then(response => console.log(response));
+fetchPokemon();
 ```
+
+👉🏻 **Fun fact:**
+
+> Async await is a syntactic sugar built on top of promises.
