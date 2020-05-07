@@ -69,6 +69,7 @@ module.exports = {
               maxWidth: 590,
             },
           },
+          "@weknow/gatsby-remark-twitter",
         ],
       },
     },
