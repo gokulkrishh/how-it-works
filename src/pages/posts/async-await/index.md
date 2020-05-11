@@ -207,13 +207,11 @@ customAsyncAwait(fetchPokemonGenerator); // logs "bulbasaur"
 
 #### Final thoughts
 
-Async await is a good addition to javascript and it helps us to make the asynchronous code more readable and developer friendly. I hope in this post you have learned a little bit more about javascript.
-
-The custom async await function I wrote might not be how async await would have been implemented but we were able to emulate the async await behavior using generators.
+Async await is a good addition to javascript and it helps us to write the asynchronous code more readable and developer friendly. I hope in this post you have learned a little bit more about javascript. The custom async await function I wrote might not be how async await would have been implemented but we were able to emulate the async await behavior using generators.
 
 Thanks for reading till the end :)
 
-Follow me on [twitter](https://twitter.com/gokul_i).
+Follow me on [twitter](https://twitter.com/gokul_i) for more web related things.
 
 #### References:
 
