@@ -44,29 +44,29 @@
     width: 500px;
     height: auto;
   }
-}
 
-blockquote.bq {
-  background: #1b1b1b;
-  border-left: 10px solid #cec468;
-  margin: 10px 10px 15px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-  color: #fff;
-  font-style: italic;
-}
+  blockquote:not(.twitter-tweet) {
+    background: #1b1b1b;
+    border-left: 10px solid #cec468;
+    margin: 10px 10px 15px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+    color: #fff;
+    font-style: italic;
+  }
 
-blockquote.bq:before {
-  color: #cec468;
-  content: open-quote;
-  font-size: 3em;
-  line-height: 0.1em;
-  margin-right: 2px;
-  vertical-align: -0.4em;
-}
+  blockquote:not(.twitter-tweet):before {
+    color: #cec468;
+    content: open-quote;
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 2px;
+    vertical-align: -0.4em;
+  }
 
-blockquote.bq p {
-  display: inline;
+  blockquote:not(.twitter-tweet) p {
+    display: inline;
+  }
 }
 
 .twitter-tweet.twitter-tweet-rendered {
