@@ -128,11 +128,42 @@ So far we talked about all the advantages of writing async code in async await. 
 **Disadvantages**:
 
 - We cannot do **multiple await** in the same line. There no way to run **multiple async** operations **simultaneously**. But the same can be done in normal promises using `promise.all()`.
-- If you are supporting old browsers then babel will transpile and bloat your code. The above example transpile to this much [amount of code](https://babeljs.io/repl#?browsers=chrome%2060&build=&builtIns=false&spec=false&loose=false&code_lz=IYZwngdgxgBAZgV2gFwJYHsLwKbKgCwAV0BrbAW0wAoBKGAbwCgYZkAnMB5lmKTEZDAAOpCpgCMMALwxgAd2CpBcXASoAifMmRCQALgD0BkWWBDUAOj4GzqAwDcATMdGUIB8epoBubiz4QAsKumI7SsgpKOHj4Glo6-kYm2LZW6DbmDs7JbgaOXr5-vPyCbNggIoHYkjLyioI5EhYAViDUPkUBQWUV_NhhtZENIRCOLW0QtIU8xYHoADbYFvPoAOZUPZUg1RYQwOTYMADUMOqnxzCbfWN7Bx0sAL68wDEwVNhsbOhsdEwzXQslit1h8vj9fI94Kg9vN5pw_jwjDA2gdigATbDcB6MbGMFQxYhkNxTGBI4EgU4AIwQ80poGACDYMFQ9jAIAZbHUQA&debug=false&forceAllTransforms=true&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=true&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Cenv&prettier=true&targets=&version=7.9.6&externalPlugins=).
+- If you are supporting old browsers then babel will transpile and **bloat** the [code](https://babeljs.io/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=IYZwngdgxgBAZgV2gFwJYHsLwKbKgCwAV0BrbAW0wAoBKGAbwCgYZkAnMB5lmKTEZDAAOpCphgBeGMADuwVILi4CVAET5kyISABcAej0iywIagB0fPSdR6AbgCZDoyhD0BGVTQDc3Fnwgg6AA22GZB6ADmVLLygkZiEGYAVoEQtN7cAL68wHj4MFTYbGzobHRMPLz8waHhUUUlZT4smYytjEp5xGQutF4wBjB1IDCqAEYIQWOgwAhsqoxAA&debug=false&forceAllTransforms=false&shippedProposals=true&circleciRepo=&evaluate=true&fileSize=true&timeTravel=false&sourceType=script&lineWrap=true&presets=env%2Cenv&prettier=true&targets=&version=7.9.6&externalPlugins=).
 
 **Did you know:**
 
-<blockquote class="bq"> Async await uses generators (ES6) internally to pause and execute the code.</blockquote>
+<blockquote class="bq"> Async await also uses generators (ES6) internally to pause and execute the code.</blockquote>
+
+We will write the same examples using generators to see how that might work so that we get an idea how async await is using generators internally.
+
+Before I proceed with an example, let's understand the basics of [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*).
+
+- To create a generator function, `function keyword` should have a `*` (asterisk symbol) in it.
+- A generator function returns a **generator object**.
+- A generator object follows the **iterable protocol**. To know more about iterable protocol read my [previous post](http://localhost:8000/posts/custom-spread-operator).
+- `Yield` is used to pause and un-pause inside the generator function.
+- `next()` method in generator object is used **resume the yield** and **pause it** until the **next() method is called**.
+- `next()` method returns a object with returned `value` and a status called `done` (true or false).
+
+**Example:**
+
+A simple counter function to return the count until maxCount is reached.
+
+```js{numberLines: true}{111}
+function* counter(maxCount) {
+  var i = 0;
+  while (i <= maxCount) {
+    yield i++;
+  }
+}
+
+var iterator = counter(2);
+
+console.log(iterator.next()); // logs {value: 0, done: false}
+console.log(iterator.next()); // logs {value: 1, done: false}
+console.log(iterator.next()); // logs {value: 2, done: false}
+console.log(iterator.next()); // logs {value: undefined, done: true}
+```
 
 #### Final thoughts
 
