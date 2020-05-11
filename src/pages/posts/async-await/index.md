@@ -140,11 +140,11 @@ var customThenFunz = () => {
 console.log(await customThenFunz()); // logs "hello"
 ```
 
-In the above example, await calls the `then()` method returned by the customThenFunz(). Also async await also uses **generators** (ES6) internally to **pause** and **execute** the code.
+In the above example, await calls the `then()` method returned by the customThenFunz(). Also async await uses **generators** (ES6) internally to **pause** and **execute** the code.
 
 We will write the same examples using **generators & promises** to understand how async await would be been implemented internally.
 
-Before I proceed with an implementation, let's try to understand the basics of [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*).
+Before I proceed with implementation, let's try to understand the basics of [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*).
 
 - To create a generator function, `function` keyword should have a `*` (asterisk symbol) following it.
 - A generator function returns a **generator object**.
@@ -207,13 +207,13 @@ customAsyncAwait(fetchPokemonGenerator); // logs "bulbasaur"
 
 #### Final thoughts
 
-Async await really is good and it helps us to make the asynchronous code more readable and developer friendly. I hope in this post you have learned little bit more about javascript.
+Async await is a good addition to javascript and it helps us to make the asynchronous code more readable and developer friendly. I hope in this post you have learned a little bit more about javascript.
 
-The custom async await function i wrote might not be how async await would have been implemented but we were able to emulate the async await behavior using generators.
+The custom async await function I wrote might not be how async await would have been implemented but we were able to emulate the async await behavior using generators.
 
 Thanks for reading till the end :)
 
-Follow me on [twitter](https://twitter.com/gokul_i)
+Follow me on [twitter](https://twitter.com/gokul_i).
 
 #### References:
 
