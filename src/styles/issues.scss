@@ -46,7 +46,7 @@
   }
 }
 
-blockquote {
+blockquote.bq {
   background: #1b1b1b;
   border-left: 10px solid #cec468;
   margin: 10px 10px 15px;
@@ -56,7 +56,7 @@ blockquote {
   font-style: italic;
 }
 
-blockquote:before {
+blockquote.bq:before {
   color: #cec468;
   content: open-quote;
   font-size: 3em;
@@ -65,7 +65,7 @@ blockquote:before {
   vertical-align: -0.4em;
 }
 
-blockquote p {
+blockquote.bq p {
   display: inline;
 }
 
