@@ -152,6 +152,7 @@ Before I proceed with an implementation, let's try to understand the basics of [
 - `Yield` keyword is used to **pause** and **un-pause** the code inside the generator function.
 - `next()` method in generator object is used **resume** using yield and **pause** the execution until the **next()** is called.
 - `next()` method returns a object with `value` and status called `done` (true or false).
+- `throw()` method resumes execution by throwing an error and returns an object with `value` and `done`.
 
 **Example:**
 
@@ -159,7 +160,7 @@ A simple counter function to return the count until maxCount is reached.
 
 ```js{numberLines: true}{111}
 function* counter(maxCount) {
-  var i = 0;
+  var i = 1;
   while (i <= maxCount) {
     yield i++;
   }
@@ -167,10 +168,41 @@ function* counter(maxCount) {
 
 var iterator = counter(2);
 
-console.log(iterator.next()); // logs {value: 0, done: false}
 console.log(iterator.next()); // logs {value: 1, done: false}
 console.log(iterator.next()); // logs {value: 2, done: false}
 console.log(iterator.next()); // logs {value: undefined, done: true}
+```
+
+Now we understood how a generator works, lets write our `customAsyncAwait` function.
+
+```js{numberLines: true}{111}
+function customAsyncAwait(generatorFunz) {
+  // create generator object
+  const generatorObj = generatorFunz();
+
+  function resolver(current) {
+    // If iteration is done return its value
+    if (current.done) {
+      return Promise.resolve(current.value); // return the latest value
+    }
+
+    return Promise.resolve(current.value)
+      .then(value => resolver(generatorObj.next(value))) // proceed with next iteration
+      .catch(error => resolver(generatorObj.throw(error))); // throw generator error
+  }
+
+  return resolver(generatorObj.next()); // Start the iteration
+}
+
+// Fetch based generator
+function* fetchPokemonGenerator() {
+  const pokemon = yield fetch("https://pokeapi.co/api/v2/pokemon/1");
+  const response = yield pokemon.json();
+  console.log(response.name);
+}
+
+// Call our custom async function
+customAsyncAwait(fetchPokemonGenerator); // logs "bulbasaur"
 ```
 
 #### Final thoughts
