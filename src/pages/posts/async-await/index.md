@@ -48,7 +48,7 @@ sayHello()
 
 **Example**:
 
-```js{numberLines: true}{1,3-4,6-7}
+```js{numberLines: true}{1,3-4,6-7,10-12}
 async function fetchPokemon() {
   try {
     const pokemon1 = await fetch("https://pokeapi.co/api/v2/pokemon/1");
@@ -72,7 +72,7 @@ Let's see the same example using promise based [fetch](https://developer.mozilla
 
 **Example**:
 
-```js{numberLines: true}{111}
+```js{numberLines: true}{3-15,17-19}
 function fetchPokemon() {
   fetch("https://pokeapi.co/api/v2/pokemon/1")
     .then(response1 => {
@@ -119,7 +119,7 @@ If you know javascript well then you might have already guessed that `await` cal
 
 **Example:**
 
-```js{numberLines: true}{111}
+```js{numberLines: true}{3-5}
 var customThenFunz = () => {
   return {
     then: (resolve, reject) => {
@@ -149,7 +149,7 @@ Before I proceed with implementation, let's try to understand the basics of [gen
 
 A simple counter function to return the count until maxCount is reached.
 
-```js{numberLines: true}{111}
+```js{numberLines: true}{1,4,10-12}
 function* counter(maxCount) {
   var i = 1;
   while (i <= maxCount) {
@@ -175,7 +175,7 @@ Now we understood how generator in javascript works, lets write our custom async
 
 We will name our custom function as `customAsyncAwait`. Input for `customAsyncAwait` function will be **generator** function. Inside our customAsyncAwait function, we will create a **generator object** by calling the **input** when our **customAsyncAwait** invoked. A function called `resolver()` is used to handle **iteration** of the generator which will be called recursively by passing **iterator object** as an **input**. If the iteration is **done**, then **resolve** and **return** the value. If it **fails** throw an error which in turn **resolves** and **return** the error.
 
-```js{numberLines: true}{111}
+```js{numberLines: true}{3,8,10-12,16,20,31,22-23,25-26,29-31}
 function customAsyncAwait(generatorFunz) {
   // create generator object
   const generatorObj = generatorFunz();
@@ -197,19 +197,23 @@ function customAsyncAwait(generatorFunz) {
 // Fetch based generator
 function* fetchPokemonGenerator() {
   try {
-    const pokemon = yield fetch("https://pokeapi.co/api/v2/pokemon/1");
-    const response = yield pokemon.json();
-    console.log(response.name);
+    const pokemon1 = yield fetch("https://pokeapi.co/api/v2/pokemon/1");
+    const pokemon2 = yield fetch("https://pokeapi.co/api/v2/pokemon/2");
+
+    const response1 = yield pokemon1.json();
+    const response2 = yield pokemon2.json();
+
+    console.log(response1.name + " " + response2.name);
   } catch (error) {
     console.log(error);
   }
 }
 
 // Call our custom async function
-customAsyncAwait(fetchPokemonGenerator); // logs "bulbasaur"
+customAsyncAwait(fetchPokemonGenerator); // logs "bulbasaur ivysaur"
 ```
 
-### Demo
+### [Demo](https://codesandbox.io/embed/custom-async-await-using-generators-ugl7z?expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Findex.js&theme=dark)
 
 <iframe
   src="https://codesandbox.io/embed/custom-async-await-using-generators-ugl7z?expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Findex.js&theme=dark"
