@@ -173,22 +173,31 @@ console.log(iterator.next()); // logs {value: 2, done: false}
 console.log(iterator.next()); // logs {value: undefined, done: true}
 ```
 
-Now we understood how a generator works, lets write our `customAsyncAwait` function.
+Now we understood how generator in javascript works, lets write our custom async await function.
+
+**To emulate async await we need to do the following:**
+
+- Should be synchronously wait without blocking the main thread.
+- Should be able to halt and resume the execution.
+- Should be able return the value once done. (Eg: fetch api or just a number or promise based object)
+- Should throw an error If it fails.
+
+We will name it as `customAsyncAwait`. Our `customAsyncAwait` function input will be **generator function**. Inside this function we will create a **generator object** by calling the **input** when our **customAsyncAwait** invoked. A function called `resolver()` to handle **generator iteration** which will be recursively called by passing iterator object as an **input**. If the iteration is **done**, then **resolve** and **return** the value. If it **fails** throw an error which in turn resolves and **return** the error.
 
 ```js{numberLines: true}{111}
 function customAsyncAwait(generatorFunz) {
   // create generator object
   const generatorObj = generatorFunz();
 
-  function resolver(current) {
-    // If iteration is done return its value
-    if (current.done) {
-      return Promise.resolve(current.value); // return the latest value
+  function resolver(currentIteration) {
+    // If the iterator object is done then return the value
+    if (currentIteration.done) {
+      return Promise.resolve(currentIteration.value);
+    } else {
+      return Promise.resolve(currentIteration.value)
+        .then(value => resolver(generatorObj.next(value))) // proceed with next iteration in generator
+        .catch(error => resolver(generatorObj.throw(error))); // throw an error
     }
-
-    return Promise.resolve(current.value)
-      .then(value => resolver(generatorObj.next(value))) // proceed with next iteration
-      .catch(error => resolver(generatorObj.throw(error))); // throw generator error
   }
 
   return resolver(generatorObj.next()); // Start the iteration
@@ -196,18 +205,34 @@ function customAsyncAwait(generatorFunz) {
 
 // Fetch based generator
 function* fetchPokemonGenerator() {
-  const pokemon = yield fetch("https://pokeapi.co/api/v2/pokemon/1");
-  const response = yield pokemon.json();
-  console.log(response.name);
+  try {
+    const pokemon = yield fetch("https://pokeapi.co/api/v2/pokemon/1");
+    const response = yield pokemon.json();
+    console.log(response.name);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // Call our custom async function
 customAsyncAwait(fetchPokemonGenerator); // logs "bulbasaur"
 ```
 
+### Demo
+
+<iframe
+  src="https://codesandbox.io/embed/custom-async-await-using-generators-ugl7z?expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Findex.js&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="custom async await using generators"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
 #### Final thoughts
 
-Async await is a good addition to javascript and it helps us to write the asynchronous code more readable and developer friendly. I hope in this post you have learned a little bit more about javascript. The custom async await function I wrote might not be how async await would have been implemented but we were able to emulate the async await behavior using generators.
+Async await is an interesting topic and powerful feature in javascript. It helps us to write the asynchronous code more readable and maintainable. I hope in this post you have learned a little bit more about javascript. The custom async await function I wrote might not be how async await would have been implemented but you get the idea right how it works?.
+
+Post a comment below or reply to my newsletter if you have any questions. If you like the post share it.
 
 Thanks for reading till the end :)
 
