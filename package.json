@@ -14,6 +14,7 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
+    "@weknow/gatsby-remark-twitter": "^0.2.3",
     "cpy-cli": "^3.1.0",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-analytics": "^0.2.0",
