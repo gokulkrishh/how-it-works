@@ -177,12 +177,12 @@ Now we understood how generator in javascript works, lets write our custom async
 
 **To emulate async await we need to do the following:**
 
-- Should be synchronously wait without blocking the main thread.
+- Should be able to synchronously wait without blocking the main thread.
 - Should be able to halt and resume the execution.
-- Should be able return the value once done. (Eg: fetch api or just a number or promise based object)
+- Should be able to return the value once done. (Eg: fetch api or just a number or promise based object)
 - Should throw an error If it fails.
 
-We will name it as `customAsyncAwait`. Our `customAsyncAwait` function input will be **generator function**. Inside this function we will create a **generator object** by calling the **input** when our **customAsyncAwait** invoked. A function called `resolver()` to handle **generator iteration** which will be recursively called by passing iterator object as an **input**. If the iteration is **done**, then **resolve** and **return** the value. If it **fails** throw an error which in turn resolves and **return** the error.
+We will name it as `customAsyncAwait`. Our `customAsyncAwait` function input will be **generator function**. Inside this function, we will create a **generator object** by calling the **input** when our **customAsyncAwait** invoked. A function called `resolver()` to handle **generator iteration** which will be recursively called by passing iterator object as the **input**. If the iteration is **done**, then **resolve** and **return** the value. If it **fails** throw an error which in turn **resolves** and **return** the error.
 
 ```js{numberLines: true}{111}
 function customAsyncAwait(generatorFunz) {
