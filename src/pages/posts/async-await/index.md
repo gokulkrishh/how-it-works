@@ -1,7 +1,7 @@
 ---
 path: "/posts/async-await"
 published: true
-date: "2020-05-05"
+date: "2020-05-12"
 title: "Async await"
 description: "Async await is a new way to write asynchronous code in javascript."
 ---
