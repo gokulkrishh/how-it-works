@@ -108,7 +108,7 @@ Some **disadvantages** of async await.
 
 **Disadvantages**:
 
-- We cannot do **multiple await** in the same line. There no way to run **multiple async** operations **simultaneously**. But the same can be done in normal promises using `promise.all()`.
+- We cannot do **multiple await** in the same line. There is no way to run **multiple async** operations **simultaneously**. But the same can be done in normal promises using `promise.all()`.
 - If we are supporting old browsers then [babel](https://babeljs.io/) will transpile and **bloat** the [code](https://babeljs.io/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=IYZwngdgxgBAZgV2gFwJYHsLwKbKgCwAV0BrbAW0wAoBKGAbwCgYZkAnMB5lmKTEZDAAOpCphgBeGMADuwVILi4CVAET5kyISABcAej0iywIagB0fPSdR6AbgCZDoyhD0BGVTQDc3Fnwgg6AA22GZB6ADmVLLygkZiEGYAVoEQtN7cAL68wHj4MFTYbGzobHRMPLz8waHhUUUlZT4smYytjEp5xGQutF4wBjB1IDCqAEYIQWOgwAhsqoxAA&debug=false&forceAllTransforms=false&shippedProposals=true&circleciRepo=&evaluate=true&fileSize=true&timeTravel=false&sourceType=script&lineWrap=true&presets=env%2Cenv&prettier=true&targets=&version=7.9.6&externalPlugins=).
 
 **Fun fact:**
@@ -133,7 +133,7 @@ console.log(await customThenFunz()); // logs "hello"
 
 In the above example, await calls the `then()` method returned by the **customThenFunz** function. One more point to remember is `async await` uses [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) internally to **pause** and **resume** execution of the code.
 
-Same examples using **generators & promises** to understand how async await would be been implemented internally.
+Now we will write the above example using **generators & promises** to help us to understand how async await would be been implemented internally.
 
 Before I proceed with implementation, let's try to understand the basics of [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*).
 
@@ -164,7 +164,7 @@ console.log(iterator.next()); // logs {value: 2, done: false}
 console.log(iterator.next()); // logs {value: undefined, done: true}
 ```
 
-Now we understood how generator in javascript works, lets write our custom async await function.
+Now we understood how generator function in javascript works, lets write our custom async await function.
 
 **To emulate async await we need to do the following:**
 
@@ -173,7 +173,7 @@ Now we understood how generator in javascript works, lets write our custom async
 - Should be able to **return the value** once done. (Eg: fetch api or just a number or promise based object)
 - Should **throw an error** If it **fails**.
 
-We will name our custom function as `customAsyncAwait`. Input for `customAsyncAwait` function will be **generator** function. Inside our customAsyncAwait function, we will create a **generator object** by calling the **input** when our **customAsyncAwait** invoked. A function called `resolver()` is used to handle **iteration** of the generator which will be called recursively by passing **iterator object** as an **input**. If the iteration is **done**, then **resolve** and **return** the value. If it **fails** throw an error which in turn **resolves** and **return** the error.
+We will name our custom function as `customAsyncAwait`. Input for `customAsyncAwait` function will be a **generator** function. Inside our customAsyncAwait function, we will create a **generator object** by calling the **input** when the **customAsyncAwait** function is invoked. A function called `resolver()` is used to handle **iteration** of the generator function which will be called **recursively** by passing the **iterator object** as an **input**. If the iteration is **done**, then **resolve** and **return** the value. If it **fails** throw an error which in turn **resolves** and **return** the error.
 
 ```js{numberLines: true}{3,8,10-12,16,20,31,22-23,25-26,29-31}
 function customAsyncAwait(generatorFunz) {
@@ -225,9 +225,9 @@ customAsyncAwait(fetchPokemonGenerator); // logs "bulbasaur ivysaur"
 
 #### Final thoughts
 
-Async await is an interesting topic and powerful feature in javascript. It helps us to write the asynchronous code more readable and maintainable. I hope in this post you have learned a little bit more about javascript. The custom async await function I wrote might not be how async await would have been implemented but you get the idea right how it works?.
+Async await is an interesting topic and powerful feature in javascript. It helps us to write the **asynchronous code** more **readable** and **maintainable**. I hope in this post you have learned a little bit more about javascript. The custom async await function I wrote might not be how async await would have been implemented but you get the idea right how it works?.
 
-Post a comment below or reply to my newsletter if you have any questions. If you like the post share it.
+Post a comment below if you have any questions. If you like the post share it.
 
 Thanks for reading till the end :)
 
