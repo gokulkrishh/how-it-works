@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { Disqus } from "gatsby-plugin-disqus";
+import kebabCase from "lodash/kebabCase";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -40,7 +41,10 @@ export default function Template({ location, data, path }) {
           <li>
             {tags.map(tag => {
               return (
-                <Link to={`tags/${tag}`} className="issues__preview-back">
+                <Link
+                  to={`tags/${kebabCase(tag)}`}
+                  className="issues__preview-back"
+                >
                   {tag}
                 </Link>
               );
