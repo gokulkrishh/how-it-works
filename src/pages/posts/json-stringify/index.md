@@ -113,6 +113,7 @@ Lets add support for more data types like
 - object
 - null
 - date
+- functions (methods)
 
 To support array and object, we should be able to parse the value up to `n level`. So n level means recursion. We have to recursively go up the children and serialize the values of array and object. Also one interesting thing I noticed is for date objects, JSON.stringify() method returns the value in ISO format.
 
@@ -121,7 +122,7 @@ function stringify(value) {
   var type = typeof value;
 
   function getValues(value) {
-    if (type === "undefined") {
+    if (type === "undefined" || typeof === "function") {
       return undefined;
     }
 
@@ -177,6 +178,12 @@ JSON.parse(stringify(myObj)); // Works as expected
 ```
 
 Above function now works for all of the data types and also output is same as the JSON.stringify() method.
+
+<!-- TODO -->
+
+1. Fix methods
+2. Replacer function
+3. Support sysbol
 
 #### References
 
