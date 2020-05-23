@@ -1,0 +1,42 @@
+.tags {
+  ul,
+  li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+    margin-top: 0;
+  }
+
+  a {
+    margin-right: 8px;
+    background-color: $color-grey-dull;
+    padding: 5px;
+    border: 0;
+    background-color: $color-grey-dull;
+    border-radius: 6px;
+    color: $color-red !important;
+    font-size: 13px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  span {
+    font-size: 13px;
+    color: $color-grey-dark;
+    font-weight: 500;
+  }
+}
+
+.dark-mode {
+  .tags {
+    a {
+      background-color: $color-grey-dark;
+    }
+
+    span {
+      color: $color-dull-violet;
+    }
+  }
+}

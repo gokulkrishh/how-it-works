@@ -5,6 +5,15 @@
     font-weight: 600;
   }
 
+  .tags {
+    padding: 0;
+    a {
+      line-height: initial;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
   .title {
     margin-bottom: 10px;
   }

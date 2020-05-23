@@ -4,6 +4,7 @@ published: true
 date: "2020-02-25"
 title: "Promise.all"
 description: "Say we want many promises to execute in parallel and wait until all of them are resolved. Then Promise.all() is our candidate."
+tags: ["javascript", "promises", "es6"]
 ---
 
 <br /><img src="./promise.all.png" alt="Promise.all" /><br />

@@ -28,8 +28,8 @@ const JavascriptPage = ({
   return (
     <Layout>
       <SEO
-        title="How it works | Javascript"
-        description="Learn how it works in javascript."
+        title="How it works | Posts"
+        description="For learning and understanding Javascript better and to know what could be its implementation."
         slug={""}
       />
       <div className="Javascript">
@@ -64,6 +64,10 @@ export const pageQuery = graphql`
             description
           }
         }
+      }
+      group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
       }
     }
   }

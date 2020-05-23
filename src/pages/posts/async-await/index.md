@@ -4,6 +4,7 @@ published: true
 date: "2020-05-12"
 title: "Async await"
 description: "Async await is a new way to write asynchronous code in javascript."
+tags: ["javascript", "es8"]
 ---
 
 <br /><img src="./async-await.png" alt="async await illustration" /><br />

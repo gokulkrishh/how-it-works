@@ -4,6 +4,7 @@ published: true
 date: "2020-03-31"
 title: "Redux"
 description: "Redux is a predictable state container for javascript applications which with any UI layered application."
+tags: ["javascript", "react", "redux"]
 ---
 
 <br /><img src="./redux.png" alt="Redux" /><br />

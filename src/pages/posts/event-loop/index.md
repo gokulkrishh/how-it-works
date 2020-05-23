@@ -4,6 +4,7 @@ published: true
 date: "2020-04-28"
 title: "Event Loop"
 description: "Event loop in javascript is a concurrent model which is responsible for executing the code."
+tags: ["javascript", "event loop"]
 ---
 
 Before we learn about the event loop. I want to talk about javascript first to understand event loop better.

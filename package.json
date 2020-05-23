@@ -6,6 +6,7 @@
   "author": "Gokulakrishnan Kalaikovan <krishnangokul9@gmail.com>",
   "dependencies": {
     "gatsby": "^2.19.7",
+    "gatsby-plugin-tags": "^2.3.7",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

@@ -10,7 +10,9 @@ export default function Template({ location, data, path }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
 
-  const { published, date, title, description } = frontmatter;
+  const { published, date, title, description, tags } = frontmatter;
+
+  console.log(tags);
 
   if (!published) return null;
 
@@ -23,9 +25,6 @@ export default function Template({ location, data, path }) {
     <Layout>
       <SEO title={title} description={description} slug={slug} />
       <div className="issues">
-        <Link to={`/${path.split("/")[1]}`} className="issues__preview-back">
-          ← Go back
-        </Link>
         <div className="issues__preview-info">
           <h2 className="title">{title}</h2>
           <time>{date}</time>
@@ -35,9 +34,19 @@ export default function Template({ location, data, path }) {
           className="issues__preview-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
-
         <hr />
-
+        <ul className="tags">
+          Tags:{" "}
+          <li>
+            {tags.map(tag => {
+              return (
+                <Link to={`tags/${tag}`} className="issues__preview-back">
+                  {tag}
+                </Link>
+              );
+            })}
+          </li>
+        </ul>
         <Subscription />
         <Disqus config={disqusConfig} />
       </div>
@@ -55,6 +64,7 @@ export const pageQuery = graphql`
         published
         title
         description
+        tags
       }
     }
   }

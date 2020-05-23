@@ -4,6 +4,7 @@ published: true
 date: "2020-03-17"
 title: "Promise.allSettled"
 description: "Promise.allSettled returns a promise when all inputs are settled that is either fulfilled or rejected."
+tags: ["javascript", "promises", "es6"]
 ---
 
 <br /><img src="./promise.allsettled.png" alt="Promise.allSettled" /><br />

@@ -4,6 +4,7 @@ published: true
 date: "2020-03-24"
 title: "Event Emitter"
 description: "Event emitters are useful when you want to listen to an event and do something when it happens."
+tags: ["javascript", "events"]
 ---
 
 <br /><img src="./eventEmitter.png" alt="Event Emitter" /><br />

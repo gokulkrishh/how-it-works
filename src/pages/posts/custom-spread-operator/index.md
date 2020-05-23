@@ -4,6 +4,7 @@ published: true
 date: "2020-03-03"
 title: "Custom Spread Operator [...5]"
 description: "The spread operator is denoted by 3 dots. Basically it takes an iterator and can do copy or expand or concat or merge."
+tags: ["javascript", "es6"]
 ---
 
 <br /><img src="./custom-spread-operator.png" alt="Custom Spread Operator" /><br />
