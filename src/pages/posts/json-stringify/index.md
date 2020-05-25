@@ -193,13 +193,11 @@ The above function now works for all data types and also the output is same as t
 
 Now lets add support for `toJSON()` method. Just to re-iterate, if an object contains **toJSON** method and whatever it is returning will be used by JSON.stringify().
 
-```js{numberLines: true}{8-10}
+```js{numberLines: true}{6-8}
 var myObj = { toJSON: () => "a" };
 
 function stringify(value) {
-  var type = typeof value;
-
-  function getValues() {
+  function getValues(value) {
     // To check if object has `toJSON` method or not
     if (typeof value.toJSON === "function") {
       return '"' + value.toJSON() + '"';
