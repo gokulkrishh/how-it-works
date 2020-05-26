@@ -231,7 +231,7 @@ For the sake of this post we will ignore adding support of `Symbol` datatype, th
 
 ### Final thoughts
 
-JSON.stringify() method is powerful feature in javascript. Most of us would have used it on regular basis. Implementing JSON.stringify() was a bit tricky even though the implementation seems simple. I have learned more about JSON.stringify() method now than before.
+JSON.stringify() method is powerful feature in javascript. Most of us would have used it on regular basis. I have learned more about JSON.stringify() method now than before.
 
 Hoping you have learned something new today about javascript as well. Post your comments below if you have any questions. If you like the post share it.
 
