@@ -4,29 +4,29 @@ published: true
 date: "2020-05-26"
 title: "JSON.stringify()"
 description: "JSON.stringify() is a method in javascript which converts a value (Eg: Object) to a JSON string."
-tags: ["javascript"]
+tags: ["javascript", "JSON"]
 ---
 
 <br /><img src="./json-stringify.png" alt="JSON.stringify()" /><br />
 
-`stringify()` is a method in **JSON** object converts a value (Eg: Object, Number, Array etc) to a string in **UTF-16** encoded JSON format. Few use cases are converting data to string when sending to the server via **fetch** or storing the data in **localStorage** by converting it to string etc.
+`stringify()` is a method in **JSON** object which converts a value (Eg: Object, Number, Array etc) to a **string** in **UTF-16** encoded **JSON format**. Few use cases are converting data to string when sending to the server via **fetch** or storing the data in **localStorage** by converting it to string etc,.
 
 **JSON.stringify()** accepts 3 parameters:
 
-- **Value** - Could be a Object, Array, Boolean, Null, Undefined, String, Symbol.
+- **Value** - Could be a Object, Array, Boolean, Null, Undefined, String, Symbol etc,
 - **Replacer** or **Inclusion** function (optional) - To alter or include a value.
 - **Space** (optional) - To insert space to make it readable (Eg: 2 or "4").
 
 **Points to remember:**
 
-- If the object contains `toJSON` key with value as a function (a method), then value **returned by the method** will be used and serialized instead of the values of the object.
-- Also **we cannot serialize** an object which has **circular reference**. A **type error** will be thrown by the javascript engine.
+- If the object passed to **JSON.stringify()** contains `toJSON` key with value as a function (a method), then value **returned by the method** will be used for serializing instead of the object itself.
+- Also JSON.stringify() **cannot serialize** an object which has **circular reference**. A **type error** will be thrown by the javascript engine.
 
 Let's see an example of how JSON.stringify() method works.
 
 **Example:**
 
-```js{numberLines: true}{30-32,37,40,43}
+```js{numberLines: true}{30-32,38,41,44}
 var myObj = {
   random: 73,
   "random float": 93.655,
@@ -73,9 +73,9 @@ console.log(JSON.stringify(myObj, stringReplacer));
 console.log(JSON.stringify(myObj, undefined, 2));
 ```
 
-Now that we have seen what is the output of **JSON.stringify()** method and how it works, lets implement it step by step.
+Now that we have seen what is the output of **JSON.stringify()** method and how it works, lets implement it by starting with serializing values.
 
-### 1. Serializing values
+### Serializing values
 
 For starters, we will start with the following **data types**.
 
@@ -126,9 +126,13 @@ Now we will add support for more data types like
 - date
 - functions (methods)
 
-To support **arrays** and **objects**, we should be able to parse the value up to `n level`. So n level means `recursion` would be a preferable choice. We have to recursively go up the children and serialize the values.
+To support **arrays** and **objects**, we should be able to parse the value up to `n level`. We have to **recursively** go up the children and serialize the values.
 
-For array its pretty simple, iterate the array with an opening and closing bracket and call the `stringify()` function which in terms call the `getValues()` function and repeat. But for objects, we need to serialize the value as well as the property (key) with the opening and closing bracket of an object. Also one interesting thing is for **date** objects, **JSON.stringify()** method returns the value in `ISO format`.
+For **arrays** its pretty simple, iterate the array with an opening and closing bracket and call the `stringify()` function which in turn calls the `getValues()` function and repeat until all the values are accounted for.
+
+But for **objects**, we need to serialize the **value** as well as the **property** (key) with the opening and closing bracket of an object literals.
+
+Also one interesting thing is for **date** objects, **JSON.stringify()** method returns the value in `ISO format`.
 
 ```js{numberLines: true}{20,22,27-29,32-33,37-43}
 function stringify(value) {
@@ -215,7 +219,7 @@ console.log(stringify(myObj) === JSON.stringify(myObj)); // true
 
 For the sake of this post we will ignore adding support of `Symbol` datatype, the `replacer` function, and `space` argument. I will leave it up to you to add support for it. Once done share it with me.
 
-### Demo:
+### Demo: (Code & Test)
 
 <iframe
      src="https://codesandbox.io/embed/custom-jsonstrigify-cuzoh?expanddevtools=1&fontsize=14&hidenavigation=1&previewwindow=tests&theme=dark"
@@ -227,7 +231,7 @@ For the sake of this post we will ignore adding support of `Symbol` datatype, th
 
 ### Final thoughts
 
-JSON.stringify() method is powerful feature in javascript. Implementing JSON.stringify() was a bit tricky even though the implementation seems simple. I have learned more about JSON.stringify() method now than before.
+JSON.stringify() method is powerful feature in javascript. Most of us would have used it on regular basis. Implementing JSON.stringify() was a bit tricky even though the implementation seems simple. I have learned more about JSON.stringify() method now than before.
 
 Hoping you have learned something new today about javascript as well. Post your comments below if you have any questions. If you like the post share it.
 
