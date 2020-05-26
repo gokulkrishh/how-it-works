@@ -126,7 +126,9 @@ Now we will add support for more data types like
 - date
 - functions (methods)
 
-To support **array** and **object**, we should be able to parse the value up to `n level`. So n level means `recursion` would be a preferable choice. We have to recursively go up the children and serialize the values. Also one interesting thing I noticed is for **date object** is, JSON.stringify() method returns the value in `ISO format`.
+To support **arrays** and **objects**, we should be able to parse the value up to `n level`. So n level means `recursion` would be a preferable choice. We have to recursively go up the children and serialize the values.
+
+For array its pretty simple, iterate the array with an opening and closing bracket and call the `stringify()` function which in terms call the `getValues()` function and repeat. But for objects, we need to serialize the value as well as the property (key) with the opening and closing bracket of an object. Also one interesting thing is for **date** objects, **JSON.stringify()** method returns the value in `ISO format`.
 
 ```js{numberLines: true}{20,22,27-29,32-33,37-43}
 function stringify(value) {
