@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/how-it-works",
   siteMetadata: {
     title: `How it works`,
     description: `Learn how it works in javascript.`,
@@ -102,6 +103,19 @@ module.exports = {
       resolve: `gatsby-plugin-disqus`,
       options: {
         shortname: `https-how-it-works-dev`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
     },
     // `gatsby-plugin-offline`,
