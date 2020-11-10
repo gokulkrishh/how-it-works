@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/",
   siteMetadata: {
     title: `How it works`,
     description: `Learn how it works in javascript.`,
