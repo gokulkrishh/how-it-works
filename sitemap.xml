@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://how-it-works.dev/posts/json-stringify</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/async-await</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/event-loop</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/redux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/eventEmitter</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/promise.allSettled</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/virtual-dom</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/custom-spread-operator</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/promise.all</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/json/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/es-6/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/es-8/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/event-loop/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/events/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/javascript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/promises/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/react/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/redux/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/posts/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://how-it-works.dev/tags/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
