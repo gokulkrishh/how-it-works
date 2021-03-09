@@ -1,4 +1,4 @@
-# [how-it-works](https://how-it-works.dev)
+# [Moved to gokul.site](https://gokul.site)
 
 > How it works inside javascript feature.
 
